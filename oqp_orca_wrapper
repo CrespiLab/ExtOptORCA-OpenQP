@@ -1,0 +1,60 @@
+#!/bin/bash
+
+basename=${1%.extinp.tmp}
+#basename=${1%_EXT.xyz}
+xyzfile=$basename.xyz
+#xyzfile=$1
+type=huckel
+file=' '
+if [[ -f EXT_ORCA_FOR_OQP.json ]]; 
+    then
+    type=json
+    file=file=EXT_ORCA_FOR_OQP.json
+fi
+
+
+    cat <<EOF > EXT_ORCA_FOR_OQP.inp
+[input]
+system=$xyzfile
+charge=0
+runtype=grad
+basis=6-31g(d)_p
+functional=bhhlyp
+method=tdhf
+
+[guess]
+type=$type
+save_mol=True
+$file
+
+[scf]
+multiplicity=3
+type=rohf
+maxit=100
+
+[tdhf]
+type=mrsf
+nstate=3
+
+[properties]
+grad=$2
+export=True
+
+EOF
+
+export OMP_NUM_THREADS=16
+openqp EXT_ORCA_FOR_OQP.inp
+
+natom=$( grep -m 1 'PyOQP natom:' EXT_ORCA_FOR_OQP.log | awk '{print $NF}')
+target_state_number=$( grep -m 1 'grad\=' EXT_ORCA_FOR_OQP.inp | awk -F= '{print $NF}' )
+energy=$( sed -n "$( echo $target_state_number + 1 | bc)"p energies | tr -d ' ' )
+#grad=$( sed -e 's/\s\+\(-\?[0-9]\+\.[0-9]\+\)\s\+\(-\?[0-9]\+\.[0-9]\+\)\s\+\(-\?[0-9]\+\.[0-9]\+\)/\1\n\2\n\3/g' grad_"$target_state_number" )
+
+echo "# Number of atoms" > "$basename".engrad
+echo "$natom" >> "$basename".engrad
+echo "# Energy" >> "$basename".engrad
+echo "$energy" >> "$basename".engrad
+echo "# The current gradient in Eh/bohr: Atom1X, Atom1Y, Atom1Z, Atom2X, etc."  >> "$basename".engrad
+sed -e 's/\s\+\(-\?[0-9]\+\.[0-9]\+\)\s\+\(-\?[0-9]\+\.[0-9]\+\)\s\+\(-\?[0-9]\+\.[0-9]\+\)/\1\n\2\n\3/g' grad_"$target_state_number" >> "$basename".engrad
+#cp orca_EXT.engrad /proj/scgrp/users/x_rompe/orca_extopt/orca_EXT.engrad
+#printf "$grad" >> orca_EXT.engrad
