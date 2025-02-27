@@ -1,4 +1,4 @@
-ExtOptORCA-OpenQP
+# ExtOptORCA-OpenQP
 
 The oqp_orca_wrapper script can be used to run optimizations with OpenQP MRSF and the ORCA external optimizer (see details at ORCA manual).
 
@@ -6,21 +6,27 @@ The script reads the files INPUT_NAME.extinp.tmp and INPUT_NAME.xyz (generated b
 substitutes a few fields in the hard-coded input example for OpenQP MRSF, runs OpenQP with that geometry, and then extracts 
 the MRSF-TDDFT gradient from the grad_# file to feed it back to the ORCA optimizer.
 
-If your ORCA installation runs jobs in a scratch directory, you might want to fetch the EXT_ORCA_FOR_OQP.*, 
-grad_*, and energy files from the scratch at the end of the run (these files contain the last MRSF gradient 
-calculation, which might be useful in some situations).
+If your ORCA installation runs jobs in a scratch directory, you might want to fetch the following files from the scratch at the end of the run (these files contain the last MRSF gradient 
+calculation, which might be useful in some situations): 
+```
+EXT_ORCA_FOR_OQP.* 
+grad_*
+energy
+```
 
-INPUT PREPARATION
+## INPUT PREPARATION
 
 As described in the ORCA 6.0.1 documentation (see ORCA manual), you must specify the location of the wrapper script using one of the following methods:
 1. As a file or link named otool_external in the same directory as the ORCA executables.
 2. By assigning the EXTOPTEXE environment variable to the full path of the external program.
 3. Via the ORCA input:
 
+```
 %method
   ProgExt "/full/path/to/script"
   Ext_Params "optional command line arguments"
 end
+```
 
 Regardless of which option is used, the keyword Ext_Params can specify additional command line arguments as a single string.
 In this particular script, Ext_Params MUST contain two arguments:
@@ -28,12 +34,16 @@ In this particular script, Ext_Params MUST contain two arguments:
 2. The basis set in OpenQP format (e.g., 6-31g(d) or 6-31g* depending on your version/build).
 
 Example:
+```
 Ext_Params "2 6-31g*"    # This example will optimize S1 with the 6-31g* basis set.
-
-Other OpenQP specifications can also be changed within the script.
+```
+## OpenQP input changes
+More OpenQP specifications (like functional, SCF type, etc.) can also be changed within the *oqp_orca_wrapper* script.
 
 Thank you for using the script!
 
 Best,
+
 Crespi group,
+
 Uppsala University
