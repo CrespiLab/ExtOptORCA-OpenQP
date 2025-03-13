@@ -1,0 +1,22 @@
+! ExtOpt opt
+%method
+  ProgExt "/home/x_rompe/bin/ExtOptORCA-OpenQP/oqp_orca_wrapper"
+  Ext_Params "2 6-31g*"
+end
+%geom
+  Constraints
+  { D 4 1 0 2 45.0 C }
+  end
+end
+%pal
+nprocs 8
+end
+%maxcore 3000
+*xyz 0 1
+C       -2.336419855      0.954884734     -1.074301850
+C       -2.336419855      0.954884734      0.255856150
+H       -1.983072552      1.807940586     -1.647251850
+H       -2.689767158      0.101828883     -1.647251850
+H       -2.689767158      1.807940586      0.828806150
+H       -1.983072552      0.101828883      0.828806150
+*

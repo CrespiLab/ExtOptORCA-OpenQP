@@ -37,6 +37,21 @@ Example:
 ```
 Ext_Params "2 6-31g*"    # This example will optimize S1 with the 6-31g* basis set.
 ```
+
+Since ORCA optimizer takes the whole task of changing coordinates (based on gradient), is can also be used to run such jobs as TS search, constrained optimizations and potential energy surface scans (see also in *examples*)
+
+## EXAMPLES
+In the *examples* directory we provide a few usage examples we've tested so far:
+1. *ethylene_s1_opt*
+The most generic ORCA input example with S1 ethylene optimization.
+2. *ethylene_constraint*
+S1 state of ethylene, optimized with fixed 45 degrees angle between CH2 fragments.
+3. *stilbene_scan*
+S0 dihedral angle scan in stilbene molecule.
+
+
+
+
 ## OpenQP input changes
 More OpenQP specifications (like functional, SCF type, etc.) can also be changed within the *oqp_orca_wrapper* script.
 
