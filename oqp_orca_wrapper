@@ -1,31 +1,37 @@
-#!/bin/bash
+#!/usr/bin/env python3
 
-basename=${1%.extinp.tmp}
-#basename=${1%_EXT.xyz}
-xyzfile=$basename.xyz
-#xyzfile=$1
-type=huckel
-file=' '
-if [[ -f EXT_ORCA_FOR_OQP.json ]]; 
-    then
-    type=json
-    file=file=EXT_ORCA_FOR_OQP.json
-fi
+import os, argparse, glob, sys, re, subprocess
+import numpy as np
 
-
-    cat <<EOF > EXT_ORCA_FOR_OQP.inp
-[input]
-system=$xyzfile
-charge=0
+def make_input_file(args, input_file_name, state):
+    ### Parsing tempfile name provided by ORCA (somename.extinp.tmp)
+    xyzfile = args.xyzfile[0:-15] + '.xyz'
+    
+    ### Checking a presence of .json initial guess file
+    guess_file = glob.glob('*.json')
+    if not guess_file:
+        guess_type = 'huckel'
+        guess_file = ''
+    elif len(guess_file) > 1:
+        print('A few .json files found, cannot decide where to take initial guess')
+        sys.exit()
+    else:
+        guess_type = 'json'
+        guess_file = f'file={guess_file[0]}'
+       
+### Input template for OpenQP    
+    oqp_template=f'''[input]
+system={xyzfile}
+charge={args.charge}
 runtype=grad
-basis=$3
+basis={args.basis_set}
 functional=bhhlyp
 method=tdhf
 
 [guess]
-type=$type
+type={guess_type}
 save_mol=True
-$file
+{guess_file}
 
 [scf]
 multiplicity=3
@@ -37,25 +43,75 @@ type=mrsf
 nstate=3
 
 [properties]
-grad=$2
+grad={state}
 export=True
+'''
+    with open(f'{input_file_name}', 'w') as f:
+        f.write(oqp_template)
 
-EOF
+def gen_engrad_for_orca(filename, state, engrad_basename):
+    with open(filename) as f:
+        text = f.read()
+    natoms = re.findall(r'(?s)(?m)^ +PyOQP natom: +(\d+)', text)[0]
+    energy = re.findall(rf'(?s)(?m)^ +PyOQP state {state} +(-?\d+\.\d+)', text)[0]
+    grad = np.loadtxt(f'grad_{state}')
+    grad = ''.join([f'{grad: .16f}\n' for grad in grad.flatten()])
+    with open(f'{engrad_basename}_EXT.engrad', 'w') as f:
+        f.write(natoms+'\n'+energy+'\n'+grad)
 
-# Correct OMP_NUM_THREAD according to your %PAL in orca input
-export OMP_NUM_THREADS=16
-openqp EXT_ORCA_FOR_OQP.inp
+def calc_penalty(grad_output_file, first_state, first_grad_file, second_state, second_grad_file, engrad_basename, sigma = 3.5, alpha = 0.02):
+    with open(grad_output_file) as f:
+        text = f.read()
+    natoms = re.findall(r'(?s)(?m)^ +PyOQP natom: +(\d+)', text)[0]
+    e1 = float(re.findall(rf'(?s)(?m)^ +PyOQP state {first_state} +(-?\d+\.\d+)', text)[0])  # First state E
+    e2 = float(re.findall(rf'(?s)(?m)^ +PyOQP state {second_state} +(-?\d+\.\d+)', text)[0]) # Second state 
+    g1 = np.loadtxt(f'{first_grad_file}')						     # First state gradient
+    g2 = np.loadtxt(f'{second_grad_file}')						     # Second state gradient
+#    print(natoms)
+#    print(e1, e2)
+#    print('g1')
+#    print(g1)
+#    print('g2')
+#    print(g2)
+    Eeff = (e1 + e2) / 2 + sigma * ( (e2 - e1)**2 / (e2 - e1 + alpha) )
+#    print(Eeff)
+    F = ( (g1 + g2) / 2) + 2 * sigma * ( (e2 - e1) / (e2 - e1 + alpha) - 0.5 * ( (e2 - e1) / (e2 - e1 + alpha) )**2 ) * (g2 - g1)
+#    print(F)
+    F_string = ''.join([f'{F: .16f}\n' for F in F.flatten()])
+    with open(f'{engrad_basename}_EXT.engrad', 'w') as f:
+        f.write(natoms+'\n'+f'{Eeff}'+'\n'+F_string)
+    
 
-natom=$( grep -m 1 'PyOQP natom:' EXT_ORCA_FOR_OQP.log | awk '{print $NF}')
-target_state_number=$( grep -m 1 'grad\=' EXT_ORCA_FOR_OQP.inp | awk -F= '{print $NF}' )
-energy=$( sed -n "$( echo $target_state_number + 1 | bc)"p energies | tr -d ' ' )
-#grad=$( sed -e 's/\s\+\(-\?[0-9]\+\.[0-9]\+\)\s\+\(-\?[0-9]\+\.[0-9]\+\)\s\+\(-\?[0-9]\+\.[0-9]\+\)/\1\n\2\n\3/g' grad_"$target_state_number" )
+def main():
+    parser = argparse.ArgumentParser(
+                        prog='OpenQP-ORCA optimizer',
+                        description='Python interface to OpenQP with ORCA as external optimizer',)
+    parser.add_argument('xyzfile', help='Input geometry XYZ file',)
+    parser.add_argument('--conical', action = 'store_true', help='Triggers CI optimization\
+     with penalty function, requires to select 2 electronic states',)
+    parser.add_argument('--alpha', default = 0.02, type = float, help='Alpha parameter for penalty function (only for CI optimization)',)
+    parser.add_argument('--sigma', default = 3.5, type = float, help='Sigma parameter for penalty function (only for CI optimization)',)
+    parser.add_argument('--states', '-s', type=int, nargs='+', help='Response electronic state (one for minimum or TS optimization, two - for CI optimization)',)
+    parser.add_argument('--charge', '-c', type=int, default=0, help='System charge',)
+    parser.add_argument('--basis-set', '-b', help='Response electronic state (one for minimum or TS optimization, two - for CI optimization)',)
+    args = parser.parse_args()
+    args.states = sorted(args.states)
 
-echo "# Number of atoms" > "$basename".engrad
-echo "$natom" >> "$basename".engrad
-echo "# Energy" >> "$basename".engrad
-echo "$energy" >> "$basename".engrad
-echo "# The current gradient in Eh/bohr: Atom1X, Atom1Y, Atom1Z, Atom2X, etc."  >> "$basename".engrad
-sed -e 's/\s\+\(-\?[0-9]\+\.[0-9]\+\)\s\+\(-\?[0-9]\+\.[0-9]\+\)\s\+\(-\?[0-9]\+\.[0-9]\+\)/\1\n\2\n\3/g' grad_"$target_state_number" >> "$basename".engrad
-#cp orca_EXT.engrad /proj/scgrp/users/x_rompe/orca_extopt/orca_EXT.engrad
-#printf "$grad" >> orca_EXT.engrad
+    if not args.conical:    
+        basename = args.xyzfile[0:-15]
+        make_input_file(args, 'EXT_ORCA_FOR_OQP.inp', state=args.states[0])
+        subprocess.run(['bash', '-lc', 'ml buildtool-easybuild/4.9.4-hpc71cbb0050 intel-compilers/2023.1.0 impi/.2021.9.0 imkl-FFTW/2023.1.0 && openqp EXT_ORCA_FOR_OQP.inp'], check=True)
+        gen_engrad_for_orca('EXT_ORCA_FOR_OQP.log', args.states[0], basename)
+    else:
+        if len(args.states) < 2: sys.exit(f'For conical intersection search two states have to be selected, while user provided: {args.states}')
+        basename = args.xyzfile[0:-15]
+        for i in args.states:
+            make_input_file(args, f'EXT_ORCA_FOR_OQP_STATE_{i}.inp', state=i)
+            subprocess.run(['bash', '-lc', f'ml buildtool-easybuild/4.9.4-hpc71cbb0050 intel-compilers/2023.1.0 impi/.2021.9.0 imkl-FFTW/2023.1.0 && openqp EXT_ORCA_FOR_OQP_STATE_{i}.inp'], check=True)
+        st1, st2 = args.states[0], args.states[1]
+        os.remove(f'EXT_ORCA_FOR_OQP_STATE_{st2}.json')
+        calc_penalty(f'EXT_ORCA_FOR_OQP_STATE_{st1}.log', st1, f'grad_{st1}', st2, f'grad_{st2}', basename, sigma = args.sigma, alpha = args.alpha)
+            
+if __name__ == '__main__':
+    main()
+

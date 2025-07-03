@@ -1,7 +1,7 @@
 ! ExtOpt opt
 %method
-  ProgExt "/home/x_rompe/bin/ExtOptORCA-OpenQP/oqp_orca_wrapper"
-  Ext_Params "2 6-31g*"
+  ProgExt "/proj/scgrp/users/x_rompe/ExtOptORCA-OpenQP/oqp_orca_wrapper"
+  Ext_Params "-s 2 -b 6-31g*"
 end
 %geom
   Constraints
