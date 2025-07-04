@@ -34,8 +34,8 @@ Possible arguments are:
 2. -b basis-set, --basis-set basis-set		The basis set in OpenQP format (e.g., 6-31g(d) or 6-31g* depending on your version/build).
 3. -c N, --charge N				System charge, default = 0
 4. --conical					With 2 states given,
-calculates so called "penalty function" for CI search. Read more at https://sharc-md.org/?page_id=1454#tth_sEc8.20
-or for the full paper: https://doi.org/10.1021/jp0761618. Assiciated
+calculates the so-called "penalty function" for CI search. Read more at https://sharc-md.org/?page_id=1454#tth_sEc8.20
+or for the full paper: https://doi.org/10.1021/jp0761618. Associated
 arguments for the penalty function construction are --alpha and --sigma.
 
 
@@ -45,7 +45,7 @@ Ext_Params "-s 2 -b 6-31g*"    # This example will optimize S1 (i.e. SECOND
 singlet state) with the 6-31g* basis set.
 ```
 
-Since ORCA optimizer takes the whole task of changing coordinates (based on gradient), is can also be used to run such jobs as TS search, constrained optimizations and potential energy surface scans (see also in *examples*)
+Since the ORCA optimizer takes the whole task of changing coordinates (based on gradient), it can also be used to run such jobs as TS search, constrained optimizations and potential energy surface scans (see also in *examples*)
 
 ## EXAMPLES
 In the *examples* directory we provide a few usage examples we've tested so far:
@@ -57,17 +57,17 @@ S1 state of ethylene, optimized with fixed 45 degrees angle between CH2 fragment
 S0 dihedral angle scan in stilbene molecule.
 4. *stilbene_TS*
 Stilbene ground state TS search. Unfortunately, analytical MRSF Hessian is
-not currently implemented in OpenQP; in the current example, we use
-numerical Hessian calculated at GFN2-xTB level. To use that method,
+not currently implemented in OpenQP; in the current example, we use the
+numerical Hessian calculated at the GFN2-xTB level as a guess. To use that method,
 you do not need any special arguments for the script, instead, make
-sure to use OptTS keyword in the ORCA inout file.
+sure to use the OptTS keyword in the ORCA input file.
 5. *benzene_CI*
-Conical intersection optimization for benzene molecule. No analytical
-non-adiabatic coupling available in OpenQP currently, thus we use simpler
-penalty function approach. Remember, that when --conical is called, two
-electronic states should be provided. Penalty function parameter alpha and
-sigma are set to 0.02 and 3.5, respectively, by default, as advise in Levine
-et al. Since the gradient is constructed by external tool, ORCA does not
+Conical intersection optimization for benzene. No analytical
+non-adiabatic coupling is available in OpenQP currently, thus we use a simpler
+penalty function approach. Remember that when --conical is called, two
+electronic states should be provided. The penalty function parameters alpha and
+sigma are set to 0.02 and 3.5, respectively, by default, as advised in Levine
+et al. Since the gradient is constructed by the external tool, ORCA does not
 need any additional keywords in the input file (i.e. you should use "! ExtOpt
 Opt")
 
