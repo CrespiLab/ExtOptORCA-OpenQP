@@ -100,14 +100,14 @@ def main():
     if not args.conical:    
         basename = args.xyzfile[0:-15]
         make_input_file(args, 'EXT_ORCA_FOR_OQP.inp', state=args.states[0])
-        subprocess.run(['bash', '-lc', 'ml buildtool-easybuild/4.9.4-hpc71cbb0050 intel-compilers/2023.1.0 impi/.2021.9.0 imkl-FFTW/2023.1.0 && openqp EXT_ORCA_FOR_OQP.inp'], check=True)
+        subprocess.run(['bash', '-c', f'export OMP_NUM_THREADS={os.environ["OMP_NUM_THREADS"]} && openqp EXT_ORCA_FOR_OQP.inp'], check=True)
         gen_engrad_for_orca('EXT_ORCA_FOR_OQP.log', args.states[0], basename)
     else:
         if len(args.states) < 2: sys.exit(f'For conical intersection search two states have to be selected, while user provided: {args.states}')
         basename = args.xyzfile[0:-15]
         for i in args.states:
             make_input_file(args, f'EXT_ORCA_FOR_OQP_STATE_{i}.inp', state=i)
-            subprocess.run(['bash', '-lc', f'ml buildtool-easybuild/4.9.4-hpc71cbb0050 intel-compilers/2023.1.0 impi/.2021.9.0 imkl-FFTW/2023.1.0 && openqp EXT_ORCA_FOR_OQP_STATE_{i}.inp'], check=True)
+            subprocess.run(['bash', '-c', f'export OMP_NUM_THREADS={os.environ["OMP_NUM_THREADS"]} && openqp EXT_ORCA_FOR_OQP_STATE_{i}.inp'], check=True)
         st1, st2 = args.states[0], args.states[1]
         os.remove(f'EXT_ORCA_FOR_OQP_STATE_{st2}.json')
         calc_penalty(f'EXT_ORCA_FOR_OQP_STATE_{st1}.log', st1, f'grad_{st1}', st2, f'grad_{st2}', basename, sigma = args.sigma, alpha = args.alpha)
