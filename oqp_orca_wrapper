@@ -1,9 +1,12 @@
 #!/usr/bin/env python3
 
+# subprocess.run(['bash', '-lc', f'ml buildtool-easybuild/4.9.4-hpc71cbb0050 intel-compilers/2023.1.0 impi/.2021.9.0 imkl-FFTW/2023.1.0 && openqp EXT_ORCA_FOR_OQP_STATE_{i}.inp'], check=True)
+# subprocess.run(['bash', '-c', f'export OMP_NUM_THREADS={os.environ["OMP_NUM_THREADS"]} && openqp EXT_ORCA_FOR_OQP_STATE_{i}.inp'], check=True)
+
 import os, argparse, glob, sys, re, subprocess
 import numpy as np
 
-def make_input_file(args, input_file_name, state):
+def make_input_file(args, input_file_name, state, multiplicity):
     ### Parsing tempfile name provided by ORCA (somename.extinp.tmp)
     xyzfile = args.xyzfile[0:-15] + '.xyz'
     
@@ -25,7 +28,7 @@ system={xyzfile}
 charge={args.charge}
 runtype=grad
 basis={args.basis_set}
-functional=bhhlyp
+functional={args.functional}
 method=tdhf
 
 [guess]
@@ -34,13 +37,14 @@ save_mol=True
 {guess_file}
 
 [scf]
-multiplicity=3
+multiplicity={args.refmult}
 type=rohf
 maxit=100
 
 [tdhf]
+multiplicity={args.multiplicity}
 type=mrsf
-nstate=3
+nstate={args.nstate}
 
 [properties]
 grad={state}
@@ -48,6 +52,7 @@ export=True
 '''
     with open(f'{input_file_name}', 'w') as f:
         f.write(oqp_template)
+    return input_file_name
 
 def gen_engrad_for_orca(filename, state, engrad_basename):
     with open(filename) as f:
@@ -59,7 +64,7 @@ def gen_engrad_for_orca(filename, state, engrad_basename):
     with open(f'{engrad_basename}_EXT.engrad', 'w') as f:
         f.write(natoms+'\n'+energy+'\n'+grad)
 
-def calc_penalty(grad_output_file, first_state, first_grad_file, second_state, second_grad_file, engrad_basename, sigma = 3.5, alpha = 0.02):
+def calc_penalty_conical(grad_output_file, first_state, first_grad_file, second_state, second_grad_file, engrad_basename, sigma = 3.5, alpha = 0.02):
     with open(grad_output_file) as f:
         text = f.read()
     natoms = re.findall(r'(?s)(?m)^ +PyOQP natom: +(\d+)', text)[0]
@@ -81,36 +86,104 @@ def calc_penalty(grad_output_file, first_state, first_grad_file, second_state, s
     with open(f'{engrad_basename}_EXT.engrad', 'w') as f:
         f.write(natoms+'\n'+f'{Eeff}'+'\n'+F_string)
     
+def validate_args(args, parser: argparse.ArgumentParser | None = None):
+    """
+    Validate interaction rules between --mecp/--conical and --singlet/--triplet.
+    Returns: normalized and extended args array
+    """
+    def error(msg: str):
+        if parser is not None:
+            parser.error(msg)
+        raise ValueError(msg)
 
+    s = args.singlet or []
+    t = args.triplet or []
+    m = bool(args.mecp)
+    c = bool(args.conical)
+    # Rule 1: Only one of --mecp, --conical can be true (both false is allowed).
+    if m and c:
+        error("Choose either --mecp or --conical, not both.")
+    # Rule 2: If --conical: exactly one of --singlet/--triplet must be a length-2 list; the other must be empty.
+    if c:
+        if bool(s) == bool(t):
+            error("--conical requires exactly one of --singlet or --triplet to be provided (the other must be empty).")
+        if s and len(s) != 2:
+            error("--conical with --singlet requires exactly two integers, e.g. --singlet i j.")
+        if t and len(t) != 2:
+            error("--conical with --triplet requires exactly two integers, e.g. --triplet i j.")
+    # Rule 3: If --mecp: both --singlet and --triplet must be length-1 lists.
+    elif m:
+        if len(s) != 1 or len(t) != 1:
+            error("--mecp requires one singlet state and one triplet state (single integers), "
+                  "e.g. --singlet i --triplet j.")
+    # Rule 4: If neither --mecp nor --conical: exactly one of --singlet/--triplet must be length-1; the other empty.
+    else:
+        ok = (len(s) == 1 and len(t) == 0) or (len(s) == 0 and len(t) == 1)
+        if not ok:
+            error("When neither --mecp nor --conical is set, specify exactly one of "
+                  "--singlet or --triplet as a single integer; the other must be empty.")
+    # Attach a normalized 'mode' to simplify downstream logic
+    if c:
+        args.mode = "conical"
+        args.pair = s if s else t              # the two integers
+        args.pair = sorted(args.pair)
+        args.multiplicity = 1 if s else 3
+    elif m:
+        args.mode = "mecp"
+        args.s_state, args.t_state = s[0], t[0]
+    else:
+        args.mode = "single-state"
+        if s:
+            args.multiplicity, args.state = "singlet", s[0]
+        else:
+            args.multiplicity, args.state = "triplet", t[0]
+
+    return args
+    
 def main():
     parser = argparse.ArgumentParser(
                         prog='OpenQP-ORCA optimizer',
                         description='Python interface to OpenQP with ORCA as external optimizer',)
     parser.add_argument('xyzfile', help='Input geometry XYZ file',)
+
+    parser.add_argument('--singlet', '-s', type=int, nargs='*', default=[], help='Number of responce singlet(s) to optimize (one number for minimum or TS optimization, two numbers for CI optimization)',)
+    parser.add_argument('--triplet', '-t', type=int, nargs='*', default=[], help='Number of responce triplet(s) to optimize (one number for minimum or TS optimization, two numbers for CI optimization)',)
+
     parser.add_argument('--conical', action = 'store_true', help='Triggers CI optimization\
      with penalty function, requires to select 2 electronic states',)
     parser.add_argument('--alpha', default = 0.02, type = float, help='Alpha parameter for penalty function (only for CI optimization)',)
     parser.add_argument('--sigma', default = 3.5, type = float, help='Sigma parameter for penalty function (only for CI optimization)',)
-    parser.add_argument('--states', '-s', type=int, nargs='+', help='Response electronic state (one for minimum or TS optimization, two - for CI optimization)',)
+
+    parser.add_argument('--nstate', default=3, type=int, help='How many responce states to calculate',)
+
+    parser.add_argument('--mecp', action = 'store_true', help='Triggers MECP optimization between a singlet and a triplet state (both has to be provided) with Schlegel method)',)
+
     parser.add_argument('--charge', '-c', type=int, default=0, help='System charge',)
     parser.add_argument('--basis-set', '-b', help='Response electronic state (one for minimum or TS optimization, two - for CI optimization)',)
+    parser.add_argument('--functional', default='bhhlyp', help='Response electronic state (one for minimum or TS optimization, two - for CI optimization)',)
+    parser.add_argument('--refmult', type=int, default=3, help='Response electronic state (one for minimum or TS optimization, two - for CI optimization)',)
     args = parser.parse_args()
-    args.states = sorted(args.states)
-
-    if not args.conical:    
+    
+    validate_args(args, parser=parser)
+    
+    if args.mode == "conical":
         basename = args.xyzfile[0:-15]
-        make_input_file(args, 'EXT_ORCA_FOR_OQP.inp', state=args.states[0])
-        subprocess.run(['bash', '-c', f'export OMP_NUM_THREADS={os.environ["OMP_NUM_THREADS"]} && openqp EXT_ORCA_FOR_OQP.inp'], check=True)
-        gen_engrad_for_orca('EXT_ORCA_FOR_OQP.log', args.states[0], basename)
-    else:
-        if len(args.states) < 2: sys.exit(f'For conical intersection search two states have to be selected, while user provided: {args.states}')
-        basename = args.xyzfile[0:-15]
-        for i in args.states:
-            make_input_file(args, f'EXT_ORCA_FOR_OQP_STATE_{i}.inp', state=i)
-            subprocess.run(['bash', '-c', f'export OMP_NUM_THREADS={os.environ["OMP_NUM_THREADS"]} && openqp EXT_ORCA_FOR_OQP_STATE_{i}.inp'], check=True)
-        st1, st2 = args.states[0], args.states[1]
-        os.remove(f'EXT_ORCA_FOR_OQP_STATE_{st2}.json')
-        calc_penalty(f'EXT_ORCA_FOR_OQP_STATE_{st1}.log', st1, f'grad_{st1}', st2, f'grad_{st2}', basename, sigma = args.sigma, alpha = args.alpha)
+        for state in args.pair:
+            mult_name = 'S' if args.multiplicity == 1 else 'T'
+            make_input_file(args, f'EXT_ORCA_FOR_OQP_{mult_name}{state}.inp', state=state, multiplicity=args.multiplicity)
+            subprocess.run(['bash', '-c', f'export OMP_NUM_THREADS={os.environ["OMP_NUM_THREADS"]} && openqp EXT_ORCA_FOR_OQP_{mult_name}{state}.inp'], check=True)
+        os.remove(f'EXT_ORCA_FOR_OQP_{mult_name}{args.pair[1]}.json')
+        calc_penalty_conical(f'EXT_ORCA_FOR_OQP_{mult_name}{args.pair[0]}.log', args.pair[0], f'grad_{args.pair[0]}', args.pair[1], f'grad_{args.pair[1]}', basename, sigma = args.sigma, alpha = args.alpha)
+            
+#        gen_engrad_for_orca('EXT_ORCA_FOR_OQP.log', states[0], basename)
+#    else:
+#        if len(states) < 2: sys.exit(f'For conical intersection search two states have to be selected, while user provided: {states}')
+#        basename = args.xyzfile[0:-15]
+#        for i in states:
+#            make_input_file(args, f'EXT_ORCA_FOR_OQP_STATE_{i}.inp', state=i)
+#            subprocess.run(['bash', '-c', f'export OMP_NUM_THREADS={os.environ["OMP_NUM_THREADS"]} && openqp EXT_ORCA_FOR_OQP_STATE_{i}.inp'], check=True)
+#        os.remove(f'EXT_ORCA_FOR_OQP_STATE_{st2}.json')
+#        calc_penalty_conical(f'EXT_ORCA_FOR_OQP_STATE_{st1}.log', st1, f'grad_{st1}', st2, f'grad_{st2}', basename, sigma = args.sigma, alpha = args.alpha)
             
 if __name__ == '__main__':
     main()
