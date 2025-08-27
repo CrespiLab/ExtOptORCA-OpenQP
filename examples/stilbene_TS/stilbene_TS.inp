@@ -28,7 +28,7 @@ H        2.896703983      1.405846642      1.769753860
 *
 
 %pal
-  nproc 8
+  nproc 16
 end
 %maxcore 3000
 
@@ -40,8 +40,8 @@ Step_End
 New_Step
   ! ExtOpt OptTS
   %method
-    ProgExt "/home/x_rompe/bin/oqp_orca_wrapper_python"
-    Ext_Params "-s 1  -b 6-31g*"
+    ProgExt "/home/x_rompe/bin/ExtOptORCA-OpenQP/oqp_orca_wrapper"
+    Ext_Params "-s 1 -b 6-31g*"
   end
   %geom
     InHess Read

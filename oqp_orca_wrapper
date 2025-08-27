@@ -54,11 +54,12 @@ export=True
         f.write(oqp_template)
     return input_file_name
 
-def gen_engrad_for_orca(filename, state, engrad_basename):
-    with open(filename) as f:
+def gen_engrad_for_orca(out_filename, state, engrad_basename):
+    with open(out_filename) as f:
         text = f.read()
+    state_num = state[1:]
     natoms = re.findall(r'(?s)(?m)^ +PyOQP natom: +(\d+)', text)[0]
-    energy = re.findall(rf'(?s)(?m)^ +PyOQP state {state} +(-?\d+\.\d+)', text)[0]
+    energy = re.findall(rf'(?s)(?m)^ +PyOQP state {state_num} +(-?\d+\.\d+)', text)[0]
     grad = np.loadtxt(f'grad_{state}')
     grad = ''.join([f'{grad: .16f}\n' for grad in grad.flatten()])
     with open(f'{engrad_basename}_EXT.engrad', 'w') as f:
@@ -82,7 +83,76 @@ def calc_penalty_conical(grad_output_file, first_state, first_grad_file, second_
 #    print(Eeff)
     F = ( (g1 + g2) / 2) + 2 * sigma * ( (e2 - e1) / (e2 - e1 + alpha) - 0.5 * ( (e2 - e1) / (e2 - e1 + alpha) )**2 ) * (g2 - g1)
 #    print(F)
+    print(f'ExtOptORCA-OpenQP: ΔE = {e2 - e1: 20.10f} hartree ({(e2 - e1)*627.509: 20.2f} kcal/mol)' )
+
     F_string = ''.join([f'{F: .16f}\n' for F in F.flatten()])
+    with open(f'{engrad_basename}_EXT.engrad', 'w') as f:
+        f.write(natoms+'\n'+f'{Eeff}'+'\n'+F_string)
+
+def calc_penalty_mecp(output_log, lower_state, lower_grad_file, upper_state, upper_grad_file, engrad_basename, sigma = 3.5, alpha = 0.02):
+    with open(output_log) as f:
+        natoms = re.findall(r'(?s)(?m)^ +PyOQP natom: +(\d+)', f.read())[0]
+
+    e_l = lower_state[1]				# Lower state E
+    g_l = np.loadtxt(f'{lower_grad_file}')		# Lower state gradient
+
+    e_u = upper_state[1]				# Upper state E
+    g_u = np.loadtxt(f'{upper_grad_file}')		# Upper state gradient
+
+    print(f'ExtOptORCA-OpenQP: E({lower_state[0]}) = {lower_state[1]: 20.10f} hartree')
+    print(f'ExtOptORCA-OpenQP: E({upper_state[0]}) = {upper_state[1]: 20.10f} hartree')
+    print(f'ExtOptORCA-OpenQP: ΔE({upper_state[0]} - {lower_state[0]}) = {upper_state[1] - lower_state[1]: 20.10f} hartree ({(upper_state[1] - lower_state[1])*627.509: 20.2f} kcal/mol)' )
+#    For debug:
+#    print(natoms)
+#    print(e1, e2)
+#    print('g1')
+#    print(g1)
+#    print('g2')
+#    print(g2)
+#    print(Eeff)
+#    print(F)
+    Eeff = (e_u + e_l) / 2 + sigma * ( (e_u - e_l)**2 / (e_u - e_l + alpha) )
+    F = ( (g_u + g_l) / 2) + 2 * sigma * ( (e_u - e_l) / (e_u - e_l + alpha) - 0.5 * ( (e_u - e_l) / (e_u - e_l + alpha) )**2 ) * (g_u - g_l)
+    F_string = ''.join([f'{F: .16f}\n' for F in F.flatten()])
+    with open(f'{engrad_basename}_EXT.engrad', 'w') as f:
+        f.write(natoms+'\n'+f'{Eeff}'+'\n'+F_string)
+        
+def _calc_gradient_mecp(output_log, lower_state, lower_grad_file, upper_state, upper_grad_file, engrad_basename, sigma = 3.5, alpha = 0.02, eps=1e-14):
+    with open(output_log) as f:
+        natoms = re.findall(r'(?s)(?m)^ +PyOQP natom: +(\d+)', f.read())[0]
+
+    e_l = lower_state[1]				# Lower state E
+    g_l = np.loadtxt(f'{lower_grad_file}')		# Lower state gradient
+
+    e_u = upper_state[1]				# Upper state E
+    g_u = np.loadtxt(f'{upper_grad_file}')		# Upper state gradient
+
+    print(f'ExtOptORCA-OpenQP: E({lower_state[0]}) = {lower_state[1]: 20.10f} hartree')
+    print(f'ExtOptORCA-OpenQP: E({upper_state[0]}) = {upper_state[1]: 20.10f} hartree')
+    print(f'ExtOptORCA-OpenQP: ΔE({upper_state[0]} - {lower_state[0]}) = {upper_state[1] - lower_state[1]: 20.10f} hartree' )
+
+    # gradient-difference direction
+    d = g_u - e_l
+    delta_E = e_u - e_l
+#    F = g_u - d * np.dot(g_u.T, d)/np.dot(d.T, d) + 2 * (e_u - e_l) * d / np.absolute(d)
+#    F = g_u - d * (g_u * d)/(d * d) + 2 * (e_u - e_l) * d / np.absolute(d)
+    if g_l.shape != g_u.shape:
+        raise ValueError("Gradients for lower and upper states must have the same shape.")
+    # global (all-components) norm, no flattening calls
+    n = np.linalg.norm(d)  # Frobenius norm == Euclidean norm over all components
+    ref = np.linalg.norm(g_l) + np.linalg.norm(g_u) + 1.0
+    if not np.isfinite(n) or n < eps * ref:
+        raise ValueError("|d| is (near) zero; MECP direction is undefined.")
+    d_hat = d / n
+    # scalar dot (no flattening): sum over all axes
+    g_u_dot_dhat = np.sum(g_u * d_hat)  # scalar
+    # F = gu - (gu·d̂) d̂ + 2 ΔE d̂
+    print('No penalty function requested, the gradient will be cinstructed as: F = g_u - (g_u * d_hat) * d_hat + 2 * ΔE * d_hat')
+    print('Effective energy to optimize is Eeff = (e_u + e_l) / 2 + sigma * ( (e_u - e_l)**2 / (e_u - e_l + alpha)')
+    F = g_u - g_u_dot_dhat * d_hat + (2.0 * delta_E) * d_hat
+    F_string = ''.join([f'{F: .16f}\n' for F in F.flatten()])
+    # Eeff comes from Levine's penalty method, taking into account both energies and gap
+    Eeff = (e_u + e_l) / 2 + sigma * ( (e_u - e_l)**2 / (e_u - e_l + alpha) )
     with open(f'{engrad_basename}_EXT.engrad', 'w') as f:
         f.write(natoms+'\n'+f'{Eeff}'+'\n'+F_string)
     
@@ -130,13 +200,13 @@ def validate_args(args, parser: argparse.ArgumentParser | None = None):
         args.multiplicity = 1 if s else 3
     elif m:
         args.mode = "mecp"
-        args.s_state, args.t_state = s[0], t[0]
+        args.pair = ('S', s[0]), ('T', t[0])
     else:
         args.mode = "single-state"
         if s:
-            args.multiplicity, args.state = "singlet", s[0]
+            args.multiplicity, args.state = 1, s[0]
         else:
-            args.multiplicity, args.state = "triplet", t[0]
+            args.multiplicity, args.state = 3, t[0]
 
     return args
     
@@ -157,6 +227,7 @@ def main():
     parser.add_argument('--nstate', default=3, type=int, help='How many responce states to calculate',)
 
     parser.add_argument('--mecp', action = 'store_true', help='Triggers MECP optimization between a singlet and a triplet state (both has to be provided) with Schlegel method)',)
+#    parser.add_argument('--penalty', action = 'store_true', help='Triggers MECP optimization with penalty function method (Levine)',)
 
     parser.add_argument('--charge', '-c', type=int, default=0, help='System charge',)
     parser.add_argument('--basis-set', '-b', help='Response electronic state (one for minimum or TS optimization, two - for CI optimization)',)
@@ -166,24 +237,46 @@ def main():
     
     validate_args(args, parser=parser)
     
-    if args.mode == "conical":
+    if args.mode == 'conical':
         basename = args.xyzfile[0:-15]
         for state in args.pair:
             mult_name = 'S' if args.multiplicity == 1 else 'T'
             make_input_file(args, f'EXT_ORCA_FOR_OQP_{mult_name}{state}.inp', state=state, multiplicity=args.multiplicity)
             subprocess.run(['bash', '-c', f'export OMP_NUM_THREADS={os.environ["OMP_NUM_THREADS"]} && openqp EXT_ORCA_FOR_OQP_{mult_name}{state}.inp'], check=True)
         os.remove(f'EXT_ORCA_FOR_OQP_{mult_name}{args.pair[1]}.json')
-        calc_penalty_conical(f'EXT_ORCA_FOR_OQP_{mult_name}{args.pair[0]}.log', args.pair[0], f'grad_{args.pair[0]}', args.pair[1], f'grad_{args.pair[1]}', basename, sigma = args.sigma, alpha = args.alpha)
-            
-#        gen_engrad_for_orca('EXT_ORCA_FOR_OQP.log', states[0], basename)
-#    else:
-#        if len(states) < 2: sys.exit(f'For conical intersection search two states have to be selected, while user provided: {states}')
-#        basename = args.xyzfile[0:-15]
-#        for i in states:
-#            make_input_file(args, f'EXT_ORCA_FOR_OQP_STATE_{i}.inp', state=i)
-#            subprocess.run(['bash', '-c', f'export OMP_NUM_THREADS={os.environ["OMP_NUM_THREADS"]} && openqp EXT_ORCA_FOR_OQP_STATE_{i}.inp'], check=True)
-#        os.remove(f'EXT_ORCA_FOR_OQP_STATE_{st2}.json')
-#        calc_penalty_conical(f'EXT_ORCA_FOR_OQP_STATE_{st1}.log', st1, f'grad_{st1}', st2, f'grad_{st2}', basename, sigma = args.sigma, alpha = args.alpha)
+        calc_penalty_conical(f'EXT_ORCA_FOR_OQP_{mult_name}{args.pair[0]}.log', args.pair[0], f'grad_{args.pair[0]}', 
+                                                                                args.pair[1], f'grad_{args.pair[1]}', basename, sigma = args.sigma, alpha = args.alpha)
+    elif args.mode == 'mecp':
+        basename = args.xyzfile[0:-15]
+        energies = []
+        for state in args.pair:
+            args.multiplicity = 1 if state[0] == 'S' else 3
+            make_input_file(args, f'EXT_ORCA_FOR_OQP_{state[0]}{state[1]}.inp', state=state[1], multiplicity=args.multiplicity)
+            subprocess.run(['bash', '-c', f'export OMP_NUM_THREADS={os.environ["OMP_NUM_THREADS"]} && openqp EXT_ORCA_FOR_OQP_{state[0]}{state[1]}.inp'], check=True)
+            with open(f'EXT_ORCA_FOR_OQP_{state[0]}{state[1]}.log') as f:
+                energy = (f'{state[0]}{state[1]}', float(re.findall(r' +Target state       is \d+ +(-?\d+\.\d+) Hartree', f.read())[0]))
+            energies.append(energy)
+            os.rename(f'grad_{state[1]}', f'grad_{state[0]}{state[1]}')
+            os.rename(f'energies', f'energies_{state[0]}')
+        lower_state = energies[0] if energies[0][1] < energies[1][1] else energies[1]
+        upper_state = energies[1] if energies[0][1] < energies[1][1] else energies[0]
+        print(f'ExtOptORCA-OpenQP: lower state is {lower_state[0]}')
+        print(f'ExtOptORCA-OpenQP: upper state is {upper_state[0]}')
+        os.remove(f'EXT_ORCA_FOR_OQP_{args.pair[1][0]}{args.pair[1][1]}.json')
+        calc_penalty_mecp(f'EXT_ORCA_FOR_OQP_{args.pair[0][0]}{args.pair[0][1]}.log', lower_state, f'grad_{lower_state[0]}', 
+                                                                                       upper_state, f'grad_{upper_state[0]}',
+                                                                                       sigma=args.sigma, alpha=args.alpha,
+                                                                                       engrad_basename=basename)
+        
+        
+        
+    elif args.mode == 'single-state':
+        basename = args.xyzfile[0:-15]
+        mult_name = 'S' if args.multiplicity == 1 else 'T'
+        make_input_file(args, f'EXT_ORCA_FOR_OQP_STATE_{mult_name}{args.state}.inp', state=args.state, multiplicity=args.multiplicity)
+        subprocess.run(['bash', '-c', f'export OMP_NUM_THREADS={os.environ["OMP_NUM_THREADS"]} && openqp EXT_ORCA_FOR_OQP_STATE_{mult_name}{args.state}.inp'], check=True)
+        os.rename(f'grad_{args.state}', f'grad_{mult_name}{args.state}')
+        gen_engrad_for_orca(f'EXT_ORCA_FOR_OQP_STATE_{mult_name}{args.state}.log', state=f'{mult_name}{args.state}', engrad_basename=basename)
             
 if __name__ == '__main__':
     main()

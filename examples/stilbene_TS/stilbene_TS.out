@@ -214,7 +214,7 @@ NAME = stilbene_TS_Compound_0.inp
 | 28>  *
 | 29>  
 | 30>  %pal
-| 31>    nproc 8
+| 31>    nproc 16
 | 32>  end
 | 33>  %maxcore 3000
 | 34>  
@@ -372,7 +372,7 @@ WARNING: Found frequency calculation in combination with XTB calculation
    J. Seibert, P. Shushkov, S. Spicher, M. Stahn, M. Steiner, T. Strunk,
    J. Stückrath, T. Rose, and J. Unsleber
    
- * started run on 2025/07/01 at 21:37:37.191     
+ * started run on 2025/08/27 at 15:11:00.392     
    ID    Z sym.   atoms
     1    6 C      1-14
     2    1 H      15-26
@@ -382,7 +382,7 @@ WARNING: Found frequency calculation in combination with XTB calculation
            -------------------------------------------------
 
           program call               : /software/sse2/tetralith_el9/manual/ORCA/6.0.1/hpc1/otool_xtb stilbene_TS_Compound_1_XTB.xyz --grad -c 0 -u 0 -P 1 --namespace stilbene_TS_Compound_1 --input stilbene_TS_Compound_1_XTB.input.tmp --acc 1.000000
-          hostname                   : n1984
+          hostname                   : n441
           calculation namespace      : stilbene_TS_Compound_1
           coordinate file            : stilbene_TS_Compound_1_XTB.xyz
           omp threads                :                     1
@@ -475,14 +475,14 @@ WARNING: Found frequency calculation in combination with XTB calculation
                   HL-Gap            0.0371198 Eh            1.0101 eV
              Fermi-level           -0.3180419 Eh           -8.6544 eV
 
- SCC (total)                   0 d,  0 h,  0 min,  0.028 sec
- SCC setup                      ...        0 min,  0.000 sec (  1.789%)
- Dispersion                     ...        0 min,  0.000 sec (  1.191%)
- classical contributions        ...        0 min,  0.000 sec (  0.351%)
- integral evaluation            ...        0 min,  0.003 sec ( 12.232%)
- iterations                     ...        0 min,  0.014 sec ( 50.698%)
- molecular gradient             ...        0 min,  0.009 sec ( 32.905%)
- printout                       ...        0 min,  0.000 sec (  0.731%)
+ SCC (total)                   0 d,  0 h,  0 min,  0.029 sec
+ SCC setup                      ...        0 min,  0.000 sec (  1.667%)
+ Dispersion                     ...        0 min,  0.000 sec (  1.163%)
+ classical contributions        ...        0 min,  0.000 sec (  0.325%)
+ integral evaluation            ...        0 min,  0.003 sec ( 11.231%)
+ iterations                     ...        0 min,  0.015 sec ( 53.351%)
+ molecular gradient             ...        0 min,  0.009 sec ( 31.471%)
+ printout                       ...        0 min,  0.000 sec (  0.699%)
 
          :::::::::::::::::::::::::::::::::::::::::::::::::::::
          ::                     SUMMARY                     ::
@@ -511,16 +511,16 @@ Property printout bound to 'properties.out'
            -------------------------------------------------
 
 ------------------------------------------------------------------------
- * finished run on 2025/07/01 at 21:37:37.233     
+ * finished run on 2025/08/27 at 15:11:00.436     
 ------------------------------------------------------------------------
  total:
- * wall-time:     0 d,  0 h,  0 min,  0.041 sec
- *  cpu-time:     0 d,  0 h,  0 min,  0.041 sec
- * ratio c/w:     0.985 speedup
+ * wall-time:     0 d,  0 h,  0 min,  0.044 sec
+ *  cpu-time:     0 d,  0 h,  0 min,  0.042 sec
+ * ratio c/w:     0.973 speedup
  SCF:
- * wall-time:     0 d,  0 h,  0 min,  0.028 sec
+ * wall-time:     0 d,  0 h,  0 min,  0.029 sec
  *  cpu-time:     0 d,  0 h,  0 min,  0.028 sec
- * ratio c/w:     0.984 speedup
+ * ratio c/w:     0.976 speedup
 
 
 -------------------------   --------------------
@@ -631,7 +631,7 @@ Magnitude (Debye)      :      0.14234
    J. Seibert, P. Shushkov, S. Spicher, M. Stahn, M. Steiner, T. Strunk,
    J. Stückrath, T. Rose, and J. Unsleber
    
- * started run on 2025/07/01 at 21:37:37.292     
+ * started run on 2025/08/27 at 15:11:00.445     
    ID    Z sym.   atoms
     1    6 C      1-14
     2    1 H      15-26
@@ -641,7 +641,7 @@ Magnitude (Debye)      :      0.14234
            -------------------------------------------------
 
           program call               : /software/sse2/tetralith_el9/manual/ORCA/6.0.1/hpc1/otool_xtb stilbene_TS_Compound_1_XTB.xyz --hess -c 0 -u 0 -P 1 --namespace stilbene_TS_Compound_1 --input stilbene_TS_Compound_1_XTB.input.tmp --acc 1.000000
-          hostname                   : n1984
+          hostname                   : n441
           calculation namespace      : stilbene_TS_Compound_1
           coordinate file            : stilbene_TS_Compound_1_XTB.xyz
           omp threads                :                     1
@@ -728,14 +728,14 @@ CAMM data taken from xtbrestart
                   HL-Gap            0.0371198 Eh            1.0101 eV
              Fermi-level           -0.3180424 Eh           -8.6544 eV
 
- SCC (total)                   0 d,  0 h,  0 min,  0.019 sec
- SCC setup                      ...        0 min,  0.000 sec (  1.429%)
- Dispersion                     ...        0 min,  0.000 sec (  1.464%)
- classical contributions        ...        0 min,  0.000 sec (  0.263%)
- integral evaluation            ...        0 min,  0.003 sec ( 16.605%)
- iterations                     ...        0 min,  0.007 sec ( 33.792%)
- molecular gradient             ...        0 min,  0.009 sec ( 45.499%)
- printout                       ...        0 min,  0.000 sec (  0.831%)
+ SCC (total)                   0 d,  0 h,  0 min,  0.020 sec
+ SCC setup                      ...        0 min,  0.000 sec (  1.611%)
+ Dispersion                     ...        0 min,  0.000 sec (  1.446%)
+ classical contributions        ...        0 min,  0.000 sec (  0.309%)
+ integral evaluation            ...        0 min,  0.003 sec ( 16.319%)
+ iterations                     ...        0 min,  0.007 sec ( 34.574%)
+ molecular gradient             ...        0 min,  0.009 sec ( 44.789%)
+ printout                       ...        0 min,  0.000 sec (  0.788%)
 
          :::::::::::::::::::::::::::::::::::::::::::::::::::::
          ::                     SUMMARY                     ::
@@ -799,19 +799,19 @@ It seems to be the C2 point group
 ########################################################################
 
 ------------------------------------------------------------------------
- * finished run on 2025/07/01 at 21:37:39.972     
+ * finished run on 2025/08/27 at 15:11:03.122     
 ------------------------------------------------------------------------
  total:
- * wall-time:     0 d,  0 h,  0 min,  2.679 sec
- *  cpu-time:     0 d,  0 h,  0 min,  2.669 sec
- * ratio c/w:     0.996 speedup
+ * wall-time:     0 d,  0 h,  0 min,  2.676 sec
+ *  cpu-time:     0 d,  0 h,  0 min,  2.667 sec
+ * ratio c/w:     0.997 speedup
  SCF:
  * wall-time:     0 d,  0 h,  0 min,  0.020 sec
- *  cpu-time:     0 d,  0 h,  0 min,  0.019 sec
- * ratio c/w:     0.982 speedup
+ *  cpu-time:     0 d,  0 h,  0 min,  0.020 sec
+ * ratio c/w:     0.965 speedup
  analytical hessian:
- * wall-time:     0 d,  0 h,  0 min,  2.643 sec
- *  cpu-time:     0 d,  0 h,  0 min,  2.634 sec
+ * wall-time:     0 d,  0 h,  0 min,  2.640 sec
+ *  cpu-time:     0 d,  0 h,  0 min,  2.633 sec
  * ratio c/w:     0.997 speedup
 
 
@@ -2166,8 +2166,8 @@ G-E(el)                           ...      0.16858695 Eh    105.79 kcal/mol
 
 Timings for individual modules:
 
-Sum of individual times          ...        2.742 sec (=   0.046 min)
-XTB module                       ...        2.742 sec (=   0.046 min) 100.0 %
+Sum of individual times          ...        2.743 sec (=   0.046 min)
+XTB module                       ...        2.743 sec (=   0.046 min) 100.0 %
 
 
 ################################################################################
@@ -2185,8 +2185,8 @@ NOTE: please remember that MaxCore and PAL settings will be ignored.
 NAME = stilbene_TS_Compound_2.inp
 |  1>     ! ExtOpt OptTS
 |  2>     %method
-|  3>       ProgExt "/home/x_rompe/bin/oqp_orca_wrapper_python"
-|  4>       Ext_Params "-s 1  -b 6-31g*"
+|  3>       ProgExt "/home/x_rompe/bin/ExtOptORCA-OpenQP/oqp_orca_wrapper"
+|  4>       Ext_Params "-s 1 -b 6-31g*"
 |  5>     end
 |  6>     %geom
 |  7>       InHess Read
@@ -2208,7 +2208,7 @@ WARNING: Geometry Optimization
          For restart on a previous wavefunction, please use MOREAD
 
 Using external energy/gradient program given in input:
-  "/home/x_rompe/bin/oqp_orca_wrapper_python"
+  "/home/x_rompe/bin/ExtOptORCA-OpenQP/oqp_orca_wrapper"
 
 
 WARNING: four-center integrals in TRAH must be done with SHARK!
@@ -2521,7 +2521,7 @@ INTERNAL COORDINATES (A.U.)
  H     13  12  11     2.042514011482   119.58039927   179.93088092
  H     14  13  12     2.042274649143   120.40774730   179.99959617
 
-Calling /home/x_rompe/bin/oqp_orca_wrapper_python stilbene_TS_Compound_2_EXT.extinp.tmp -s 1  -b 6-31g*  ... 
+Calling /home/x_rompe/bin/ExtOptORCA-OpenQP/oqp_orca_wrapper stilbene_TS_Compound_2_EXT.extinp.tmp -s 1 -b 6-31g*  ... 
 
 MPI startup(): PMI server not found. Please set I_MPI_PMI_LIBRARY variable if it is not a singleton case.
 input.charge=0
@@ -2647,7 +2647,7 @@ basis_set.library=
 tests.exception=False
 functional=bhhlyp
 
-External program completed successfully in 93.246 sec
+External program completed successfully in 57.322 sec
 
 -------------------------------------------------   --------------------
 FINAL SINGLE POINT ENERGY (From external program)      -540.308008740000
@@ -3028,19 +3028,19 @@ The optimization has not yet converged - more geometry cycles are needed
     ----------------------------------------------------------------------------
 
 Geometry step timings:
-Preparation and reading OPT file:      0.001 s ( 0.899 %)
-Internal coordinates            :      0.000 s ( 0.120 %)
-B/P matrices and projection     :      0.002 s ( 2.568 %)
-Hessian update/contruction      :      0.055 s (91.040 %)
-Making the step                 :      0.002 s ( 2.612 %)
-Converting the step to Cartesian:      0.000 s ( 0.280 %)
-Storing new data                :      0.000 s ( 0.074 %)
-Checking convergence            :      0.000 s ( 0.020 %)
-Final printing                  :      0.001 s ( 2.368 %)
-Total time                      :      0.061 s
+Preparation and reading OPT file:      0.001 s ( 0.971 %)
+Internal coordinates            :      0.000 s ( 0.125 %)
+B/P matrices and projection     :      0.002 s ( 3.249 %)
+Hessian update/contruction      :      0.057 s (90.584 %)
+Making the step                 :      0.002 s ( 2.489 %)
+Converting the step to Cartesian:      0.000 s ( 0.262 %)
+Storing new data                :      0.000 s ( 0.069 %)
+Checking convergence            :      0.000 s ( 0.019 %)
+Final printing                  :      0.001 s ( 2.220 %)
+Total time                      :      0.063 s
 
-Time for energy+gradient        :     93.248 s
-Time for complete geometry iter :     95.821 s
+Time for energy+gradient        :     57.324 s
+Time for complete geometry iter :     58.037 s
 
          *************************************************************
          *                GEOMETRY OPTIMIZATION CYCLE   2            *
@@ -3166,9 +3166,9 @@ INTERNAL COORDINATES (A.U.)
  H     13  12  11     2.040622451824   119.63019063   180.08166822
  H     14  13  12     2.040485042042   120.29091545   180.84434046
 
-Calling /home/x_rompe/bin/oqp_orca_wrapper_python stilbene_TS_Compound_2_EXT.extinp.tmp -s 1  -b 6-31g*  > stilbene_TS_Compound_2.lastext ...  done
+Calling /home/x_rompe/bin/ExtOptORCA-OpenQP/oqp_orca_wrapper stilbene_TS_Compound_2_EXT.extinp.tmp -s 1 -b 6-31g*  > stilbene_TS_Compound_2.lastext ...  done
 
-External program completed successfully in 97.169 sec
+External program completed successfully in 63.852 sec
 ------------------------------------------------------------------------------
                          ORCA GEOMETRY RELAXATION STEP
 ------------------------------------------------------------------------------
@@ -3504,19 +3504,19 @@ The optimization has not yet converged - more geometry cycles are needed
     ----------------------------------------------------------------------------
 
 Geometry step timings:
-Preparation and reading OPT file:      0.001 s ( 8.348 %)
-Internal coordinates            :      0.000 s ( 0.804 %)
-B/P matrices and projection     :      0.002 s (24.022 %)
-Hessian update/contruction      :      0.001 s ( 9.847 %)
-Making the step                 :      0.002 s (27.253 %)
-Converting the step to Cartesian:      0.000 s ( 2.458 %)
-Storing new data                :      0.000 s ( 0.757 %)
-Checking convergence            :      0.000 s ( 0.417 %)
-Final printing                  :      0.002 s (26.078 %)
-Total time                      :      0.006 s
+Preparation and reading OPT file:      0.001 s ( 9.627 %)
+Internal coordinates            :      0.000 s ( 0.730 %)
+B/P matrices and projection     :      0.002 s (24.956 %)
+Hessian update/contruction      :      0.001 s ( 9.011 %)
+Making the step                 :      0.002 s (29.222 %)
+Converting the step to Cartesian:      0.000 s ( 2.643 %)
+Storing new data                :      0.000 s ( 0.730 %)
+Checking convergence            :      0.000 s ( 0.415 %)
+Final printing                  :      0.002 s (22.653 %)
+Total time                      :      0.008 s
 
-Time for energy+gradient        :     97.172 s
-Time for complete geometry iter :     97.521 s
+Time for energy+gradient        :     63.855 s
+Time for complete geometry iter :     64.237 s
 
          *************************************************************
          *                GEOMETRY OPTIMIZATION CYCLE   3            *
@@ -3586,21 +3586,21 @@ CARTESIAN COORDINATES (A.U.)
 INTERNAL COORDINATES (ANGSTROEM)
 --------------------------------
  C      0   0   0     0.000000000000     0.00000000     0.00000000
- C      1   0   0     1.458850221977     0.00000000     0.00000000
+ C      1   0   0     1.458850221973     0.00000000     0.00000000
  C      2   1   0     1.397851089573   124.45739245     0.00000000
  C      3   2   1     1.418213118969   120.71804825   186.82008437
- C      4   3   2     1.374317716140   120.99500063   176.36120538
- C      5   4   3     1.391684847738   120.54803520     2.45921822
+ C      4   3   2     1.374317716141   120.99500063   176.36120538
+ C      5   4   3     1.391684847737   120.54803520     2.45921822
  C      6   5   4     1.393042962060   119.55423542   359.23187507
- C      7   6   5     1.373109046446   120.61294855   359.18403899
+ C      7   6   5     1.373109046447   120.61294855   359.18403899
  C      1   2   3     1.397850569110   124.45743024   104.68957079
- C      9   1   2     1.419789143260   121.97000002     5.62565219
- C     10   9   1     1.373108138690   120.93732232   182.07403728
- C     11  10   9     1.393042812755   120.61294783     0.70674658
- C     12  11  10     1.391684584666   119.55424495   359.18394172
- C     13  12  11     1.374317005142   120.54802277   359.23192099
+ C      9   1   2     1.419789143259   121.97000002     5.62565219
+ C     10   9   1     1.373108138691   120.93732232   182.07403728
+ C     11  10   9     1.393042812753   120.61294783     0.70674658
+ C     12  11  10     1.391684584665   119.55424495   359.18394172
+ C     13  12  11     1.374317005140   120.54802277   359.23192099
  H      1   2   3     1.087142383148   117.15748335   287.02768342
- H      2   1   3     1.087142746319   117.15750046   182.33829351
+ H      2   1   3     1.087142746318   117.15750046   182.33829351
  H      4   3   2     1.079506806656   118.68377090   357.45733052
  H      5   4   3     1.079381901020   119.76357395   181.55978682
  H      6   5   4     1.078265170936   120.22108875   180.13485837
@@ -3608,7 +3608,7 @@ INTERNAL COORDINATES (ANGSTROEM)
  H      8   7   6     1.078610035797   120.61581633   182.36237032
  H     10   9   1     1.078609936574   118.42682185     0.45414813
  H     11  10   9     1.079410786755   119.71693741   180.14117535
- H     12  11  10     1.078264507272   120.21847389   178.28093769
+ H     12  11  10     1.078264507273   120.21847389   178.28093769
  H     13  12  11     1.079381598622   119.68235939   180.13070652
  H     14  13  12     1.079506407526   120.31205641   181.34537674
 
@@ -3616,35 +3616,35 @@ INTERNAL COORDINATES (ANGSTROEM)
 INTERNAL COORDINATES (A.U.)
 ---------------------------
  C      0   0   0     0.000000000000     0.00000000     0.00000000
- C      1   0   0     2.756827389947     0.00000000     0.00000000
- C      2   1   0     2.641555735297   124.45739245     0.00000000
- C      3   2   1     2.680034394386   120.71804825   186.82008437
- C      4   3   2     2.597084104501   120.99500063   176.36120538
- C      5   4   3     2.629903226952   120.54803520     2.45921822
- C      6   5   4     2.632469691080   119.55423542   359.23187507
- C      7   6   5     2.594800049793   120.61294855   359.18403899
- C      1   2   3     2.641554751765   124.45743024   104.68957079
- C      9   1   2     2.683012648675   121.97000002     5.62565219
- C     10   9   1     2.594798334383   120.93732232   182.07403728
- C     11  10   9     2.632469408935   120.61294783     0.70674658
- C     12  11  10     2.629902729818   119.55424495   359.18394172
- C     13  12  11     2.597082760909   120.54802277   359.23192099
+ C      1   0   0     2.756827389938     0.00000000     0.00000000
+ C      2   1   0     2.641555735296   124.45739245     0.00000000
+ C      3   2   1     2.680034394385   120.71804825   186.82008437
+ C      4   3   2     2.597084104502   120.99500063   176.36120538
+ C      5   4   3     2.629903226951   120.54803520     2.45921822
+ C      6   5   4     2.632469691079   119.55423542   359.23187507
+ C      7   6   5     2.594800049795   120.61294855   359.18403899
+ C      1   2   3     2.641554751763   124.45743024   104.68957079
+ C      9   1   2     2.683012648674   121.97000002     5.62565219
+ C     10   9   1     2.594798334384   120.93732232   182.07403728
+ C     11  10   9     2.632469408930   120.61294783     0.70674658
+ C     12  11  10     2.629902729816   119.55424495   359.18394172
+ C     13  12  11     2.597082760906   120.54802277   359.23192099
  H      1   2   3     2.054401372728   117.15748335   287.02768342
- H      2   1   3     2.054402059023   117.15750046   182.33829351
+ H      2   1   3     2.054402059021   117.15750046   182.33829351
  H      4   3   2     2.039972224283   118.68377090   357.45733052
- H      5   4   3     2.039736186839   119.76357395   181.55978682
- H      6   5   4     2.037625872816   120.22108875   180.13485837
+ H      5   4   3     2.039736186838   119.76357395   181.55978682
+ H      6   5   4     2.037625872815   120.22108875   180.13485837
  H      7   6   5     2.039791254146   119.66769849   179.74938507
- H      8   7   6     2.038277572955   120.61581633   182.36237032
- H     10   9   1     2.038277385452   118.42682185     0.45414813
- H     11  10   9     2.039790772967   119.71693741   180.14117535
- H     12  11  10     2.037624618672   120.21847389   178.28093769
- H     13  12  11     2.039735615389   119.68235939   180.13070652
+ H      8   7   6     2.038277572956   120.61581633   182.36237032
+ H     10   9   1     2.038277385451   118.42682185     0.45414813
+ H     11  10   9     2.039790772968   119.71693741   180.14117535
+ H     12  11  10     2.037624618673   120.21847389   178.28093769
+ H     13  12  11     2.039735615390   119.68235939   180.13070652
  H     14  13  12     2.039971470037   120.31205641   181.34537674
 
-Calling /home/x_rompe/bin/oqp_orca_wrapper_python stilbene_TS_Compound_2_EXT.extinp.tmp -s 1  -b 6-31g*  > stilbene_TS_Compound_2.lastext ...  done
+Calling /home/x_rompe/bin/ExtOptORCA-OpenQP/oqp_orca_wrapper stilbene_TS_Compound_2_EXT.extinp.tmp -s 1 -b 6-31g*  > stilbene_TS_Compound_2.lastext ...  done
 
-External program completed successfully in 94.869 sec
+External program completed successfully in 61.840 sec
 ------------------------------------------------------------------------------
                          ORCA GEOMETRY RELAXATION STEP
 ------------------------------------------------------------------------------
@@ -3673,135 +3673,135 @@ Hessian has   1 negative eigenvalues
 Taking P-RFO step
 Searching for lambda that maximizes along the lowest mode
 TS mode is mode number   0 with eigenvalue  -0.01892143 and components:
-   1.   -0.14463422
-   2.    0.04613870
-   3.   -0.02102917
-   4.    0.00758813
-   5.   -0.00629102
-   6.   -0.00607934
-   7.   -0.01936546
-   8.    0.00779032
-   9.    0.04614310
-  10.   -0.01936108
-  11.    0.00779319
-  12.   -0.00608001
-  13.   -0.00628707
-  14.    0.00758974
-  15.   -0.02102772
-  16.    0.00087090
-  17.    0.00087126
-  18.    0.00120812
-  19.   -0.00084300
-  20.    0.00019275
-  21.   -0.00061243
-  22.   -0.00183963
-  23.   -0.00183983
-  24.   -0.00061086
-  25.    0.00019330
-  26.   -0.00084439
-  27.    0.00120902
-  28.    0.01325235
-  29.    0.02983602
-  30.   -0.04251082
-  31.    0.02983920
-  32.   -0.04251381
-  33.    0.01325238
-  34.    0.00382233
-  35.    0.00643853
-  36.   -0.01017732
-  37.    0.00330277
-  38.   -0.00713951
-  39.    0.00360022
-  40.    0.00383754
-  41.    0.00038684
-  42.   -0.00428670
-  43.    0.00059160
-  44.   -0.00107279
-  45.    0.00059180
-  46.    0.00194116
-  47.   -0.00096342
-  48.   -0.00089402
-  49.    0.00851949
-  50.   -0.00036716
-  51.   -0.00809374
-  52.   -0.01017769
-  53.    0.00644193
-  54.    0.00381915
-  55.   -0.00036496
-  56.   -0.00809424
-  57.    0.00851755
-  58.   -0.00096306
-  59.    0.00194025
-  60.   -0.00089351
-  61.   -0.00107495
-  62.    0.00059410
-  63.    0.00059145
-  64.    0.00038489
-  65.    0.00383747
-  66.   -0.00428461
-  67.   -0.00713984
-  68.    0.00330228
-  69.    0.00360094
-  70.    0.47496934
-  71.    0.47497628
-  72.    0.51813476
-  73.    0.43181087
-  74.   -0.10985254
-  75.   -0.05574863
-  76.   -0.09851062
-  77.   -0.06709055
-  78.    0.00833979
-  79.   -0.00271023
-  80.    0.00052560
-  81.    0.01157563
-  82.   -0.00478486
-  83.   -0.00815272
-  84.   -0.00498885
-  85.   -0.00162100
-  86.   -0.00253699
-  87.    0.00065709
-  88.   -0.00229264
-  89.    0.00090144
-  90.    0.00545400
-  91.    0.00521499
-  92.    0.00247890
-  93.    0.00223989
-  94.   -0.00141782
-  95.    0.00160224
-  96.   -0.01181124
-  97.   -0.00090189
-  98.   -0.00830590
-  99.    0.00520841
- 100.    0.00260345
- 101.    0.00218835
- 102.   -0.05575073
- 103.   -0.09852018
- 104.   -0.06709319
- 105.   -0.10986265
- 106.   -0.01181134
- 107.   -0.00090138
- 108.   -0.00830605
- 109.    0.00260390
- 110.    0.00218731
- 111.   -0.00141884
- 112.    0.00520897
- 113.    0.00160282
- 114.    0.00545443
- 115.    0.00247774
- 116.    0.00521581
- 117.    0.00223912
- 118.   -0.00253607
- 119.   -0.00229212
- 120.    0.00065801
- 121.    0.00090196
- 122.   -0.00162160
- 123.   -0.00498898
- 124.   -0.00815287
- 125.    0.00834027
- 126.   -0.00271016
- 127.   -0.00478548
- 128.    0.01157556
- 129.    0.00052512
+   1.    0.14463422
+   2.   -0.04613870
+   3.    0.02102917
+   4.   -0.00758813
+   5.    0.00629102
+   6.    0.00607934
+   7.    0.01936546
+   8.   -0.00779032
+   9.   -0.04614310
+  10.    0.01936108
+  11.   -0.00779319
+  12.    0.00608001
+  13.    0.00628707
+  14.   -0.00758974
+  15.    0.02102772
+  16.   -0.00087090
+  17.   -0.00087126
+  18.   -0.00120812
+  19.    0.00084300
+  20.   -0.00019275
+  21.    0.00061243
+  22.    0.00183963
+  23.    0.00183983
+  24.    0.00061086
+  25.   -0.00019330
+  26.    0.00084439
+  27.   -0.00120902
+  28.   -0.01325235
+  29.   -0.02983602
+  30.    0.04251082
+  31.   -0.02983920
+  32.    0.04251381
+  33.   -0.01325238
+  34.   -0.00382233
+  35.   -0.00643853
+  36.    0.01017732
+  37.   -0.00330277
+  38.    0.00713951
+  39.   -0.00360022
+  40.   -0.00383754
+  41.   -0.00038684
+  42.    0.00428670
+  43.   -0.00059160
+  44.    0.00107279
+  45.   -0.00059180
+  46.   -0.00194116
+  47.    0.00096342
+  48.    0.00089402
+  49.   -0.00851949
+  50.    0.00036716
+  51.    0.00809374
+  52.    0.01017769
+  53.   -0.00644193
+  54.   -0.00381915
+  55.    0.00036496
+  56.    0.00809424
+  57.   -0.00851755
+  58.    0.00096306
+  59.   -0.00194025
+  60.    0.00089351
+  61.    0.00107495
+  62.   -0.00059410
+  63.   -0.00059145
+  64.   -0.00038489
+  65.   -0.00383747
+  66.    0.00428461
+  67.    0.00713984
+  68.   -0.00330228
+  69.   -0.00360094
+  70.   -0.47496934
+  71.   -0.47497628
+  72.   -0.51813476
+  73.   -0.43181087
+  74.    0.10985254
+  75.    0.05574863
+  76.    0.09851062
+  77.    0.06709055
+  78.   -0.00833979
+  79.    0.00271023
+  80.   -0.00052560
+  81.   -0.01157563
+  82.    0.00478486
+  83.    0.00815272
+  84.    0.00498885
+  85.    0.00162100
+  86.    0.00253699
+  87.   -0.00065709
+  88.    0.00229264
+  89.   -0.00090144
+  90.   -0.00545400
+  91.   -0.00521499
+  92.   -0.00247890
+  93.   -0.00223989
+  94.    0.00141782
+  95.   -0.00160224
+  96.    0.01181124
+  97.    0.00090189
+  98.    0.00830590
+  99.   -0.00520841
+ 100.   -0.00260345
+ 101.   -0.00218835
+ 102.    0.05575073
+ 103.    0.09852018
+ 104.    0.06709319
+ 105.    0.10986265
+ 106.    0.01181134
+ 107.    0.00090138
+ 108.    0.00830605
+ 109.   -0.00260390
+ 110.   -0.00218731
+ 111.    0.00141884
+ 112.   -0.00520897
+ 113.   -0.00160282
+ 114.   -0.00545443
+ 115.   -0.00247774
+ 116.   -0.00521581
+ 117.   -0.00223912
+ 118.    0.00253607
+ 119.    0.00229212
+ 120.   -0.00065801
+ 121.   -0.00090196
+ 122.    0.00162160
+ 123.    0.00498898
+ 124.    0.00815287
+ 125.   -0.00834027
+ 126.    0.00271016
+ 127.    0.00478548
+ 128.   -0.01157556
+ 129.   -0.00052512
 
 Lambda that maximizes along the TS mode:       0.03001573
 Searching for lambda that minimizes along all other modes
@@ -3814,11 +3814,11 @@ The final length of the internal step   ....       0.2000
 Converting the step to Cartesian space:
  Initial RMS(Int)=    0.0176090181
 Transforming coordinates:
- Iter   0:  RMS(Cart)=    0.0710174087 RMS(Int)=    0.0175457763
+ Iter   0:  RMS(Cart)=    0.0710174086 RMS(Int)=    0.0175457763
  Iter   5:  RMS(Cart)=    0.0000000149 RMS(Int)=    0.0000000035
 done
 Storing new coordinates                 .... done
-The predicted energy change is          ....     0.084187662
+The predicted energy change is          ....     0.084187661
 Previously predicted energy change      ....     0.077013235
 Actually observed energy change         ....     0.008921950
 Ratio of predicted to observed change   ....     0.115849568
@@ -3832,7 +3832,7 @@ New trust radius                        ....     0.133333333
           RMS gradient        0.0039764517            0.0001000000      NO
           MAX gradient        0.0185900136            0.0003000000      NO
           RMS step            0.0176090181            0.0020000000      NO
-          MAX step            0.0879336809            0.0040000000      NO
+          MAX step            0.0879336808            0.0040000000      NO
           ........................................................
           Max(Bonds)      0.0090      Max(Angles)    0.18
           Max(Dihed)        5.04      Max(Improp)    0.00
@@ -3979,19 +3979,19 @@ The optimization has not yet converged - more geometry cycles are needed
     ----------------------------------------------------------------------------
 
 Geometry step timings:
-Preparation and reading OPT file:      0.001 s (11.231 %)
-Internal coordinates            :      0.000 s ( 0.779 %)
-B/P matrices and projection     :      0.001 s (21.854 %)
-Hessian update/contruction      :      0.001 s ( 8.224 %)
-Making the step                 :      0.002 s (26.745 %)
-Converting the step to Cartesian:      0.000 s ( 3.458 %)
-Storing new data                :      0.000 s ( 0.670 %)
-Checking convergence            :      0.000 s ( 0.374 %)
-Final printing                  :      0.002 s (26.604 %)
-Total time                      :      0.006 s
+Preparation and reading OPT file:      0.001 s (10.364 %)
+Internal coordinates            :      0.000 s ( 0.655 %)
+B/P matrices and projection     :      0.002 s (23.726 %)
+Hessian update/contruction      :      0.001 s ( 7.913 %)
+Making the step                 :      0.002 s (27.925 %)
+Converting the step to Cartesian:      0.000 s ( 2.597 %)
+Storing new data                :      0.000 s ( 0.704 %)
+Checking convergence            :      0.000 s ( 0.400 %)
+Final printing                  :      0.002 s (25.692 %)
+Total time                      :      0.008 s
 
-Time for energy+gradient        :     94.871 s
-Time for complete geometry iter :     95.188 s
+Time for energy+gradient        :     61.842 s
+Time for complete geometry iter :     62.210 s
 
          *************************************************************
          *                GEOMETRY OPTIMIZATION CYCLE   4            *
@@ -4062,64 +4062,64 @@ INTERNAL COORDINATES (ANGSTROEM)
 --------------------------------
  C      0   0   0     0.000000000000     0.00000000     0.00000000
  C      1   0   0     1.467842460614     0.00000000     0.00000000
- C      2   1   0     1.397585019424   124.29052805     0.00000000
- C      3   2   1     1.418648962595   120.57251932   188.62586296
- C      4   3   2     1.374510801107   120.99411932   176.94188842
+ C      2   1   0     1.397585019423   124.29052805     0.00000000
+ C      3   2   1     1.418648962597   120.57251932   188.62586296
+ C      4   3   2     1.374510801107   120.99411932   176.94188843
  C      5   4   3     1.391861854621   120.54704445     2.21876501
  C      6   5   4     1.393354135299   119.55061034   359.26428952
  C      7   6   5     1.373271357248   120.62230373   359.25753934
- C      1   2   3     1.397584154443   124.29064970    99.29122122
- C      9   1   2     1.419711320401   122.10825143     7.69203598
- C     10   9   1     1.373270413479   120.93267990   181.59859079
+ C      1   2   3     1.397584154442   124.29064970    99.29122122
+ C      9   1   2     1.419711320402   122.10825143     7.69203598
+ C     10   9   1     1.373270413480   120.93267990   181.59859078
  C     11  10   9     1.393354163377   120.62229403     0.73489336
  C     12  11  10     1.391861213306   119.55064761   359.25749560
- C     13  12  11     1.374510276042   120.54701160   359.26431349
- H      1   2   3     1.086017621918   117.33044345   281.98956162
- H      2   1   3     1.086017957046   117.33047796   182.69830727
+ C     13  12  11     1.374510276042   120.54701160   359.26431348
+ H      1   2   3     1.086017621920   117.33044345   281.98956162
+ H      2   1   3     1.086017957047   117.33047796   182.69830727
  H      4   3   2     1.079150891395   118.68367159   357.97599001
  H      5   4   3     1.079111033289   119.73580899   181.45493876
  H      6   5   4     1.078040519999   120.22559657   180.14683774
  H      7   6   5     1.079119929652   119.68082650   179.79910387
- H      8   7   6     1.078422265973   120.56329035   182.14537250
- H     10   9   1     1.078422253888   118.48946024     0.21696269
+ H      8   7   6     1.078422265973   120.56329035   182.14537249
+ H     10   9   1     1.078422253889   118.48946024     0.21696268
  H     11  10   9     1.079119586357   119.69465547   180.19335513
- H     12  11  10     1.078040074342   120.21787655   178.37500301
- H     13  12  11     1.079110991114   119.71279003   180.02800298
+ H     12  11  10     1.078040074341   120.21787655   178.37500301
+ H     13  12  11     1.079110991115   119.71279003   180.02800298
  H     14  13  12     1.079150565333   120.31406462   181.16793356
 
 ---------------------------
 INTERNAL COORDINATES (A.U.)
 ---------------------------
  C      0   0   0     0.000000000000     0.00000000     0.00000000
- C      1   0   0     2.773820258301     0.00000000     0.00000000
- C      2   1   0     2.641052935582   124.29052805     0.00000000
- C      3   2   1     2.680858019475   120.57251932   188.62586296
- C      4   3   2     2.597448982209   120.99411932   176.94188842
+ C      1   0   0     2.773820258302     0.00000000     0.00000000
+ C      2   1   0     2.641052935581   124.29052805     0.00000000
+ C      3   2   1     2.680858019479   120.57251932   188.62586296
+ C      4   3   2     2.597448982209   120.99411932   176.94188843
  C      5   4   3     2.630237721486   120.54704445     2.21876501
  C      6   5   4     2.633057723281   119.55061034   359.26428952
- C      7   6   5     2.595106772758   120.62230373   359.25753934
+ C      7   6   5     2.595106772757   120.62230373   359.25753934
  C      1   2   3     2.641051301004   124.29064970    99.29122122
- C      9   1   2     2.682865584785   122.10825143     7.69203598
- C     10   9   1     2.595104989293   120.93267990   181.59859079
- C     11  10   9     2.633057776341   120.62229403     0.73489336
+ C      9   1   2     2.682865584787   122.10825143     7.69203598
+ C     10   9   1     2.595104989295   120.93267990   181.59859078
+ C     11  10   9     2.633057776342   120.62229403     0.73489336
  C     12  11  10     2.630236509575   119.55064761   359.25749560
- C     13  12  11     2.597447989980   120.54701160   359.26431349
- H      1   2   3     2.052275882038   117.33044345   281.98956162
- H      2   1   3     2.052276515337   117.33047796   182.69830727
+ C     13  12  11     2.597447989979   120.54701160   359.26431348
+ H      1   2   3     2.052275882040   117.33044345   281.98956162
+ H      2   1   3     2.052276515340   117.33047796   182.69830727
  H      4   3   2     2.039299641914   118.68367159   357.97599001
  H      5   4   3     2.039224321010   119.73580899   181.45493876
  H      6   5   4     2.037201344069   120.22559657   180.14683774
  H      7   6   5     2.039241132698   119.68082650   179.79910387
- H      8   7   6     2.037922739412   120.56329035   182.14537250
- H     10   9   1     2.037922716575   118.48946024     0.21696269
+ H      8   7   6     2.037922739413   120.56329035   182.14537249
+ H     10   9   1     2.037922716576   118.48946024     0.21696268
  H     11  10   9     2.039240483964   119.69465547   180.19335513
- H     12  11  10     2.037200501898   120.21787655   178.37500301
- H     13  12  11     2.039224241310   119.71279003   180.02800298
- H     14  13  12     2.039299025745   120.31406462   181.16793356
+ H     12  11  10     2.037200501897   120.21787655   178.37500301
+ H     13  12  11     2.039224241311   119.71279003   180.02800298
+ H     14  13  12     2.039299025746   120.31406462   181.16793356
 
-Calling /home/x_rompe/bin/oqp_orca_wrapper_python stilbene_TS_Compound_2_EXT.extinp.tmp -s 1  -b 6-31g*  > stilbene_TS_Compound_2.lastext ...  done
+Calling /home/x_rompe/bin/ExtOptORCA-OpenQP/oqp_orca_wrapper stilbene_TS_Compound_2_EXT.extinp.tmp -s 1 -b 6-31g*  > stilbene_TS_Compound_2.lastext ...  done
 
-External program completed successfully in 92.739 sec
+External program completed successfully in 60.700 sec
 ------------------------------------------------------------------------------
                          ORCA GEOMETRY RELAXATION STEP
 ------------------------------------------------------------------------------
@@ -4293,9 +4293,9 @@ Transforming coordinates:
 done
 Storing new coordinates                 .... done
 The predicted energy change is          ....     0.003122220
-Previously predicted energy change      ....     0.084187662
+Previously predicted energy change      ....     0.084187661
 Actually observed energy change         ....     0.006150620
-Ratio of predicted to observed change   ....     0.073058449
+Ratio of predicted to observed change   ....     0.073058450
 New trust radius                        ....     0.100000000
 
                                 .--------------------.
@@ -4453,19 +4453,19 @@ The optimization has not yet converged - more geometry cycles are needed
     ----------------------------------------------------------------------------
 
 Geometry step timings:
-Preparation and reading OPT file:      0.001 s (11.978 %)
-Internal coordinates            :      0.000 s ( 0.760 %)
-B/P matrices and projection     :      0.001 s (21.857 %)
-Hessian update/contruction      :      0.001 s ( 8.497 %)
-Making the step                 :      0.002 s (24.578 %)
-Converting the step to Cartesian:      0.000 s ( 1.885 %)
-Storing new data                :      0.000 s ( 0.669 %)
-Checking convergence            :      0.000 s ( 0.380 %)
-Final printing                  :      0.002 s (29.336 %)
-Total time                      :      0.007 s
+Preparation and reading OPT file:      0.001 s (11.177 %)
+Internal coordinates            :      0.000 s ( 0.619 %)
+B/P matrices and projection     :      0.002 s (22.378 %)
+Hessian update/contruction      :      0.001 s ( 7.690 %)
+Making the step                 :      0.002 s (27.675 %)
+Converting the step to Cartesian:      0.000 s ( 2.309 %)
+Storing new data                :      0.000 s ( 0.690 %)
+Checking convergence            :      0.000 s ( 0.393 %)
+Final printing                  :      0.002 s (27.032 %)
+Total time                      :      0.008 s
 
-Time for energy+gradient        :     92.747 s
-Time for complete geometry iter :     93.058 s
+Time for energy+gradient        :     60.702 s
+Time for complete geometry iter :     61.062 s
 
          *************************************************************
          *                GEOMETRY OPTIMIZATION CYCLE   5            *
@@ -4535,65 +4535,65 @@ CARTESIAN COORDINATES (A.U.)
 INTERNAL COORDINATES (ANGSTROEM)
 --------------------------------
  C      0   0   0     0.000000000000     0.00000000     0.00000000
- C      1   0   0     1.472265724676     0.00000000     0.00000000
- C      2   1   0     1.397606594811   124.19982997     0.00000000
- C      3   2   1     1.418777626794   120.67262480   188.22284191
- C      4   3   2     1.374453241954   121.02711707   177.49031749
+ C      1   0   0     1.472265724678     0.00000000     0.00000000
+ C      2   1   0     1.397606594812   124.19982997     0.00000000
+ C      3   2   1     1.418777626796   120.67262480   188.22284191
+ C      4   3   2     1.374453241956   121.02711707   177.49031750
  C      5   4   3     1.392211440132   120.52789349     1.93789727
- C      6   5   4     1.393194599113   119.55168876   359.34090363
+ C      6   5   4     1.393194599114   119.55168876   359.34090363
  C      7   6   5     1.373666967190   120.62801558   359.28048099
  C      1   2   3     1.397605580883   124.19993993    95.88094792
  C      9   1   2     1.419577783205   122.02203790     7.47369413
  C     10   9   1     1.373666081239   120.93325045   181.14418323
  C     11  10   9     1.393194596824   120.62801044     0.81752521
  C     12  11  10     1.392210591553   119.55173835   359.28048168
- C     13  12  11     1.374452710787   120.52784348   359.34087703
+ C     13  12  11     1.374452710786   120.52784348   359.34087703
  H      1   2   3     1.085747088905   117.52620573   278.28383103
- H      2   1   3     1.085747050927   117.52628906   182.40271046
+ H      2   1   3     1.085747050928   117.52628906   182.40271046
  H      4   3   2     1.079062589968   118.67513445   358.35359575
  H      5   4   3     1.078893810483   119.73759600   181.31425570
- H      6   5   4     1.077914870047   120.22195154   180.12263345
+ H      6   5   4     1.077914870047   120.22195155   180.12263345
  H      7   6   5     1.078951937907   119.70276137   179.82429389
  H      8   7   6     1.078204430427   120.53798288   181.98436492
- H     10   9   1     1.078204396301   118.51879606     0.00000000
+ H     10   9   1     1.078204396302   118.51879606     0.00000000
  H     11  10   9     1.078951618832   119.66698511   180.27401436
  H     12  11  10     1.077914561549   120.22172468   178.49876512
- H     13  12  11     1.078893930782   119.73160786   179.96451356
+ H     13  12  11     1.078893930782   119.73160786   179.96451357
  H     14  13  12     1.079062317146   120.29208409   181.06081018
 
 ---------------------------
 INTERNAL COORDINATES (A.U.)
 ---------------------------
  C      0   0   0     0.000000000000     0.00000000     0.00000000
- C      1   0   0     2.782179015997     0.00000000     0.00000000
- C      2   1   0     2.641093707156   124.19982997     0.00000000
- C      3   2   1     2.681101159575   120.67262480   188.22284191
- C      4   3   2     2.597340211174   121.02711707   177.49031749
+ C      1   0   0     2.782179016000     0.00000000     0.00000000
+ C      2   1   0     2.641093707157   124.19982997     0.00000000
+ C      3   2   1     2.681101159578   120.67262480   188.22284191
+ C      4   3   2     2.597340211177   121.02711707   177.49031750
  C      5   4   3     2.630898342362   120.52789349     1.93789727
- C      6   5   4     2.632756243582   119.55168876   359.34090363
- C      7   6   5     2.595854367202   120.62801558   359.28048099
+ C      6   5   4     2.632756243584   119.55168876   359.34090363
+ C      7   6   5     2.595854367203   120.62801558   359.28048099
  C      1   2   3     2.641091791109   124.19993993    95.88094792
  C      9   1   2     2.682613236057   122.02203790     7.47369413
  C     10   9   1     2.595852692999   120.93325045   181.14418323
- C     11  10   9     2.632756239257   120.62801044     0.81752521
+ C     11  10   9     2.632756239256   120.62801044     0.81752521
  C     12  11  10     2.630896738779   119.55173835   359.28048168
  C     13  12  11     2.597339207412   120.52784348   359.34087703
- H      1   2   3     2.051764648732   117.52620573   278.28383103
- H      2   1   3     2.051764576964   117.52628906   182.40271046
- H      4   3   2     2.039132776399   118.67513445   358.35359575
+ H      1   2   3     2.051764648733   117.52620573   278.28383103
+ H      2   1   3     2.051764576966   117.52628906   182.40271046
+ H      4   3   2     2.039132776400   118.67513445   358.35359575
  H      5   4   3     2.038813829396   119.73759600   181.31425570
- H      6   5   4     2.036963900069   120.22195154   180.12263345
- H      7   6   5     2.038923674307   119.70276137   179.82429389
- H      8   7   6     2.037511089887   120.53798288   181.98436492
- H     10   9   1     2.037511025399   118.51879606     0.00000000
+ H      6   5   4     2.036963900069   120.22195155   180.12263345
+ H      7   6   5     2.038923674308   119.70276137   179.82429389
+ H      8   7   6     2.037511089888   120.53798288   181.98436492
+ H     10   9   1     2.037511025400   118.51879606     0.00000000
  H     11  10   9     2.038923071344   119.66698511   180.27401436
- H     12  11  10     2.036963317093   120.22172468   178.49876512
- H     13  12  11     2.038814056728   119.73160786   179.96451356
+ H     12  11  10     2.036963317094   120.22172468   178.49876512
+ H     13  12  11     2.038814056729   119.73160786   179.96451357
  H     14  13  12     2.039132260840   120.29208409   181.06081018
 
-Calling /home/x_rompe/bin/oqp_orca_wrapper_python stilbene_TS_Compound_2_EXT.extinp.tmp -s 1  -b 6-31g*  > stilbene_TS_Compound_2.lastext ...  done
+Calling /home/x_rompe/bin/ExtOptORCA-OpenQP/oqp_orca_wrapper stilbene_TS_Compound_2_EXT.extinp.tmp -s 1 -b 6-31g*  > stilbene_TS_Compound_2.lastext ...  done
 
-External program completed successfully in 86.655 sec
+External program completed successfully in 52.445 sec
 ------------------------------------------------------------------------------
                          ORCA GEOMETRY RELAXATION STEP
 ------------------------------------------------------------------------------
@@ -4622,135 +4622,135 @@ Hessian has   1 negative eigenvalues
 Taking P-RFO step
 Searching for lambda that maximizes along the lowest mode
 TS mode is mode number   0 with eigenvalue  -0.05692420 and components:
-   1.    0.13475873
-   2.   -0.04434434
-   3.    0.02286886
-   4.   -0.01088672
-   5.    0.00940814
-   6.    0.00094017
-   7.    0.01647590
-   8.   -0.00312948
-   9.   -0.04434381
-  10.    0.01647707
-  11.   -0.00312987
-  12.    0.00094011
-  13.    0.00940898
-  14.   -0.01088743
-  15.    0.02286987
-  16.   -0.00403868
-  17.   -0.00403761
-  18.   -0.00015921
-  19.    0.00098138
-  20.   -0.00013251
-  21.    0.00051929
-  22.   -0.00015071
-  23.   -0.00015076
-  24.    0.00051908
-  25.   -0.00013360
-  26.    0.00098077
-  27.   -0.00015975
-  28.   -0.00492699
-  29.   -0.01775336
-  30.    0.02417045
-  31.   -0.01775196
-  32.    0.02417212
-  33.   -0.00492917
-  34.   -0.00589207
-  35.   -0.00441761
-  36.    0.01053336
-  37.   -0.00358356
-  38.    0.00357911
-  39.    0.00026223
-  40.   -0.00325465
-  41.    0.00040107
-  42.    0.00301154
-  43.   -0.00103081
-  44.    0.00103338
-  45.    0.00013068
-  46.   -0.00191019
-  47.    0.00196324
-  48.   -0.00005357
-  49.   -0.00579301
-  50.    0.00068830
-  51.    0.00552554
-  52.    0.01053488
-  53.   -0.00441769
-  54.   -0.00589348
-  55.    0.00068955
-  56.    0.00552582
-  57.   -0.00579463
-  58.    0.00196320
-  59.   -0.00191019
-  60.   -0.00005352
-  61.    0.00103261
-  62.   -0.00103020
-  63.    0.00013088
-  64.    0.00040041
-  65.   -0.00325486
-  66.    0.00301244
-  67.    0.00357849
-  68.   -0.00358326
-  69.    0.00026264
-  70.   -0.49240365
-  71.   -0.49240253
-  72.   -0.49384712
-  73.   -0.49095905
-  74.    0.01367138
-  75.   -0.00106442
-  76.   -0.00102300
-  77.    0.01362996
-  78.   -0.00665157
-  79.    0.00727523
-  80.    0.01004142
-  81.   -0.00388537
-  82.   -0.00156751
-  83.   -0.00438573
-  84.   -0.00281604
-  85.    0.00000217
-  86.   -0.00288532
-  87.   -0.00129752
-  88.    0.00348244
-  89.    0.00507024
-  90.   -0.00138847
-  91.   -0.00774680
-  92.    0.00922139
-  93.    0.00286306
-  94.   -0.00067927
-  95.   -0.01135277
-  96.    0.01796160
-  97.    0.00357202
-  98.    0.01168132
-  99.   -0.01769613
- 100.   -0.00270825
- 101.   -0.00702263
- 102.   -0.00106406
- 103.   -0.00102339
- 104.    0.01362781
- 105.    0.01366848
- 106.    0.01796204
- 107.    0.00357478
- 108.    0.01168230
- 109.   -0.00270496
- 110.   -0.00702288
- 111.   -0.00068008
- 112.   -0.01769578
- 113.   -0.01135297
- 114.   -0.00138885
- 115.    0.00922041
- 116.   -0.00774677
- 117.    0.00286249
- 118.   -0.00288445
- 119.    0.00348293
- 120.   -0.00129661
- 121.    0.00507077
- 122.    0.00000157
- 123.   -0.00281577
- 124.   -0.00438547
- 125.   -0.00665178
- 126.    0.00727249
- 127.   -0.00156813
- 128.   -0.00388640
- 129.    0.01003787
+   1.   -0.13475873
+   2.    0.04434434
+   3.   -0.02286886
+   4.    0.01088672
+   5.   -0.00940814
+   6.   -0.00094017
+   7.   -0.01647590
+   8.    0.00312948
+   9.    0.04434381
+  10.   -0.01647707
+  11.    0.00312987
+  12.   -0.00094011
+  13.   -0.00940898
+  14.    0.01088743
+  15.   -0.02286987
+  16.    0.00403868
+  17.    0.00403761
+  18.    0.00015921
+  19.   -0.00098138
+  20.    0.00013251
+  21.   -0.00051929
+  22.    0.00015071
+  23.    0.00015076
+  24.   -0.00051908
+  25.    0.00013360
+  26.   -0.00098077
+  27.    0.00015975
+  28.    0.00492699
+  29.    0.01775336
+  30.   -0.02417045
+  31.    0.01775196
+  32.   -0.02417212
+  33.    0.00492917
+  34.    0.00589207
+  35.    0.00441761
+  36.   -0.01053336
+  37.    0.00358356
+  38.   -0.00357911
+  39.   -0.00026223
+  40.    0.00325465
+  41.   -0.00040107
+  42.   -0.00301154
+  43.    0.00103081
+  44.   -0.00103338
+  45.   -0.00013068
+  46.    0.00191019
+  47.   -0.00196324
+  48.    0.00005357
+  49.    0.00579301
+  50.   -0.00068830
+  51.   -0.00552554
+  52.   -0.01053488
+  53.    0.00441769
+  54.    0.00589348
+  55.   -0.00068955
+  56.   -0.00552582
+  57.    0.00579463
+  58.   -0.00196320
+  59.    0.00191019
+  60.    0.00005352
+  61.   -0.00103261
+  62.    0.00103020
+  63.   -0.00013088
+  64.   -0.00040041
+  65.    0.00325486
+  66.   -0.00301244
+  67.   -0.00357849
+  68.    0.00358326
+  69.   -0.00026264
+  70.    0.49240365
+  71.    0.49240253
+  72.    0.49384712
+  73.    0.49095905
+  74.   -0.01367138
+  75.    0.00106442
+  76.    0.00102300
+  77.   -0.01362996
+  78.    0.00665157
+  79.   -0.00727523
+  80.   -0.01004142
+  81.    0.00388537
+  82.    0.00156751
+  83.    0.00438573
+  84.    0.00281604
+  85.   -0.00000217
+  86.    0.00288532
+  87.    0.00129752
+  88.   -0.00348244
+  89.   -0.00507024
+  90.    0.00138847
+  91.    0.00774680
+  92.   -0.00922139
+  93.   -0.00286306
+  94.    0.00067927
+  95.    0.01135277
+  96.   -0.01796160
+  97.   -0.00357202
+  98.   -0.01168132
+  99.    0.01769613
+ 100.    0.00270825
+ 101.    0.00702263
+ 102.    0.00106406
+ 103.    0.00102339
+ 104.   -0.01362781
+ 105.   -0.01366848
+ 106.   -0.01796204
+ 107.   -0.00357478
+ 108.   -0.01168230
+ 109.    0.00270496
+ 110.    0.00702288
+ 111.    0.00068008
+ 112.    0.01769578
+ 113.    0.01135297
+ 114.    0.00138885
+ 115.   -0.00922041
+ 116.    0.00774677
+ 117.   -0.00286249
+ 118.    0.00288445
+ 119.   -0.00348293
+ 120.    0.00129661
+ 121.   -0.00507077
+ 122.   -0.00000157
+ 123.    0.00281577
+ 124.    0.00438547
+ 125.    0.00665178
+ 126.   -0.00727249
+ 127.    0.00156813
+ 128.    0.00388640
+ 129.   -0.01003787
 
 Lambda that maximizes along the TS mode:       0.00772438
 Searching for lambda that minimizes along all other modes
@@ -4927,19 +4927,19 @@ The optimization has not yet converged - more geometry cycles are needed
     ----------------------------------------------------------------------------
 
 Geometry step timings:
-Preparation and reading OPT file:      0.001 s (13.785 %)
-Internal coordinates            :      0.000 s ( 0.750 %)
-B/P matrices and projection     :      0.001 s (20.612 %)
-Hessian update/contruction      :      0.001 s ( 7.945 %)
-Making the step                 :      0.002 s (24.231 %)
-Converting the step to Cartesian:      0.000 s ( 1.824 %)
-Storing new data                :      0.000 s ( 0.736 %)
-Checking convergence            :      0.000 s ( 0.353 %)
-Final printing                  :      0.002 s (29.719 %)
-Total time                      :      0.007 s
+Preparation and reading OPT file:      0.001 s (13.195 %)
+Internal coordinates            :      0.000 s ( 0.620 %)
+B/P matrices and projection     :      0.002 s (22.026 %)
+Hessian update/contruction      :      0.001 s ( 7.464 %)
+Making the step                 :      0.002 s (26.263 %)
+Converting the step to Cartesian:      0.000 s ( 2.182 %)
+Storing new data                :      0.000 s ( 0.666 %)
+Checking convergence            :      0.000 s ( 0.402 %)
+Final printing                  :      0.002 s (27.159 %)
+Total time                      :      0.009 s
 
-Time for energy+gradient        :     86.657 s
-Time for complete geometry iter :     86.973 s
+Time for energy+gradient        :     52.447 s
+Time for complete geometry iter :     52.818 s
 
          *************************************************************
          *                GEOMETRY OPTIMIZATION CYCLE   6            *
@@ -5009,11 +5009,11 @@ CARTESIAN COORDINATES (A.U.)
 INTERNAL COORDINATES (ANGSTROEM)
 --------------------------------
  C      0   0   0     0.000000000000     0.00000000     0.00000000
- C      1   0   0     1.472887418328     0.00000000     0.00000000
- C      2   1   0     1.398355366997   124.17324503     0.00000000
- C      3   2   1     1.418815468068   120.69706168   186.91351497
+ C      1   0   0     1.472887418331     0.00000000     0.00000000
+ C      2   1   0     1.398355366996   124.17324503     0.00000000
+ C      3   2   1     1.418815468069   120.69706168   186.91351498
  C      4   3   2     1.374374619941   121.05989969   178.03935113
- C      5   4   3     1.392537571630   120.50269669     1.56112537
+ C      5   4   3     1.392537571629   120.50269669     1.56112537
  C      6   5   4     1.392823491674   119.55324493   359.44501869
  C      7   6   5     1.374250469102   120.63445935   359.40369598
  C      1   2   3     1.398354317155   124.17335074    94.11434580
@@ -5022,52 +5022,52 @@ INTERNAL COORDINATES (ANGSTROEM)
  C     11  10   9     1.392823486468   120.63445525     0.74069730
  C     12  11  10     1.392536728650   119.55329353   359.40371420
  C     13  12  11     1.374374150488   120.50264735   359.44498521
- H      1   2   3     1.085260630327   117.70818981   275.96898759
- H      2   1   3     1.085260530034   117.70826231   181.85445191
+ H      1   2   3     1.085260630328   117.70818981   275.96898759
+ H      2   1   3     1.085260530036   117.70826231   181.85445191
  H      4   3   2     1.078995598712   118.68229590   358.71359706
  H      5   4   3     1.078749990232   119.74175278   181.07896523
  H      6   5   4     1.077821977903   120.21589947   180.10635297
  H      7   6   5     1.078802426788   119.71994537   179.88987253
  H      8   7   6     1.077993366890   120.49963778   181.72822857
- H     10   9   1     1.077993332552   118.56229478   359.85033098
- H     11  10   9     1.078802140570   119.64380377   180.25498183
- H     12  11  10     1.077821774709   120.22754257   178.74231273
- H     13  12  11     1.078750181219   119.75381546   179.92721662
+ H     10   9   1     1.077993332552   118.56229478   359.85033097
+ H     11  10   9     1.078802140571   119.64380377   180.25498183
+ H     12  11  10     1.077821774708   120.22754257   178.74231273
+ H     13  12  11     1.078750181219   119.75381546   179.92721661
  H     14  13  12     1.078995392483   120.25435660   180.87641243
 
 ---------------------------
 INTERNAL COORDINATES (A.U.)
 ---------------------------
  C      0   0   0     0.000000000000     0.00000000     0.00000000
- C      1   0   0     2.783353846738     0.00000000     0.00000000
- C      2   1   0     2.642508681524   124.17324503     0.00000000
- C      3   2   1     2.681172669220   120.69706168   186.91351497
- C      4   3   2     2.597191637101   121.05989969   178.03935113
+ C      1   0   0     2.783353846743     0.00000000     0.00000000
+ C      2   1   0     2.642508681522   124.17324503     0.00000000
+ C      3   2   1     2.681172669221   120.69706168   186.91351498
+ C      4   3   2     2.597191637100   121.05989969   178.03935113
  C      5   4   3     2.631514641576   120.50269669     1.56112537
- C      6   5   4     2.632054952156   119.55324493   359.44501869
+ C      6   5   4     2.632054952155   119.55324493   359.44501869
  C      7   6   5     2.596957026016   120.63445935   359.40369598
- C      1   2   3     2.642506697609   124.17335074    94.11434580
+ C      1   2   3     2.642506697610   124.17335074    94.11434580
  C      9   1   2     2.681492679724   122.00140614     6.30930596
- C     10   9   1     2.596955539651   120.93092047   180.81901875
- C     11  10   9     2.632054942319   120.63445525     0.74069730
+ C     10   9   1     2.596955539652   120.93092047   180.81901875
+ C     11  10   9     2.632054942318   120.63445525     0.74069730
  C     12  11  10     2.631513048574   119.55329353   359.40371420
- C     13  12  11     2.597190749964   120.50264735   359.44498521
- H      1   2   3     2.050845375245   117.70818981   275.96898759
- H      2   1   3     2.050845185719   117.70826231   181.85445191
- H      4   3   2     2.039006181272   118.68229590   358.71359706
- H      5   4   3     2.038542048508   119.74175278   181.07896523
- H      6   5   4     2.036788359357   120.21589947   180.10635297
- H      7   6   5     2.038641139238   119.71994537   179.88987253
- H      8   7   6     2.037112237605   120.49963778   181.72822857
- H     10   9   1     2.037112172716   118.56229478   359.85033098
- H     11  10   9     2.038640598366   119.64380377   180.25498183
- H     12  11  10     2.036787975376   120.22754257   178.74231273
- H     13  12  11     2.038542409423   119.75381546   179.92721662
+ C     13  12  11     2.597190749963   120.50264735   359.44498521
+ H      1   2   3     2.050845375246   117.70818981   275.96898759
+ H      2   1   3     2.050845185723   117.70826231   181.85445191
+ H      4   3   2     2.039006181271   118.68229590   358.71359706
+ H      5   4   3     2.038542048509   119.74175278   181.07896523
+ H      6   5   4     2.036788359358   120.21589947   180.10635297
+ H      7   6   5     2.038641139239   119.71994537   179.88987253
+ H      8   7   6     2.037112237606   120.49963778   181.72822857
+ H     10   9   1     2.037112172717   118.56229478   359.85033097
+ H     11  10   9     2.038640598367   119.64380377   180.25498183
+ H     12  11  10     2.036787975375   120.22754257   178.74231273
+ H     13  12  11     2.038542409422   119.75381546   179.92721661
  H     14  13  12     2.039005791556   120.25435660   180.87641243
 
-Calling /home/x_rompe/bin/oqp_orca_wrapper_python stilbene_TS_Compound_2_EXT.extinp.tmp -s 1  -b 6-31g*  > stilbene_TS_Compound_2.lastext ...  done
+Calling /home/x_rompe/bin/ExtOptORCA-OpenQP/oqp_orca_wrapper stilbene_TS_Compound_2_EXT.extinp.tmp -s 1 -b 6-31g*  > stilbene_TS_Compound_2.lastext ...  done
 
-External program completed successfully in 85.702 sec
+External program completed successfully in 58.384 sec
 ------------------------------------------------------------------------------
                          ORCA GEOMETRY RELAXATION STEP
 ------------------------------------------------------------------------------
@@ -5254,7 +5254,7 @@ New trust radius                        ....     0.100000000
           RMS gradient        0.0019867347            0.0001000000      NO
           MAX gradient        0.0096040933            0.0003000000      NO
           RMS step            0.0088045091            0.0020000000      NO
-          MAX step            0.0460622561            0.0040000000      NO
+          MAX step            0.0460622560            0.0040000000      NO
           ........................................................
           Max(Bonds)      0.0012      Max(Angles)    0.21
           Max(Dihed)        2.64      Max(Improp)    0.00
@@ -5401,19 +5401,19 @@ The optimization has not yet converged - more geometry cycles are needed
     ----------------------------------------------------------------------------
 
 Geometry step timings:
-Preparation and reading OPT file:      0.001 s (14.491 %)
-Internal coordinates            :      0.000 s ( 0.712 %)
-B/P matrices and projection     :      0.002 s (20.749 %)
-Hessian update/contruction      :      0.001 s ( 7.601 %)
-Making the step                 :      0.002 s (24.026 %)
-Converting the step to Cartesian:      0.000 s ( 1.840 %)
-Storing new data                :      0.000 s ( 0.645 %)
-Checking convergence            :      0.000 s ( 0.443 %)
-Final printing                  :      0.002 s (29.452 %)
-Total time                      :      0.007 s
+Preparation and reading OPT file:      0.001 s (14.052 %)
+Internal coordinates            :      0.000 s ( 0.610 %)
+B/P matrices and projection     :      0.002 s (22.309 %)
+Hessian update/contruction      :      0.001 s ( 7.963 %)
+Making the step                 :      0.002 s (25.731 %)
+Converting the step to Cartesian:      0.000 s ( 2.135 %)
+Storing new data                :      0.000 s ( 0.644 %)
+Checking convergence            :      0.000 s ( 0.384 %)
+Final printing                  :      0.002 s (26.138 %)
+Total time                      :      0.009 s
 
-Time for energy+gradient        :     85.704 s
-Time for complete geometry iter :     86.018 s
+Time for energy+gradient        :     58.385 s
+Time for complete geometry iter :     58.747 s
 
          *************************************************************
          *                GEOMETRY OPTIMIZATION CYCLE   7            *
@@ -5484,64 +5484,64 @@ INTERNAL COORDINATES (ANGSTROEM)
 --------------------------------
  C      0   0   0     0.000000000000     0.00000000     0.00000000
  C      1   0   0     1.471698871639     0.00000000     0.00000000
- C      2   1   0     1.399398486377   124.26960893     0.00000000
+ C      2   1   0     1.399398486378   124.26960892     0.00000000
  C      3   2   1     1.418637296868   120.69358144   185.17154970
- C      4   3   2     1.374347136135   121.09524266   178.53264922
- C      5   4   3     1.392762750251   120.47787267     1.19822995
+ C      4   3   2     1.374347136138   121.09524266   178.53264922
+ C      5   4   3     1.392762750251   120.47787267     1.19822994
  C      6   5   4     1.392448823072   119.54986369   359.55802002
- C      7   6   5     1.374824861367   120.64231342   359.53226284
+ C      7   6   5     1.374824861366   120.64231342   359.53226284
  C      1   2   3     1.399397550946   124.26967271    92.94474713
- C      9   1   2     1.418367296278   122.00916581     4.70463660
+ C      9   1   2     1.418367296278   122.00916581     4.70463661
  C     10   9   1     1.374824236289   120.92727804   180.56455253
- C     11  10   9     1.392448820503   120.64231238     0.62141736
- C     12  11  10     1.392762054318   119.54990402   359.53229024
+ C     11  10   9     1.392448820504   120.64231238     0.62141736
+ C     12  11  10     1.392762054317   119.54990402   359.53229024
  C     13  12  11     1.374346741161   120.47783001   359.55798069
- H      1   2   3     1.084803870924   117.83597521   274.06378619
- H      2   1   3     1.084803718137   117.83602727   181.11889720
+ H      1   2   3     1.084803870925   117.83597521   274.06378619
+ H      2   1   3     1.084803718136   117.83602727   181.11889720
  H      4   3   2     1.078950697646   118.68826775   359.03186897
- H      5   4   3     1.078638148273   119.74495847   180.83294472
+ H      5   4   3     1.078638148272   119.74495847   180.83294472
  H      6   5   4     1.077754576235   120.21569370   180.07723829
- H      7   6   5     1.078692623660   119.73294039   179.93445596
+ H      7   6   5     1.078692623661   119.73294039   179.93445596
  H      8   7   6     1.077776861338   120.46135127   181.42595838
- H     10   9   1     1.077776822138   118.60662580   359.77470280
+ H     10   9   1     1.077776822138   118.60662580   359.77470279
  H     11  10   9     1.078692404402   119.62351702   180.21973667
  H     12  11  10     1.077754444883   120.23240398   179.01299579
  H     13  12  11     1.078638338007   119.77617336   179.92339051
- H     14  13  12     1.078950545736   120.21460389   180.69150135
+ H     14  13  12     1.078950545737   120.21460389   180.69150135
 
 ---------------------------
 INTERNAL COORDINATES (A.U.)
 ---------------------------
  C      0   0   0     0.000000000000     0.00000000     0.00000000
- C      1   0   0     2.781107818998     0.00000000     0.00000000
- C      2   1   0     2.644479891477   124.26960893     0.00000000
+ C      1   0   0     2.781107818999     0.00000000     0.00000000
+ C      2   1   0     2.644479891478   124.26960892     0.00000000
  C      3   2   1     2.680835974447   120.69358144   185.17154970
- C      4   3   2     2.597139700235   121.09524266   178.53264922
- C      5   4   3     2.631940167501   120.47787267     1.19822995
+ C      4   3   2     2.597139700239   121.09524266   178.53264922
+ C      5   4   3     2.631940167501   120.47787267     1.19822994
  C      6   5   4     2.631346931107   119.54986369   359.55802002
- C      7   6   5     2.598042470090   120.64231342   359.53226284
+ C      7   6   5     2.598042470089   120.64231342   359.53226284
  C      1   2   3     2.644478123768   124.26967271    92.94474713
- C      9   1   2     2.680325747277   122.00916581     4.70463660
+ C      9   1   2     2.680325747276   122.00916581     4.70463661
  C     10   9   1     2.598041288864   120.92727804   180.56455253
- C     11  10   9     2.631346926253   120.64231238     0.62141736
- C     12  11  10     2.631938852378   119.54990402   359.53229024
- C     13  12  11     2.597138953842   120.47783001   359.55798069
- H      1   2   3     2.049982225064   117.83597521   274.06378619
- H      2   1   3     2.049981936338   117.83602727   181.11889720
+ C     11  10   9     2.631346926254   120.64231238     0.62141736
+ C     12  11  10     2.631938852377   119.54990402   359.53229024
+ C     13  12  11     2.597138953841   120.47783001   359.55798069
+ H      1   2   3     2.049982225066   117.83597521   274.06378619
+ H      2   1   3     2.049981936336   117.83602727   181.11889720
  H      4   3   2     2.038921330554   118.68826775   359.03186897
- H      5   4   3     2.038330697835   119.74495847   180.83294472
+ H      5   4   3     2.038330697834   119.74495847   180.83294472
  H      6   5   4     2.036660988664   120.21569370   180.07723829
  H      7   6   5     2.038433641399   119.73294039   179.93445596
- H      8   7   6     2.036703101406   120.46135127   181.42595838
- H     10   9   1     2.036703027328   118.60662580   359.77470280
+ H      8   7   6     2.036703101407   120.46135127   181.42595838
+ H     10   9   1     2.036703027328   118.60662580   359.77470279
  H     11  10   9     2.038433227061   119.62351702   180.21973667
  H     12  11  10     2.036660740445   120.23240398   179.01299579
- H     13  12  11     2.038331056380   119.77617336   179.92339051
+ H     13  12  11     2.038331056381   119.77617336   179.92339051
  H     14  13  12     2.038921043487   120.21460389   180.69150135
 
-Calling /home/x_rompe/bin/oqp_orca_wrapper_python stilbene_TS_Compound_2_EXT.extinp.tmp -s 1  -b 6-31g*  > stilbene_TS_Compound_2.lastext ...  done
+Calling /home/x_rompe/bin/ExtOptORCA-OpenQP/oqp_orca_wrapper stilbene_TS_Compound_2_EXT.extinp.tmp -s 1 -b 6-31g*  > stilbene_TS_Compound_2.lastext ...  done
 
-External program completed successfully in 87.324 sec
+External program completed successfully in 57.349 sec
 ------------------------------------------------------------------------------
                          ORCA GEOMETRY RELAXATION STEP
 ------------------------------------------------------------------------------
@@ -5875,19 +5875,19 @@ The optimization has not yet converged - more geometry cycles are needed
     ----------------------------------------------------------------------------
 
 Geometry step timings:
-Preparation and reading OPT file:      0.001 s (14.541 %)
-Internal coordinates            :      0.000 s ( 0.724 %)
-B/P matrices and projection     :      0.001 s (20.207 %)
-Hessian update/contruction      :      0.001 s ( 8.179 %)
-Making the step                 :      0.002 s (24.041 %)
-Converting the step to Cartesian:      0.000 s ( 1.775 %)
-Storing new data                :      0.000 s ( 0.625 %)
-Checking convergence            :      0.000 s ( 0.341 %)
-Final printing                  :      0.002 s (29.537 %)
-Total time                      :      0.007 s
+Preparation and reading OPT file:      0.001 s (13.608 %)
+Internal coordinates            :      0.000 s ( 0.640 %)
+B/P matrices and projection     :      0.002 s (23.293 %)
+Hessian update/contruction      :      0.001 s ( 9.096 %)
+Making the step                 :      0.002 s (24.654 %)
+Converting the step to Cartesian:      0.000 s ( 2.073 %)
+Storing new data                :      0.000 s ( 0.671 %)
+Checking convergence            :      0.000 s ( 0.376 %)
+Final printing                  :      0.003 s (25.569 %)
+Total time                      :      0.010 s
 
-Time for energy+gradient        :     87.326 s
-Time for complete geometry iter :     87.640 s
+Time for energy+gradient        :     57.351 s
+Time for complete geometry iter :     57.726 s
 
          *************************************************************
          *                GEOMETRY OPTIMIZATION CYCLE   8            *
@@ -5957,27 +5957,27 @@ CARTESIAN COORDINATES (A.U.)
 INTERNAL COORDINATES (ANGSTROEM)
 --------------------------------
  C      0   0   0     0.000000000000     0.00000000     0.00000000
- C      1   0   0     1.469624563671     0.00000000     0.00000000
+ C      1   0   0     1.469624563672     0.00000000     0.00000000
  C      2   1   0     1.400658569465   124.44649103     0.00000000
- C      3   2   1     1.418319452296   120.64537657   183.28016964
- C      4   3   2     1.374411240114   121.12458303   178.99159491
+ C      3   2   1     1.418319452297   120.64537657   183.28016964
+ C      4   3   2     1.374411240113   121.12458303   178.99159491
  C      5   4   3     1.392858548335   120.45456797     0.83756010
  C      6   5   4     1.392138072011   119.54629332   359.67384989
  C      7   6   5     1.375336987978   120.64837151   359.67379106
  C      1   2   3     1.400657814602   124.44654400    92.08350901
  C      9   1   2     1.417727934582   122.05503694     2.93762580
- C     10   9   1     1.375336547140   120.92170779   180.36111749
- C     11  10   9     1.392138079558   120.64837046     0.46787279
+ C     10   9   1     1.375336547139   120.92170779   180.36111749
+ C     11  10   9     1.392138079559   120.64837046     0.46787279
  C     12  11  10     1.392858059839   119.54632306   359.67381227
- C     13  12  11     1.374410944364   120.45453694   359.67382556
- H      1   2   3     1.084341103062   117.90035515   272.36374584
- H      2   1   3     1.084341006146   117.90039070   180.28015417
+ C     13  12  11     1.374410944366   120.45453694   359.67382556
+ H      1   2   3     1.084341103061   117.90035515   272.36374585
+ H      2   1   3     1.084341006147   117.90039070   180.28015417
  H      4   3   2     1.078903157758   118.69712928   359.32354297
- H      5   4   3     1.078539272714   119.74488147   180.57915674
+ H      5   4   3     1.078539272715   119.74488147   180.57915674
  H      6   5   4     1.077698169786   120.21608358   180.04459121
  H      7   6   5     1.078591747942   119.74411418   179.97546637
- H      8   7   6     1.077583686082   120.41854412   181.09100363
- H     10   9   1     1.077583655827   118.65689868   359.74879057
+ H      8   7   6     1.077583686082   120.41854411   181.09100363
+ H     10   9   1     1.077583655828   118.65689868   359.74879057
  H     11  10   9     1.078591600238   119.60682088   180.16666122
  H     12  11  10     1.077698099931   120.23658581   179.30300164
  H     13  12  11     1.078539425590   119.80005242   179.93237448
@@ -5987,35 +5987,35 @@ INTERNAL COORDINATES (ANGSTROEM)
 INTERNAL COORDINATES (A.U.)
 ---------------------------
  C      0   0   0     0.000000000000     0.00000000     0.00000000
- C      1   0   0     2.777187945022     0.00000000     0.00000000
+ C      1   0   0     2.777187945023     0.00000000     0.00000000
  C      2   1   0     2.646861103418   124.44649103     0.00000000
- C      3   2   1     2.680235335253   120.64537657   183.28016964
- C      4   3   2     2.597260839198   121.12458303   178.99159491
+ C      3   2   1     2.680235335254   120.64537657   183.28016964
+ C      4   3   2     2.597260839196   121.12458303   178.99159491
  C      5   4   3     2.632121199645   120.45456797     0.83756010
  C      6   5   4     2.630759696706   119.54629332   359.67384989
  C      7   6   5     2.599010249130   120.64837151   359.67379106
- C      1   2   3     2.646859676935   124.44654400    92.08350901
+ C      1   2   3     2.646859676934   124.44654400    92.08350901
  C      9   1   2     2.679117528770   122.05503694     2.93762580
- C     10   9   1     2.599009416068   120.92170779   180.36111749
- C     11  10   9     2.630759710968   120.64837046     0.46787279
- C     12  11  10     2.632120276521   119.54632306   359.67381227
- C     13  12  11     2.597260280313   120.45453694   359.67382556
- H      1   2   3     2.049107720541   117.90035515   272.36374584
- H      2   1   3     2.049107537397   117.90039070   180.28015417
- H      4   3   2     2.038831493185   118.69712928   359.32354297
- H      5   4   3     2.038143850108   119.74488147   180.57915674
- H      6   5   4     2.036554395923   120.21608358   180.04459121
+ C     10   9   1     2.599009416066   120.92170779   180.36111749
+ C     11  10   9     2.630759710970   120.64837046     0.46787279
+ C     12  11  10     2.632120276520   119.54632306   359.67381227
+ C     13  12  11     2.597260280315   120.45453694   359.67382556
+ H      1   2   3     2.049107720539   117.90035515   272.36374585
+ H      2   1   3     2.049107537399   117.90039070   180.28015417
+ H      4   3   2     2.038831493186   118.69712928   359.32354297
+ H      5   4   3     2.038143850109   119.74488147   180.57915674
+ H      6   5   4     2.036554395924   120.21608358   180.04459121
  H      7   6   5     2.038243013918   119.74411418   179.97546637
- H      8   7   6     2.036338053076   120.41854412   181.09100363
- H     10   9   1     2.036337995904   118.65689868   359.74879057
- H     11  10   9     2.038242734798   119.60682088   180.16666122
+ H      8   7   6     2.036338053075   120.41854411   181.09100363
+ H     10   9   1     2.036337995905   118.65689868   359.74879057
+ H     11  10   9     2.038242734797   119.60682088   180.16666122
  H     12  11  10     2.036554263916   120.23658581   179.30300164
  H     13  12  11     2.038144139002   119.80005242   179.93237448
  H     14  13  12     2.038831298104   120.17745661   180.50077535
 
-Calling /home/x_rompe/bin/oqp_orca_wrapper_python stilbene_TS_Compound_2_EXT.extinp.tmp -s 1  -b 6-31g*  > stilbene_TS_Compound_2.lastext ...  done
+Calling /home/x_rompe/bin/ExtOptORCA-OpenQP/oqp_orca_wrapper stilbene_TS_Compound_2_EXT.extinp.tmp -s 1 -b 6-31g*  > stilbene_TS_Compound_2.lastext ...  done
 
-External program completed successfully in 86.656 sec
+External program completed successfully in 71.457 sec
 ------------------------------------------------------------------------------
                          ORCA GEOMETRY RELAXATION STEP
 ------------------------------------------------------------------------------
@@ -6191,7 +6191,7 @@ Storing new coordinates                 .... done
 The predicted energy change is          ....    -0.000012020
 Previously predicted energy change      ....     0.000110982
 Actually observed energy change         ....     0.000091640
-Ratio of predicted to observed change   ....     0.825721323
+Ratio of predicted to observed change   ....     0.825721316
 New trust radius                        ....     0.100000000
 
                                 .--------------------.
@@ -6202,7 +6202,7 @@ New trust radius                        ....     0.100000000
           RMS gradient        0.0010605725            0.0001000000      NO
           MAX gradient        0.0052372156            0.0003000000      NO
           RMS step            0.0088045091            0.0020000000      NO
-          MAX step            0.0433188352            0.0040000000      NO
+          MAX step            0.0433188353            0.0040000000      NO
           ........................................................
           Max(Bonds)      0.0031      Max(Angles)    0.27
           Max(Dihed)        2.48      Max(Improp)    0.00
@@ -6349,19 +6349,19 @@ The optimization has not yet converged - more geometry cycles are needed
     ----------------------------------------------------------------------------
 
 Geometry step timings:
-Preparation and reading OPT file:      0.001 s (15.831 %)
-Internal coordinates            :      0.000 s ( 0.702 %)
-B/P matrices and projection     :      0.002 s (20.477 %)
-Hessian update/contruction      :      0.001 s ( 7.571 %)
-Making the step                 :      0.002 s (23.772 %)
-Converting the step to Cartesian:      0.000 s ( 1.827 %)
-Storing new data                :      0.000 s ( 0.635 %)
-Checking convergence            :      0.000 s ( 0.371 %)
-Final printing                  :      0.002 s (28.789 %)
-Total time                      :      0.008 s
+Preparation and reading OPT file:      0.001 s (13.003 %)
+Internal coordinates            :      0.000 s ( 0.637 %)
+B/P matrices and projection     :      0.002 s (23.139 %)
+Hessian update/contruction      :      0.001 s ( 6.844 %)
+Making the step                 :      0.003 s (25.813 %)
+Converting the step to Cartesian:      0.000 s ( 2.307 %)
+Storing new data                :      0.000 s ( 0.695 %)
+Checking convergence            :      0.000 s ( 0.415 %)
+Final printing                  :      0.003 s (27.117 %)
+Total time                      :      0.010 s
 
-Time for energy+gradient        :     86.660 s
-Time for complete geometry iter :     86.974 s
+Time for energy+gradient        :     71.459 s
+Time for complete geometry iter :     71.820 s
 
          *************************************************************
          *                GEOMETRY OPTIMIZATION CYCLE   9            *
@@ -6431,29 +6431,29 @@ CARTESIAN COORDINATES (A.U.)
 INTERNAL COORDINATES (ANGSTROEM)
 --------------------------------
  C      0   0   0     0.000000000000     0.00000000     0.00000000
- C      1   0   0     1.466507117766     0.00000000     0.00000000
- C      2   1   0     1.402345430596   124.70498178     0.00000000
- C      3   2   1     1.417724749715   120.57106280   181.29069334
- C      4   3   2     1.374628264837   121.14924358   179.44334623
- C      5   4   3     1.392783226872   120.43115910     0.48449287
- C      6   5   4     1.391894932210   119.54122090   359.78637637
- C      7   6   5     1.375788922105   120.65147304   359.82011201
- C      1   2   3     1.402344935161   124.70499638    91.47816076
- C      9   1   2     1.417004639347   122.11840769     1.07883644
- C     10   9   1     1.375788678592   120.91476085   180.16639514
- C     11  10   9     1.391894944204   120.65147345     0.30335430
- C     12  11  10     1.392782951433   119.54123883   359.82013234
+ C      1   0   0     1.466507117773     0.00000000     0.00000000
+ C      2   1   0     1.402345430592   124.70498178     0.00000000
+ C      3   2   1     1.417724749720   120.57106280   181.29069334
+ C      4   3   2     1.374628264838   121.14924358   179.44334624
+ C      5   4   3     1.392783226873   120.43115910     0.48449287
+ C      6   5   4     1.391894932209   119.54122090   359.78637637
+ C      7   6   5     1.375788922106   120.65147304   359.82011201
+ C      1   2   3     1.402344935156   124.70499638    91.47816077
+ C      9   1   2     1.417004639349   122.11840769     1.07883644
+ C     10   9   1     1.375788678593   120.91476085   180.16639514
+ C     11  10   9     1.391894944205   120.65147345     0.30335430
+ C     12  11  10     1.392782951434   119.54123883   359.82013234
  C     13  12  11     1.374628081084   120.43113934   359.78635492
- H      1   2   3     1.083952097798   117.91382721   270.81864436
- H      2   1   3     1.083952008458   117.91384084   179.34045498
- H      4   3   2     1.078863463533   118.71048133   359.61215946
- H      5   4   3     1.078443759145   119.74151607   180.32295238
- H      6   5   4     1.077647030773   120.21868996   180.00226324
+ H      1   2   3     1.083952097802   117.91382721   270.81864436
+ H      2   1   3     1.083952008461   117.91384084   179.34045497
+ H      4   3   2     1.078863463534   118.71048133   359.61215946
+ H      5   4   3     1.078443759144   119.74151607   180.32295238
+ H      6   5   4     1.077647030772   120.21868996   180.00226324
  H      7   6   5     1.078497793210   119.75599150   180.01566307
- H      8   7   6     1.077411866182   120.37084339   180.73759212
- H     10   9   1     1.077411843322   118.71301337   359.73924118
- H     11  10   9     1.078497717337   119.59224208   180.10815372
- H     12  11  10     1.077647014496   120.23973967   179.60420632
+ H      8   7   6     1.077411866183   120.37084339   180.73759212
+ H     10   9   1     1.077411843322   118.71301337   359.73924117
+ H     11  10   9     1.078497717338   119.59224208   180.10815372
+ H     12  11  10     1.077647014497   120.23973967   179.60420632
  H     13  12  11     1.078443864346   119.82713049   179.94803772
  H     14  13  12     1.078863406808   120.14006237   180.31331157
 
@@ -6461,35 +6461,35 @@ INTERNAL COORDINATES (ANGSTROEM)
 INTERNAL COORDINATES (A.U.)
 ---------------------------
  C      0   0   0     0.000000000000     0.00000000     0.00000000
- C      1   0   0     2.771296826024     0.00000000     0.00000000
- C      2   1   0     2.650048808982   124.70498178     0.00000000
- C      3   2   1     2.679111510243   120.57106280   181.29069334
- C      4   3   2     2.597670956489   121.14924358   179.44334623
- C      5   4   3     2.631978862707   120.43115910     0.48449287
+ C      1   0   0     2.771296826037     0.00000000     0.00000000
+ C      2   1   0     2.650048808974   124.70498178     0.00000000
+ C      3   2   1     2.679111510253   120.57106280   181.29069334
+ C      4   3   2     2.597670956490   121.14924358   179.44334624
+ C      5   4   3     2.631978862709   120.43115910     0.48449287
  C      6   5   4     2.630300229069   119.54122090   359.78637637
- C      7   6   5     2.599864280861   120.65147304   359.82011201
- C      1   2   3     2.650047872746   124.70499638    91.47816076
- C      9   1   2     2.677750698863   122.11840769     1.07883644
- C     10   9   1     2.599863820688   120.91476085   180.16639514
- C     11  10   9     2.630300251736   120.65147345     0.30335430
- C     12  11  10     2.631978342204   119.54123883   359.82013234
+ C      7   6   5     2.599864280863   120.65147304   359.82011201
+ C      1   2   3     2.650047872736   124.70499638    91.47816077
+ C      9   1   2     2.677750698865   122.11840769     1.07883644
+ C     10   9   1     2.599863820690   120.91476085   180.16639514
+ C     11  10   9     2.630300251737   120.65147345     0.30335430
+ C     12  11  10     2.631978342205   119.54123883   359.82013234
  C     13  12  11     2.597670609247   120.43113934   359.78635492
- H      1   2   3     2.048372607128   117.91382721   270.81864436
- H      2   1   3     2.048372438299   117.91384084   179.34045498
- H      4   3   2     2.038756481972   118.71048133   359.61215946
- H      5   4   3     2.037963355621   119.74151607   180.32295238
- H      6   5   4     2.036457757194   120.21868996   180.00226324
+ H      1   2   3     2.048372607135   117.91382721   270.81864436
+ H      2   1   3     2.048372438304   117.91384084   179.34045497
+ H      4   3   2     2.038756481973   118.71048133   359.61215946
+ H      5   4   3     2.037963355619   119.74151607   180.32295238
+ H      6   5   4     2.036457757193   120.21868996   180.00226324
  H      7   6   5     2.038065465205   119.75599150   180.01566307
- H      8   7   6     2.036013360521   120.37084339   180.73759212
- H     10   9   1     2.036013317321   118.71301337   359.73924118
- H     11  10   9     2.038065321827   119.59224208   180.10815372
+ H      8   7   6     2.036013360522   120.37084339   180.73759212
+ H     10   9   1     2.036013317322   118.71301337   359.73924117
+ H     11  10   9     2.038065321828   119.59224208   180.10815372
  H     12  11  10     2.036457726436   120.23973967   179.60420632
  H     13  12  11     2.037963554422   119.82713049   179.94803772
  H     14  13  12     2.038756374776   120.14006237   180.31331157
 
-Calling /home/x_rompe/bin/oqp_orca_wrapper_python stilbene_TS_Compound_2_EXT.extinp.tmp -s 1  -b 6-31g*  > stilbene_TS_Compound_2.lastext ...  done
+Calling /home/x_rompe/bin/ExtOptORCA-OpenQP/oqp_orca_wrapper stilbene_TS_Compound_2_EXT.extinp.tmp -s 1 -b 6-31g*  > stilbene_TS_Compound_2.lastext ...  done
 
-External program completed successfully in 86.789 sec
+External program completed successfully in 70.307 sec
 ------------------------------------------------------------------------------
                          ORCA GEOMETRY RELAXATION STEP
 ------------------------------------------------------------------------------
@@ -6665,7 +6665,7 @@ Storing new coordinates                 .... done
 The predicted energy change is          ....    -0.000062553
 Previously predicted energy change      ....    -0.000012020
 Actually observed energy change         ....    -0.000045150
-Ratio of predicted to observed change   ....     3.756209601
+Ratio of predicted to observed change   ....     3.756209289
 New trust radius                        ....     0.100000000
 
                                 .--------------------.
@@ -6823,19 +6823,19 @@ The optimization has not yet converged - more geometry cycles are needed
     ----------------------------------------------------------------------------
 
 Geometry step timings:
-Preparation and reading OPT file:      0.001 s (15.617 %)
-Internal coordinates            :      0.000 s ( 0.731 %)
-B/P matrices and projection     :      0.001 s (20.651 %)
-Hessian update/contruction      :      0.001 s ( 7.758 %)
-Making the step                 :      0.002 s (23.204 %)
-Converting the step to Cartesian:      0.000 s ( 1.793 %)
-Storing new data                :      0.000 s ( 0.631 %)
-Checking convergence            :      0.000 s ( 0.359 %)
-Final printing                  :      0.002 s (29.213 %)
-Total time                      :      0.007 s
+Preparation and reading OPT file:      0.001 s (13.277 %)
+Internal coordinates            :      0.000 s ( 0.624 %)
+B/P matrices and projection     :      0.002 s (22.162 %)
+Hessian update/contruction      :      0.001 s ( 7.022 %)
+Making the step                 :      0.002 s (25.018 %)
+Converting the step to Cartesian:      0.000 s ( 2.201 %)
+Storing new data                :      0.000 s ( 0.665 %)
+Checking convergence            :      0.000 s ( 0.399 %)
+Final printing                  :      0.003 s (28.570 %)
+Total time                      :      0.010 s
 
-Time for energy+gradient        :     86.793 s
-Time for complete geometry iter :     87.106 s
+Time for energy+gradient        :     70.309 s
+Time for complete geometry iter :     70.672 s
 
          *************************************************************
          *                GEOMETRY OPTIMIZATION CYCLE  10            *
@@ -6905,65 +6905,65 @@ CARTESIAN COORDINATES (A.U.)
 INTERNAL COORDINATES (ANGSTROEM)
 --------------------------------
  C      0   0   0     0.000000000000     0.00000000     0.00000000
- C      1   0   0     1.462207319047     0.00000000     0.00000000
- C      2   1   0     1.404614418709   125.04896223     0.00000000
- C      3   2   1     1.416784286922   120.46304446   179.17725812
- C      4   3   2     1.375046286457   121.16623676   179.89968282
+ C      1   0   0     1.462207319058     0.00000000     0.00000000
+ C      2   1   0     1.404614418706   125.04896223     0.00000000
+ C      3   2   1     1.416784286926   120.46304446   179.17725812
+ C      4   3   2     1.375046286458   121.16623676   179.89968282
  C      5   4   3     1.392486118922   120.40735279     0.13743800
  C      6   5   4     1.391730121129   119.53520489   359.88993176
- C      7   6   5     1.376178724139   120.64944315   359.96790111
- C      1   2   3     1.404614196812   125.04898774    91.24715173
- C      9   1   2     1.416108790782   122.20197325   359.09686655
+ C      7   6   5     1.376178724140   120.64944315   359.96790110
+ C      1   2   3     1.404614196809   125.04898774    91.24715174
+ C      9   1   2     1.416108790783   122.20197325   359.09686656
  C     10   9   1     1.376178657830   120.90657980   179.95968626
- C     11  10   9     1.391730126114   120.64944218     0.14733471
+ C     11  10   9     1.391730126115   120.64944218     0.14733471
  C     12  11  10     1.392486024722   119.53521335   359.96790982
- C     13  12  11     1.375046231243   120.40734495   359.88993118
+ C     13  12  11     1.375046231241   120.40734495   359.88993118
  H      1   2   3     1.083636986445   117.85984603   269.51542832
- H      2   1   3     1.083636957113   117.85986004   178.26826589
- H      4   3   2     1.078819255921   118.72951307   359.89874226
+ H      2   1   3     1.083636957110   117.85986004   178.26826589
+ H      4   3   2     1.078819255920   118.72951307   359.89874226
  H      5   4   3     1.078351301841   119.73446502   180.06638821
  H      6   5   4     1.077601830017   120.22271414   179.96254091
- H      7   6   5     1.078406237874   119.76902987   180.06634490
- H      8   7   6     1.077278901634   120.31824193   180.40084825
- H     10   9   1     1.077278895582   118.77470344   359.71001593
+ H      7   6   5     1.078406237875   119.76902987   180.06634490
+ H      8   7   6     1.077278901635   120.31824193   180.40084825
+ H     10   9   1     1.077278895583   118.77470344   359.71001593
  H     11  10   9     1.078406221552   119.58145324   180.04908574
  H     12  11  10     1.077601850281   120.24204192   179.89529030
- H     13  12  11     1.078351355103   119.85814409   179.96106453
+ H     13  12  11     1.078351355105   119.85814409   179.96106453
  H     14  13  12     1.078819254467   120.10425336   180.13839734
 
 ---------------------------
 INTERNAL COORDINATES (A.U.)
 ---------------------------
  C      0   0   0     0.000000000000     0.00000000     0.00000000
- C      1   0   0     2.763171384014     0.00000000     0.00000000
- C      2   1   0     2.654336575116   125.04896223     0.00000000
- C      3   2   1     2.677334293125   120.46304446   179.17725812
+ C      1   0   0     2.763171384034     0.00000000     0.00000000
+ C      2   1   0     2.654336575112   125.04896223     0.00000000
+ C      3   2   1     2.677334293134   120.46304446   179.17725812
  C      4   3   2     2.598460902870   121.16623676   179.89968282
- C      5   4   3     2.631417410049   120.40735279     0.13743800
+ C      5   4   3     2.631417410050   120.40735279     0.13743800
  C      6   5   4     2.629988781263   119.53520489   359.88993176
- C      7   6   5     2.600600899952   120.64944315   359.96790111
- C      1   2   3     2.654336155792   125.04898774    91.24715173
- C      9   1   2     2.676057790416   122.20197325   359.09686655
+ C      7   6   5     2.600600899954   120.64944315   359.96790110
+ C      1   2   3     2.654336155786   125.04898774    91.24715174
+ C      9   1   2     2.676057790419   122.20197325   359.09686656
  C     10   9   1     2.600600774645   120.90657980   179.95968626
- C     11  10   9     2.629988790683   120.64944218     0.14733471
- C     12  11  10     2.631417232038   119.53521335   359.96790982
- C     13  12  11     2.598460798530   120.40734495   359.88993118
- H      1   2   3     2.047777132970   117.85984603   269.51542832
- H      2   1   3     2.047777077538   117.85986004   178.26826589
+ C     11  10   9     2.629988790685   120.64944218     0.14733471
+ C     12  11  10     2.631417232037   119.53521335   359.96790982
+ C     13  12  11     2.598460798526   120.40734495   359.88993118
+ H      1   2   3     2.047777132968   117.85984603   269.51542832
+ H      2   1   3     2.047777077534   117.85986004   178.26826589
  H      4   3   2     2.038672941690   118.72951307   359.89874226
- H      5   4   3     2.037788636636   119.73446502   180.06638821
+ H      5   4   3     2.037788636637   119.73446502   180.06638821
  H      6   5   4     2.036372340144   120.22271414   179.96254091
- H      7   6   5     2.037892450695   119.76902987   180.06634490
- H      8   7   6     2.035762093940   120.31824193   180.40084825
- H     10   9   1     2.035762082503   118.77470344   359.71001593
+ H      7   6   5     2.037892450696   119.76902987   180.06634490
+ H      8   7   6     2.035762093942   120.31824193   180.40084825
+ H     10   9   1     2.035762082504   118.77470344   359.71001593
  H     11  10   9     2.037892419850   119.58145324   180.04908574
  H     12  11  10     2.036372378439   120.24204192   179.89529030
- H     13  12  11     2.037788737288   119.85814409   179.96106453
- H     14  13  12     2.038672938943   120.10425336   180.13839734
+ H     13  12  11     2.037788737291   119.85814409   179.96106453
+ H     14  13  12     2.038672938944   120.10425336   180.13839734
 
-Calling /home/x_rompe/bin/oqp_orca_wrapper_python stilbene_TS_Compound_2_EXT.extinp.tmp -s 1  -b 6-31g*  > stilbene_TS_Compound_2.lastext ...  done
+Calling /home/x_rompe/bin/ExtOptORCA-OpenQP/oqp_orca_wrapper stilbene_TS_Compound_2_EXT.extinp.tmp -s 1 -b 6-31g*  > stilbene_TS_Compound_2.lastext ...  done
 
-External program completed successfully in 91.182 sec
+External program completed successfully in 64.640 sec
 ------------------------------------------------------------------------------
                          ORCA GEOMETRY RELAXATION STEP
 ------------------------------------------------------------------------------
@@ -7070,7 +7070,7 @@ TS mode is mode number   0 with eigenvalue  -0.06657409 and components:
   76.   -0.03962005
   77.   -0.00348263
   78.   -0.00924966
-  79.    0.00593562
+  79.    0.00593561
   80.    0.00871809
   81.   -0.00646718
   82.   -0.00220096
@@ -7148,7 +7148,7 @@ New trust radius                        ....     0.100000000
           RMS gradient        0.0001780048            0.0001000000      NO
           MAX gradient        0.0006660299            0.0003000000      NO
           RMS step            0.0035293980            0.0020000000      NO
-          MAX step            0.0164625392            0.0040000000      NO
+          MAX step            0.0164625393            0.0040000000      NO
           ........................................................
           Max(Bonds)      0.0019      Max(Angles)    0.20
           Max(Dihed)        0.94      Max(Improp)    0.00
@@ -7295,19 +7295,19 @@ The optimization has not yet converged - more geometry cycles are needed
     ----------------------------------------------------------------------------
 
 Geometry step timings:
-Preparation and reading OPT file:      0.001 s (14.333 %)
-Internal coordinates            :      0.000 s ( 0.703 %)
-B/P matrices and projection     :      0.002 s (20.406 %)
-Hessian update/contruction      :      0.001 s ( 8.632 %)
-Making the step                 :      0.002 s (23.575 %)
-Converting the step to Cartesian:      0.000 s ( 1.750 %)
-Storing new data                :      0.000 s ( 0.650 %)
-Checking convergence            :      0.000 s ( 0.358 %)
-Final printing                  :      0.002 s (29.568 %)
-Total time                      :      0.008 s
+Preparation and reading OPT file:      0.001 s (12.871 %)
+Internal coordinates            :      0.000 s ( 0.631 %)
+B/P matrices and projection     :      0.002 s (22.332 %)
+Hessian update/contruction      :      0.001 s ( 8.982 %)
+Making the step                 :      0.003 s (25.399 %)
+Converting the step to Cartesian:      0.000 s ( 2.045 %)
+Storing new data                :      0.000 s ( 0.678 %)
+Checking convergence            :      0.000 s ( 0.392 %)
+Final printing                  :      0.003 s (26.641 %)
+Total time                      :      0.010 s
 
-Time for energy+gradient        :     91.184 s
-Time for complete geometry iter :     91.597 s
+Time for energy+gradient        :     64.642 s
+Time for complete geometry iter :     65.020 s
 
          *************************************************************
          *                GEOMETRY OPTIMIZATION CYCLE  11            *
@@ -7377,65 +7377,65 @@ CARTESIAN COORDINATES (A.U.)
 INTERNAL COORDINATES (ANGSTROEM)
 --------------------------------
  C      0   0   0     0.000000000000     0.00000000     0.00000000
- C      1   0   0     1.460269328268     0.00000000     0.00000000
- C      2   1   0     1.405753483936   125.24443488     0.00000000
+ C      1   0   0     1.460269328275     0.00000000     0.00000000
+ C      2   1   0     1.405753483934   125.24443488     0.00000000
  C      3   2   1     1.416249239086   120.40448072   178.23462048
- C      4   3   2     1.375310904414   121.16797087   180.05534316
+ C      4   3   2     1.375310904412   121.16797087   180.05534317
  C      5   4   3     1.392247064869   120.39962430     0.03084644
- C      6   5   4     1.391722311892   119.53244280   359.91560803
+ C      6   5   4     1.391722311891   119.53244280   359.91560803
  C      7   6   5     1.376275550102   120.64543393     0.00000000
- C      1   2   3     1.405753442281   125.24441194    91.52304009
- C      9   1   2     1.415709452589   122.24483688   358.19647225
- C     10   9   1     1.376275543508   120.90363376   179.87221876
- C     11  10   9     1.391722316102   120.64543485     0.11614052
- C     12  11  10     1.392247021770   119.53244539     0.00000000
- C     13  12  11     1.375310893960   120.39962005   359.91559534
- H      1   2   3     1.083556315958   117.77463176   269.25886901
- H      2   1   3     1.083556243913   117.77461953   177.73584686
- H      4   3   2     1.078801095164   118.73715324     0.00000000
+ C      1   2   3     1.405753442278   125.24441194    91.52304009
+ C      9   1   2     1.415709452591   122.24483688   358.19647225
+ C     10   9   1     1.376275543507   120.90363376   179.87221876
+ C     11  10   9     1.391722316103   120.64543485     0.11614052
+ C     12  11  10     1.392247021771   119.53244539     0.00000000
+ C     13  12  11     1.375310893962   120.39962005   359.91559534
+ H      1   2   3     1.083556315955   117.77463176   269.25886901
+ H      2   1   3     1.083556243915   117.77461953   177.73584686
+ H      4   3   2     1.078801095165   118.73715324     0.00000000
  H      5   4   3     1.078322650751   119.73068595   179.98407531
  H      6   5   4     1.077588250294   120.22452275   179.96462019
- H      7   6   5     1.078378496886   119.77389718   180.09493519
- H      8   7   6     1.077261697323   120.29874837   180.33244742
+ H      7   6   5     1.078378496887   119.77389718   180.09493519
+ H      8   7   6     1.077261697321   120.29874837   180.33244742
  H     10   9   1     1.077261692833   118.79727768   359.65910028
  H     11  10   9     1.078378500127   119.58061535   180.03238899
  H     12  11  10     1.077588270618   120.24301716   179.96201203
- H     13  12  11     1.078322678655   119.86967348   179.96243500
- H     14  13  12     1.078801096586   120.09484315   180.09890450
+ H     13  12  11     1.078322678654   119.86967348   179.96243500
+ H     14  13  12     1.078801096586   120.09484315   180.09890449
 
 ---------------------------
 INTERNAL COORDINATES (A.U.)
 ---------------------------
  C      0   0   0     0.000000000000     0.00000000     0.00000000
- C      1   0   0     2.759509112192     0.00000000     0.00000000
- C      2   1   0     2.656489096445   125.24443488     0.00000000
- C      3   2   1     2.676323199246   120.40448072   178.23462048
- C      4   3   2     2.598960958338   121.16797087   180.05534316
- C      5   4   3     2.630965663357   120.39962430     0.03084644
- C      6   5   4     2.629974023943   119.53244280   359.91560803
+ C      1   0   0     2.759509112205     0.00000000     0.00000000
+ C      2   1   0     2.656489096440   125.24443488     0.00000000
+ C      3   2   1     2.676323199247   120.40448072   178.23462048
+ C      4   3   2     2.598960958335   121.16797087   180.05534317
+ C      5   4   3     2.630965663359   120.39962430     0.03084644
+ C      6   5   4     2.629974023942   119.53244280   359.91560803
  C      7   6   5     2.600783874505   120.64543393     0.00000000
- C      1   2   3     2.656489017729   125.24441194    91.52304009
- C      9   1   2     2.675303150596   122.24483688   358.19647225
- C     10   9   1     2.600783862044   120.90363376   179.87221876
- C     11  10   9     2.629974031900   120.64543485     0.11614052
- C     12  11  10     2.630965581913   119.53244539     0.00000000
- C     13  12  11     2.598960938583   120.39962005   359.91559534
- H      1   2   3     2.047624687841   117.77463176   269.25886901
- H      2   1   3     2.047624551696   117.77461953   177.73584686
+ C      1   2   3     2.656489017723   125.24441194    91.52304009
+ C      9   1   2     2.675303150601   122.24483688   358.19647225
+ C     10   9   1     2.600783862041   120.90363376   179.87221876
+ C     11  10   9     2.629974031901   120.64543485     0.11614052
+ C     12  11  10     2.630965581914   119.53244539     0.00000000
+ C     13  12  11     2.598960938587   120.39962005   359.91559534
+ H      1   2   3     2.047624687836   117.77463176   269.25886901
+ H      2   1   3     2.047624551700   117.77461953   177.73584686
  H      4   3   2     2.038638622835   118.73715324     0.00000000
- H      5   4   3     2.037734493923   119.73068595   179.98407531
+ H      5   4   3     2.037734493924   119.73068595   179.98407531
  H      6   5   4     2.036346678187   120.22452275   179.96462019
  H      7   6   5     2.037840027825   119.77389718   180.09493519
- H      8   7   6     2.035729582503   120.29874837   180.33244742
+ H      8   7   6     2.035729582500   120.29874837   180.33244742
  H     10   9   1     2.035729574019   118.79727768   359.65910028
- H     11  10   9     2.037840033949   119.58061535   180.03238899
+ H     11  10   9     2.037840033948   119.58061535   180.03238899
  H     12  11  10     2.036346716594   120.24301716   179.96201203
- H     13  12  11     2.037734546654   119.86967348   179.96243500
- H     14  13  12     2.038638625521   120.09484315   180.09890450
+ H     13  12  11     2.037734546652   119.86967348   179.96243500
+ H     14  13  12     2.038638625522   120.09484315   180.09890449
 
-Calling /home/x_rompe/bin/oqp_orca_wrapper_python stilbene_TS_Compound_2_EXT.extinp.tmp -s 1  -b 6-31g*  > stilbene_TS_Compound_2.lastext ...  done
+Calling /home/x_rompe/bin/ExtOptORCA-OpenQP/oqp_orca_wrapper stilbene_TS_Compound_2_EXT.extinp.tmp -s 1 -b 6-31g*  > stilbene_TS_Compound_2.lastext ...  done
 
-External program completed successfully in 90.459 sec
+External program completed successfully in 61.894 sec
 ------------------------------------------------------------------------------
                          ORCA GEOMETRY RELAXATION STEP
 ------------------------------------------------------------------------------
@@ -7488,7 +7488,7 @@ TS mode is mode number   0 with eigenvalue  -0.06599133 and components:
   22.   -0.00054458
   23.   -0.00054435
   24.    0.00093900
-  25.    0.00010141
+  25.    0.00010140
   26.    0.00143538
   27.    0.00010177
   28.   -0.02440093
@@ -7603,7 +7603,7 @@ The final length of the internal step   ....       0.0095
 Converting the step to Cartesian space:
  Initial RMS(Int)=    0.0008357527
 Transforming coordinates:
- Iter   0:  RMS(Cart)=    0.0055741027 RMS(Int)=    0.0008359252
+ Iter   0:  RMS(Cart)=    0.0055741028 RMS(Int)=    0.0008359252
 done
 Storing new coordinates                 .... done
 The predicted energy change is          ....    -0.000001131
@@ -7767,19 +7767,19 @@ The optimization has not yet converged - more geometry cycles are needed
     ----------------------------------------------------------------------------
 
 Geometry step timings:
-Preparation and reading OPT file:      0.001 s (15.348 %)
-Internal coordinates            :      0.000 s ( 0.719 %)
-B/P matrices and projection     :      0.002 s (21.197 %)
-Hessian update/contruction      :      0.001 s ( 7.481 %)
-Making the step                 :      0.002 s (22.691 %)
-Converting the step to Cartesian:      0.000 s ( 1.576 %)
-Storing new data                :      0.000 s ( 0.608 %)
-Checking convergence            :      0.000 s ( 0.360 %)
-Final printing                  :      0.002 s (30.006 %)
-Total time                      :      0.007 s
+Preparation and reading OPT file:      0.001 s (13.227 %)
+Internal coordinates            :      0.000 s ( 0.628 %)
+B/P matrices and projection     :      0.002 s (22.718 %)
+Hessian update/contruction      :      0.001 s ( 7.216 %)
+Making the step                 :      0.003 s (25.954 %)
+Converting the step to Cartesian:      0.000 s ( 1.990 %)
+Storing new data                :      0.000 s ( 0.706 %)
+Checking convergence            :      0.000 s ( 0.412 %)
+Final printing                  :      0.003 s (27.111 %)
+Total time                      :      0.010 s
 
-Time for energy+gradient        :     90.461 s
-Time for complete geometry iter :     90.867 s
+Time for energy+gradient        :     61.896 s
+Time for complete geometry iter :     62.259 s
 
          *************************************************************
          *                GEOMETRY OPTIMIZATION CYCLE  12            *
@@ -7849,65 +7849,65 @@ CARTESIAN COORDINATES (A.U.)
 INTERNAL COORDINATES (ANGSTROEM)
 --------------------------------
  C      0   0   0     0.000000000000     0.00000000     0.00000000
- C      1   0   0     1.460812466347     0.00000000     0.00000000
- C      2   1   0     1.405660266430   125.27488435     0.00000000
- C      3   2   1     1.416307104689   120.39679018   178.01602200
+ C      1   0   0     1.460812466344     0.00000000     0.00000000
+ C      2   1   0     1.405660266431   125.27488435     0.00000000
+ C      3   2   1     1.416307104691   120.39679018   178.01602201
  C      4   3   2     1.375277781326   121.16718598   180.03505924
  C      5   4   3     1.392257983208   120.40115371     0.03081218
  C      6   5   4     1.391726946965   119.53301012   359.91741199
- C      7   6   5     1.376265513655   120.64560794     0.00000000
- C      1   2   3     1.405660236782   125.27491226    91.67961165
- C      9   1   2     1.415758880008   122.25380097   357.95872588
- C     10   9   1     1.376265497155   120.90347274   179.89338008
- C     11  10   9     1.391726946909   120.64560661     0.11528579
+ C      7   6   5     1.376265513658   120.64560794     0.00000000
+ C      1   2   3     1.405660236786   125.27491226    91.67961165
+ C      9   1   2     1.415758880007   122.25380097   357.95872587
+ C     10   9   1     1.376265497154   120.90347274   179.89338007
+ C     11  10   9     1.391726946914   120.64560661     0.11528579
  C     12  11  10     1.392257966952   119.53301163     0.00000000
- C     13  12  11     1.375277773301   120.40115361   359.91741988
- H      1   2   3     1.083493148084   117.73264677   269.27204695
+ C     13  12  11     1.375277773304   120.40115361   359.91741987
+ H      1   2   3     1.083493148088   117.73264677   269.27204695
  H      2   1   3     1.083493174117   117.73266126   177.59241995
  H      4   3   2     1.078798381989   118.73297629   359.96312115
- H      5   4   3     1.078328840269   119.73174532   179.98184781
+ H      5   4   3     1.078328840268   119.73174532   179.98184781
  H      6   5   4     1.077587279057   120.22263707   179.98045416
  H      7   6   5     1.078382780566   119.77280730   180.10056165
- H      8   7   6     1.077265217677   120.30124396   180.34960796
- H     10   9   1     1.077265220077   118.79487387   359.66252574
+ H      8   7   6     1.077265217678   120.30124396   180.34960796
+ H     10   9   1     1.077265220076   118.79487387   359.66252573
  H     11  10   9     1.078382775243   119.58152332   180.02454538
- H     12  11  10     1.077587271394   120.24432249   179.94658753
- H     13  12  11     1.078328843171   119.86708257   179.96644807
+ H     12  11  10     1.077587271393   120.24432249   179.94658753
+ H     13  12  11     1.078328843172   119.86708257   179.96644806
  H     14  13  12     1.078798382237   120.09979936   180.10372497
 
 ---------------------------
 INTERNAL COORDINATES (A.U.)
 ---------------------------
  C      0   0   0     0.000000000000     0.00000000     0.00000000
- C      1   0   0     2.760535494414     0.00000000     0.00000000
- C      2   1   0     2.656312940887   125.27488435     0.00000000
- C      3   2   1     2.676432549389   120.39679018   178.01602200
+ C      1   0   0     2.760535494408     0.00000000     0.00000000
+ C      2   1   0     2.656312940890   125.27488435     0.00000000
+ C      3   2   1     2.676432549392   120.39679018   178.01602201
  C      4   3   2     2.598898364773   121.16718598   180.03505924
- C      5   4   3     2.630986296030   120.40115371     0.03081218
- C      6   5   4     2.629982782962   119.53301012   359.91741199
- C      7   6   5     2.600764908369   120.64560794     0.00000000
- C      1   2   3     2.656312884861   125.27491226    91.67961165
- C      9   1   2     2.675396554883   122.25380097   357.95872588
- C     10   9   1     2.600764877187   120.90347274   179.89338008
- C     11  10   9     2.629982782857   120.64560661     0.11528579
+ C      5   4   3     2.630986296029   120.40115371     0.03081218
+ C      6   5   4     2.629982782961   119.53301012   359.91741199
+ C      7   6   5     2.600764908374   120.64560794     0.00000000
+ C      1   2   3     2.656312884869   125.27491226    91.67961165
+ C      9   1   2     2.675396554880   122.25380097   357.95872587
+ C     10   9   1     2.600764877186   120.90347274   179.89338007
+ C     11  10   9     2.629982782865   120.64560661     0.11528579
  C     12  11  10     2.630986265309   119.53301163     0.00000000
- C     13  12  11     2.598898349608   120.40115361   359.91741988
- H      1   2   3     2.047505317859   117.73264677   269.27204695
- H      2   1   3     2.047505367055   117.73266126   177.59241995
+ C     13  12  11     2.598898349613   120.40115361   359.91741987
+ H      1   2   3     2.047505317866   117.73264677   269.27204695
+ H      2   1   3     2.047505367053   117.73266126   177.59241995
  H      4   3   2     2.038633495677   118.73297629   359.96312115
- H      5   4   3     2.037746190417   119.73174532   179.98184781
- H      6   5   4     2.036344842816   120.22263707   179.98045416
+ H      5   4   3     2.037746190416   119.73174532   179.98184781
+ H      6   5   4     2.036344842815   120.22263707   179.98045416
  H      7   6   5     2.037848122806   119.77280730   180.10056165
- H      8   7   6     2.035736235008   120.30124396   180.34960796
- H     10   9   1     2.035736239544   118.79487387   359.66252574
+ H      8   7   6     2.035736235010   120.30124396   180.34960796
+ H     10   9   1     2.035736239543   118.79487387   359.66252573
  H     11  10   9     2.037848112747   119.58152332   180.02454538
- H     12  11  10     2.036344828334   120.24432249   179.94658753
- H     13  12  11     2.037746195902   119.86708257   179.96644807
+ H     12  11  10     2.036344828333   120.24432249   179.94658753
+ H     13  12  11     2.037746195903   119.86708257   179.96644806
  H     14  13  12     2.038633496145   120.09979936   180.10372497
 
-Calling /home/x_rompe/bin/oqp_orca_wrapper_python stilbene_TS_Compound_2_EXT.extinp.tmp -s 1  -b 6-31g*  > stilbene_TS_Compound_2.lastext ...  done
+Calling /home/x_rompe/bin/ExtOptORCA-OpenQP/oqp_orca_wrapper stilbene_TS_Compound_2_EXT.extinp.tmp -s 1 -b 6-31g*  > stilbene_TS_Compound_2.lastext ...  done
 
-External program completed successfully in 84.842 sec
+External program completed successfully in 62.484 sec
 ------------------------------------------------------------------------------
                          ORCA GEOMETRY RELAXATION STEP
 ------------------------------------------------------------------------------
@@ -7962,7 +7962,7 @@ TS mode is mode number   0 with eigenvalue  -0.06599133 and components:
   22.   -0.00054458
   23.   -0.00054435
   24.    0.00093900
-  25.    0.00010141
+  25.    0.00010140
   26.    0.00143538
   27.    0.00010177
   28.   -0.02440093
@@ -8077,7 +8077,7 @@ The final length of the internal step   ....       0.0040
 Converting the step to Cartesian space:
  Initial RMS(Int)=    0.0003490738
 Transforming coordinates:
- Iter   0:  RMS(Cart)=    0.0024167533 RMS(Int)=    0.0003490855
+ Iter   0:  RMS(Cart)=    0.0024167532 RMS(Int)=    0.0003490855
 done
 Storing new coordinates                 .... done
 The predicted energy change is          ....     0.000000075
@@ -8094,7 +8094,7 @@ New trust radius                        ....     0.100000000
           RMS gradient        0.0000165556            0.0001000000      YES
           MAX gradient        0.0000883646            0.0003000000      YES
           RMS step            0.0003490738            0.0020000000      YES
-          MAX step            0.0015591572            0.0040000000      YES
+          MAX step            0.0015591570            0.0040000000      YES
           ........................................................
           Max(Bonds)      0.0002      Max(Angles)    0.01
           Max(Dihed)        0.09      Max(Improp)    0.00
@@ -8245,16 +8245,16 @@ New trust radius                        ....     0.100000000
     ----------------------------------------------------------------------------
 
 Geometry step timings:
-Preparation and reading OPT file:      0.001 s (15.799 %)
-Internal coordinates            :      0.000 s ( 0.738 %)
-B/P matrices and projection     :      0.001 s (20.240 %)
-Hessian update/contruction      :      0.001 s ( 7.943 %)
-Making the step                 :      0.002 s (23.003 %)
-Converting the step to Cartesian:      0.000 s ( 1.620 %)
-Storing new data                :      0.000 s ( 0.637 %)
+Preparation and reading OPT file:      0.001 s (13.038 %)
+Internal coordinates            :      0.000 s ( 0.607 %)
+B/P matrices and projection     :      0.002 s (22.396 %)
+Hessian update/contruction      :      0.001 s ( 8.924 %)
+Making the step                 :      0.003 s (26.048 %)
+Converting the step to Cartesian:      0.000 s ( 1.802 %)
+Storing new data                :      0.000 s ( 0.646 %)
 Checking convergence            :      0.000 s ( 0.376 %)
-Final printing                  :      0.002 s (29.601 %)
-Total time                      :      0.007 s
+Final printing                  :      0.003 s (26.154 %)
+Total time                      :      0.010 s
                  *******************************************************
                  *** FINAL ENERGY EVALUATION AT THE STATIONARY POINT ***
                  ***               (AFTER   12 CYCLES)               ***
@@ -8324,21 +8324,21 @@ CARTESIAN COORDINATES (A.U.)
 INTERNAL COORDINATES (ANGSTROEM)
 --------------------------------
  C      0   0   0     0.000000000000     0.00000000     0.00000000
- C      1   0   0     1.460965477881     0.00000000     0.00000000
- C      2   1   0     1.405595624489   125.28566578     0.00000000
- C      3   2   1     1.416337194834   120.39613600   177.95036507
+ C      1   0   0     1.460965477876     0.00000000     0.00000000
+ C      2   1   0     1.405595624488   125.28566578     0.00000000
+ C      3   2   1     1.416337194832   120.39613600   177.95036507
  C      4   3   2     1.375258097305   121.16742921   180.02500580
  C      5   4   3     1.392272719384   120.40161895     0.00000000
  C      6   5   4     1.391724266831   119.53304937   359.92545971
  C      7   6   5     1.376266062122   120.64615256     0.00000000
- C      1   2   3     1.405595655127   125.28564198    91.65052069
+ C      1   2   3     1.405595655127   125.28564198    91.65052068
  C      9   1   2     1.415785385083   122.25545448   357.88309614
- C     10   9   1     1.376266059839   120.90319947   179.91848998
- C     11  10   9     1.391724265649   120.64615359     0.09649335
- C     12  11  10     1.392272719660   119.53304814     0.00000000
- C     13  12  11     1.375258094192   120.40161914   359.92545340
- H      1   2   3     1.083488139690   117.72722788   269.21288222
- H      2   1   3     1.083488124282   117.72721296   177.56238676
+ C     10   9   1     1.376266059837   120.90319947   179.91848999
+ C     11  10   9     1.391724265648   120.64615359     0.09649335
+ C     12  11  10     1.392272719659   119.53304814     0.00000000
+ C     13  12  11     1.375258094191   120.40161914   359.92545340
+ H      1   2   3     1.083488139687   117.72722788   269.21288222
+ H      2   1   3     1.083488124282   117.72721296   177.56238677
  H      4   3   2     1.078801032039   118.73355223   359.95075995
  H      5   4   3     1.078329073968   119.73126479   179.97327882
  H      6   5   4     1.077588028194   120.22257914   179.97955315
@@ -8347,40 +8347,40 @@ INTERNAL COORDINATES (ANGSTROEM)
  H     10   9   1     1.077262792177   118.79577389   359.69000718
  H     11  10   9     1.078383032901   119.58137213   180.01369825
  H     12  11  10     1.077588021554   120.24434979   179.96243079
- H     13  12  11     1.078329070646   119.86710029   179.97195195
+ H     13  12  11     1.078329070647   119.86710029   179.97195195
  H     14  13  12     1.078801026456   120.09897585   180.09496275
 
 ---------------------------
 INTERNAL COORDINATES (A.U.)
 ---------------------------
  C      0   0   0     0.000000000000     0.00000000     0.00000000
- C      1   0   0     2.760824644309     0.00000000     0.00000000
- C      2   1   0     2.656190785322   125.28566578     0.00000000
- C      3   2   1     2.676489411522   120.39613600   177.95036507
+ C      1   0   0     2.760824644299     0.00000000     0.00000000
+ C      2   1   0     2.656190785320   125.28566578     0.00000000
+ C      3   2   1     2.676489411518   120.39613600   177.95036507
  C      4   3   2     2.598861167364   121.16742921   180.02500580
  C      5   4   3     2.631014143365   120.40161895     0.00000000
- C      6   5   4     2.629977718242   119.53304937   359.92545971
- C      7   6   5     2.600765944821   120.64615256     0.00000000
- C      1   2   3     2.656190843220   125.28564198    91.65052069
+ C      6   5   4     2.629977718243   119.53304937   359.92545971
+ C      7   6   5     2.600765944820   120.64615256     0.00000000
+ C      1   2   3     2.656190843219   125.28564198    91.65052068
  C      9   1   2     2.675446642215   122.25545448   357.88309614
- C     10   9   1     2.600765940506   120.90319947   179.91848998
- C     11  10   9     2.629977716008   120.64615359     0.09649335
- C     12  11  10     2.631014143887   119.53304814     0.00000000
- C     13  12  11     2.598861161481   120.40161914   359.92545340
- H      1   2   3     2.047495853365   117.72722788   269.21288222
- H      2   1   3     2.047495824249   117.72721296   177.56238676
+ C     10   9   1     2.600765940502   120.90319947   179.91848999
+ C     11  10   9     2.629977716007   120.64615359     0.09649335
+ C     12  11  10     2.631014143886   119.53304814     0.00000000
+ C     13  12  11     2.598861161480   120.40161914   359.92545340
+ H      1   2   3     2.047495853360   117.72722788   269.21288222
+ H      2   1   3     2.047495824249   117.72721296   177.56238677
  H      4   3   2     2.038638503546   118.73355223   359.95075995
  H      5   4   3     2.037746632045   119.73126479   179.97327882
- H      6   5   4     2.036346258479   120.22257914   179.97955315
+ H      6   5   4     2.036346258478   120.22257914   179.97955315
  H      7   6   5     2.037848604850   119.77242283   180.09948540
  H      8   7   6     2.035731657581   120.30063345   180.32840382
  H     10   9   1     2.035731651478   118.79577389   359.69000718
- H     11  10   9     2.037848599651   119.58137213   180.01369825
- H     12  11  10     2.036346245930   120.24434979   179.96243079
- H     13  12  11     2.037746625767   119.86710029   179.97195195
+ H     11  10   9     2.037848599650   119.58137213   180.01369825
+ H     12  11  10     2.036346245932   120.24434979   179.96243079
+ H     13  12  11     2.037746625768   119.86710029   179.97195195
  H     14  13  12     2.038638492996   120.09897585   180.09496275
 
-Calling /home/x_rompe/bin/oqp_orca_wrapper_python stilbene_TS_Compound_2_EXT.extinp.tmp -s 1  -b 6-31g*  ... 
+Calling /home/x_rompe/bin/ExtOptORCA-OpenQP/oqp_orca_wrapper stilbene_TS_Compound_2_EXT.extinp.tmp -s 1 -b 6-31g*  ... 
 
 MPI startup(): PMI server not found. Please set I_MPI_PMI_LIBRARY variable if it is not a singleton case.
 input.charge=0
@@ -8392,7 +8392,7 @@ input.system=stilbene_TS_Compound_2.xyz
 input.system2=
 input.d4=False
 guess.type=json
-guess.file=EXT_ORCA_FOR_OQP.json
+guess.file=EXT_ORCA_FOR_OQP_STATE_S1.json
 guess.file2=
 guess.save_mol=True
 guess.continue_geom=False
@@ -8506,7 +8506,7 @@ basis_set.library=
 tests.exception=False
 functional=bhhlyp
 
-External program completed successfully in 70.091 sec
+External program completed successfully in 46.063 sec
 
 -------------------------------------------------   --------------------
 FINAL SINGLE POINT ENERGY (From external program)      -540.281094810000
@@ -8558,9 +8558,9 @@ MAX gradient                       ...    0.0001031550
 
 Timings for individual modules:
 
-Sum of individual times          ...     1147.964 sec (=  19.133 min)
-Geometry relaxation              ...        0.205 sec (=   0.003 min)   0.0 %
-External energy and gradient     ...     1147.760 sec (=  19.129 min) 100.0 %
+Sum of individual times          ...      788.996 sec (=  13.150 min)
+Geometry relaxation              ...        0.233 sec (=   0.004 min)   0.0 %
+External energy and gradient     ...      788.762 sec (=  13.146 min) 100.0 %
 ================================================================================
 
 ----- Orbital basis set information -----
@@ -8641,4 +8641,4 @@ List of optional additional citations
      Chem. Phys. Lett., 2000 325(1-3)93-98
      doi.org/10.1016/s0009-2614(00)00662-x
                              ****ORCA TERMINATED NORMALLY****
-TOTAL RUN TIME: 0 days 0 hours 19 minutes 19 seconds 110 msec
+TOTAL RUN TIME: 0 days 0 hours 13 minutes 18 seconds 156 msec

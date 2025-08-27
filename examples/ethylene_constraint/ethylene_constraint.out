@@ -175,7 +175,7 @@ WARNING: Geometry Optimization
          For restart on a previous wavefunction, please use MOREAD
 
 Using external energy/gradient program given in input:
-  "/proj/scgrp/users/x_rompe/ExtOptORCA-OpenQP/oqp_orca_wrapper"
+  "/home/x_rompe/bin/ExtOptORCA-OpenQP/oqp_orca_wrapper"
 
 
 WARNING: four-center integrals in TRAH must be done with SHARK!
@@ -188,7 +188,7 @@ WARNING: four-center integrals in TRAH must be done with SHARK!
 NAME = ethylene_constraint.inp
 |  1> ! ExtOpt opt
 |  2> %method
-|  3>   ProgExt "/proj/scgrp/users/x_rompe/ExtOptORCA-OpenQP/oqp_orca_wrapper"
+|  3>   ProgExt "/home/x_rompe/bin/ExtOptORCA-OpenQP/oqp_orca_wrapper"
 |  4>   Ext_Params "-s 2 -b 6-31g*"
 |  5> end
 |  6> %geom
@@ -197,7 +197,7 @@ NAME = ethylene_constraint.inp
 |  9>   end
 | 10> end
 | 11> %pal
-| 12> nprocs 8
+| 12> nprocs 16
 | 13> end
 | 14> %maxcore 3000
 | 15> *xyz 0 1
@@ -315,7 +315,7 @@ INTERNAL COORDINATES (A.U.)
  H      2   1   3     2.053490105076   121.82035912    44.99999996
  H      2   1   3     2.053490103592   121.82035915   224.99999998
 
-Calling /proj/scgrp/users/x_rompe/ExtOptORCA-OpenQP/oqp_orca_wrapper ethylene_constraint_EXT.extinp.tmp -s 2 -b 6-31g*  ... 
+Calling /home/x_rompe/bin/ExtOptORCA-OpenQP/oqp_orca_wrapper ethylene_constraint_EXT.extinp.tmp -s 2 -b 6-31g*  ... 
 
 MPI startup(): PMI server not found. Please set I_MPI_PMI_LIBRARY variable if it is not a singleton case.
 input.charge=0
@@ -441,7 +441,7 @@ basis_set.library=
 tests.exception=False
 functional=bhhlyp
 
-External program completed successfully in 12.050 sec
+External program completed successfully in 2.833 sec
 
 -------------------------------------------------   --------------------
 FINAL SINGLE POINT ENERGY (From external program)       -78.280836570000
@@ -553,19 +553,19 @@ The optimization has not yet converged - more geometry cycles are needed
     ----------------------------------------------------------------------------
 
 Geometry step timings:
-Preparation and reading OPT file:      0.000 s ( 4.512 %)
-Internal coordinates            :      0.000 s ( 1.628 %)
-B/P matrices and projection     :      0.000 s ( 7.361 %)
-Hessian update/contruction      :      0.000 s ( 6.106 %)
-Making the step                 :      0.000 s (13.399 %)
-Converting the step to Cartesian:      0.000 s ( 4.376 %)
-Storing new data                :      0.000 s ( 1.662 %)
-Checking convergence            :      0.000 s ( 0.373 %)
-Final printing                  :      0.002 s (59.701 %)
-Total time                      :      0.003 s
+Preparation and reading OPT file:      0.000 s ( 8.734 %)
+Internal coordinates            :      0.000 s ( 3.283 %)
+B/P matrices and projection     :      0.000 s (14.889 %)
+Hessian update/contruction      :      0.000 s (10.785 %)
+Making the step                 :      0.000 s (17.937 %)
+Converting the step to Cartesian:      0.000 s ( 7.210 %)
+Storing new data                :      0.000 s ( 2.579 %)
+Checking convergence            :      0.000 s ( 0.586 %)
+Final printing                  :      0.001 s (32.532 %)
+Total time                      :      0.002 s
 
-Time for energy+gradient        :     12.051 s
-Time for complete geometry iter :     13.538 s
+Time for energy+gradient        :      2.835 s
+Time for complete geometry iter :      4.452 s
 
          *************************************************************
          *                GEOMETRY OPTIMIZATION CYCLE   2            *
@@ -611,9 +611,9 @@ INTERNAL COORDINATES (A.U.)
  H      2   1   3     2.061051058804   122.55440758    44.99999981
  H      2   1   3     2.061051043162   122.55440824   231.64804753
 
-Calling /proj/scgrp/users/x_rompe/ExtOptORCA-OpenQP/oqp_orca_wrapper ethylene_constraint_EXT.extinp.tmp -s 2 -b 6-31g*  > ethylene_constraint.lastext ...  done
+Calling /home/x_rompe/bin/ExtOptORCA-OpenQP/oqp_orca_wrapper ethylene_constraint_EXT.extinp.tmp -s 2 -b 6-31g*  > ethylene_constraint.lastext ...  done
 
-External program completed successfully in 3.258 sec
+External program completed successfully in 1.495 sec
 ------------------------------------------------------------------------------
                          ORCA GEOMETRY RELAXATION STEP
 ------------------------------------------------------------------------------
@@ -705,19 +705,19 @@ The optimization has not yet converged - more geometry cycles are needed
     ----------------------------------------------------------------------------
 
 Geometry step timings:
-Preparation and reading OPT file:      0.000 s ( 7.391 %)
-Internal coordinates            :      0.000 s ( 2.828 %)
-B/P matrices and projection     :      0.000 s (12.339 %)
-Hessian update/contruction      :      0.000 s (25.321 %)
-Making the step                 :      0.000 s (12.918 %)
-Converting the step to Cartesian:      0.000 s ( 6.427 %)
-Storing new data                :      0.000 s ( 2.635 %)
-Checking convergence            :      0.000 s ( 1.799 %)
-Final printing                  :      0.000 s (28.278 %)
+Preparation and reading OPT file:      0.000 s ( 6.263 %)
+Internal coordinates            :      0.000 s ( 2.592 %)
+B/P matrices and projection     :      0.000 s (12.527 %)
+Hessian update/contruction      :      0.001 s (27.376 %)
+Making the step                 :      0.000 s (12.257 %)
+Converting the step to Cartesian:      0.000 s ( 5.940 %)
+Storing new data                :      0.000 s ( 2.376 %)
+Checking convergence            :      0.000 s ( 1.620 %)
+Final printing                  :      0.001 s (28.996 %)
 Total time                      :      0.002 s
 
-Time for energy+gradient        :      3.260 s
-Time for complete geometry iter :      3.592 s
+Time for energy+gradient        :      1.497 s
+Time for complete geometry iter :      1.847 s
 
          *************************************************************
          *                GEOMETRY OPTIMIZATION CYCLE   3            *
@@ -758,14 +758,14 @@ INTERNAL COORDINATES (A.U.)
 ---------------------------
  C      0   0   0     0.000000000000     0.00000000     0.00000000
  C      1   0   0     2.614929151882     0.00000000     0.00000000
- H      1   2   0     2.058967809904   123.19906841     0.00000000
+ H      1   2   0     2.058967809903   123.19906841     0.00000000
  H      1   2   3     2.061691540126   122.68384968   193.56731841
  H      2   1   3     2.058967809902   123.19906841    45.00000501
  H      2   1   3     2.061691540126   122.68384968   238.56732342
 
-Calling /proj/scgrp/users/x_rompe/ExtOptORCA-OpenQP/oqp_orca_wrapper ethylene_constraint_EXT.extinp.tmp -s 2 -b 6-31g*  > ethylene_constraint.lastext ...  done
+Calling /home/x_rompe/bin/ExtOptORCA-OpenQP/oqp_orca_wrapper ethylene_constraint_EXT.extinp.tmp -s 2 -b 6-31g*  > ethylene_constraint.lastext ...  done
 
-External program completed successfully in 3.641 sec
+External program completed successfully in 1.487 sec
 ------------------------------------------------------------------------------
                          ORCA GEOMETRY RELAXATION STEP
 ------------------------------------------------------------------------------
@@ -857,19 +857,19 @@ The optimization has not yet converged - more geometry cycles are needed
     ----------------------------------------------------------------------------
 
 Geometry step timings:
-Preparation and reading OPT file:      0.000 s ( 9.804 %)
-Internal coordinates            :      0.000 s ( 2.975 %)
-B/P matrices and projection     :      0.000 s (12.441 %)
-Hessian update/contruction      :      0.000 s (13.320 %)
-Making the step                 :      0.000 s (17.174 %)
-Converting the step to Cartesian:      0.000 s ( 6.964 %)
-Storing new data                :      0.000 s ( 2.840 %)
-Checking convergence            :      0.000 s ( 1.826 %)
-Final printing                  :      0.000 s (32.590 %)
-Total time                      :      0.001 s
+Preparation and reading OPT file:      0.000 s ( 8.170 %)
+Internal coordinates            :      0.000 s ( 2.703 %)
+B/P matrices and projection     :      0.000 s (13.268 %)
+Hessian update/contruction      :      0.000 s (14.066 %)
+Making the step                 :      0.000 s (17.690 %)
+Converting the step to Cartesian:      0.000 s ( 7.125 %)
+Storing new data                :      0.000 s ( 2.703 %)
+Checking convergence            :      0.000 s ( 1.843 %)
+Final printing                  :      0.001 s (32.310 %)
+Total time                      :      0.002 s
 
-Time for energy+gradient        :      3.642 s
-Time for complete geometry iter :      3.944 s
+Time for energy+gradient        :      1.488 s
+Time for complete geometry iter :      1.849 s
 
          *************************************************************
          *                GEOMETRY OPTIMIZATION CYCLE   4            *
@@ -901,7 +901,7 @@ INTERNAL COORDINATES (ANGSTROEM)
  C      0   0   0     0.000000000000     0.00000000     0.00000000
  C      1   0   0     1.379671746006     0.00000000     0.00000000
  H      1   2   0     1.091296124676   124.00283641     0.00000000
- H      1   2   3     1.093799333873   122.23237032   202.74866417
+ H      1   2   3     1.093799333874   122.23237032   202.74866417
  H      2   1   3     1.091296124671   124.00283641    45.00000368
  H      2   1   3     1.093799333874   122.23237032   247.74866785
 
@@ -910,14 +910,14 @@ INTERNAL COORDINATES (A.U.)
 ---------------------------
  C      0   0   0     0.000000000000     0.00000000     0.00000000
  C      1   0   0     2.607201754661     0.00000000     0.00000000
- H      1   2   0     2.062250806648   124.00283641     0.00000000
- H      1   2   3     2.066981186486   122.23237032   202.74866417
- H      2   1   3     2.062250806637   124.00283641    45.00000368
- H      2   1   3     2.066981186488   122.23237032   247.74866785
+ H      1   2   0     2.062250806647   124.00283641     0.00000000
+ H      1   2   3     2.066981186487   122.23237032   202.74866417
+ H      2   1   3     2.062250806638   124.00283641    45.00000368
+ H      2   1   3     2.066981186487   122.23237032   247.74866785
 
-Calling /proj/scgrp/users/x_rompe/ExtOptORCA-OpenQP/oqp_orca_wrapper ethylene_constraint_EXT.extinp.tmp -s 2 -b 6-31g*  > ethylene_constraint.lastext ...  done
+Calling /home/x_rompe/bin/ExtOptORCA-OpenQP/oqp_orca_wrapper ethylene_constraint_EXT.extinp.tmp -s 2 -b 6-31g*  > ethylene_constraint.lastext ...  done
 
-External program completed successfully in 3.483 sec
+External program completed successfully in 1.491 sec
 ------------------------------------------------------------------------------
                          ORCA GEOMETRY RELAXATION STEP
 ------------------------------------------------------------------------------
@@ -943,8 +943,8 @@ Diagonalizing the augmented Hessian     .... done
 Last element of RFO vector              ....  0.953628029
 Lowest eigenvalues of augmented Hessian:
  -0.002892330  0.027043071  0.043534459  0.281095643  0.317185522
-Length of the computed step             ....  0.315623774
-The final length of the internal step   ....  0.315623774
+Length of the computed step             ....  0.315623775
+The final length of the internal step   ....  0.315623775
 Converting the step to Cartesian space:
  Initial RMS(Int)=    0.0814937082
 Transforming coordinates:
@@ -1003,19 +1003,19 @@ The optimization has not yet converged - more geometry cycles are needed
     ----------------------------------------------------------------------------
 
 Geometry step timings:
-Preparation and reading OPT file:      0.000 s (10.987 %)
-Internal coordinates            :      0.000 s ( 2.712 %)
-B/P matrices and projection     :      0.000 s (12.865 %)
-Hessian update/contruction      :      0.000 s (13.282 %)
-Making the step                 :      0.000 s ( 8.067 %)
-Converting the step to Cartesian:      0.000 s ( 6.954 %)
-Storing new data                :      0.000 s ( 2.782 %)
-Checking convergence            :      0.000 s ( 1.878 %)
-Final printing                  :      0.001 s (40.334 %)
-Total time                      :      0.001 s
+Preparation and reading OPT file:      0.000 s (12.148 %)
+Internal coordinates            :      0.000 s ( 3.005 %)
+B/P matrices and projection     :      0.000 s (12.340 %)
+Hessian update/contruction      :      0.000 s (14.450 %)
+Making the step                 :      0.000 s ( 9.399 %)
+Converting the step to Cartesian:      0.000 s ( 7.864 %)
+Storing new data                :      0.000 s ( 2.749 %)
+Checking convergence            :      0.000 s ( 1.918 %)
+Final printing                  :      0.001 s (36.061 %)
+Total time                      :      0.002 s
 
-Time for energy+gradient        :      3.484 s
-Time for complete geometry iter :      3.784 s
+Time for energy+gradient        :      1.492 s
+Time for complete geometry iter :      1.854 s
 
          *************************************************************
          *                GEOMETRY OPTIMIZATION CYCLE   5            *
@@ -1046,24 +1046,24 @@ INTERNAL COORDINATES (ANGSTROEM)
 --------------------------------
  C      0   0   0     0.000000000000     0.00000000     0.00000000
  C      1   0   0     1.367109345136     0.00000000     0.00000000
- H      1   2   0     1.094712997529   124.38745903     0.00000000
+ H      1   2   0     1.094712997530   124.38745903     0.00000000
  H      1   2   3     1.096001063674   121.58043653   209.98707253
  H      2   1   3     1.094712997499   124.38745904    45.00000160
- H      2   1   3     1.096001063683   121.58043652   254.98707410
+ H      2   1   3     1.096001063684   121.58043652   254.98707410
 
 ---------------------------
 INTERNAL COORDINATES (A.U.)
 ---------------------------
  C      0   0   0     0.000000000000     0.00000000     0.00000000
  C      1   0   0     2.583462257431     0.00000000     0.00000000
- H      1   2   0     2.068707760574   124.38745903     0.00000000
- H      1   2   3     2.071141852831   121.58043653   209.98707253
- H      2   1   3     2.068707760517   124.38745904    45.00000160
- H      2   1   3     2.071141852848   121.58043652   254.98707410
+ H      1   2   0     2.068707760575   124.38745903     0.00000000
+ H      1   2   3     2.071141852830   121.58043653   209.98707253
+ H      2   1   3     2.068707760516   124.38745904    45.00000160
+ H      2   1   3     2.071141852849   121.58043652   254.98707410
 
-Calling /proj/scgrp/users/x_rompe/ExtOptORCA-OpenQP/oqp_orca_wrapper ethylene_constraint_EXT.extinp.tmp -s 2 -b 6-31g*  > ethylene_constraint.lastext ...  done
+Calling /home/x_rompe/bin/ExtOptORCA-OpenQP/oqp_orca_wrapper ethylene_constraint_EXT.extinp.tmp -s 2 -b 6-31g*  > ethylene_constraint.lastext ...  done
 
-External program completed successfully in 3.541 sec
+External program completed successfully in 1.500 sec
 ------------------------------------------------------------------------------
                          ORCA GEOMETRY RELAXATION STEP
 ------------------------------------------------------------------------------
@@ -1148,19 +1148,19 @@ The optimization has not yet converged - more geometry cycles are needed
     ----------------------------------------------------------------------------
 
 Geometry step timings:
-Preparation and reading OPT file:      0.000 s (11.486 %)
-Internal coordinates            :      0.000 s ( 2.629 %)
-B/P matrices and projection     :      0.000 s (12.743 %)
-Hessian update/contruction      :      0.000 s (12.743 %)
-Making the step                 :      0.000 s (12.343 %)
-Converting the step to Cartesian:      0.000 s ( 6.000 %)
-Storing new data                :      0.000 s ( 2.857 %)
-Checking convergence            :      0.000 s ( 2.000 %)
-Final printing                  :      0.001 s (37.143 %)
+Preparation and reading OPT file:      0.000 s (15.481 %)
+Internal coordinates            :      0.000 s ( 2.934 %)
+B/P matrices and projection     :      0.000 s (12.360 %)
+Hessian update/contruction      :      0.000 s (13.733 %)
+Making the step                 :      0.000 s ( 8.489 %)
+Converting the step to Cartesian:      0.000 s ( 5.431 %)
+Storing new data                :      0.000 s ( 2.497 %)
+Checking convergence            :      0.000 s ( 1.685 %)
+Final printing                  :      0.001 s (37.328 %)
 Total time                      :      0.002 s
 
-Time for energy+gradient        :      3.542 s
-Time for complete geometry iter :      3.853 s
+Time for energy+gradient        :      1.501 s
+Time for complete geometry iter :      1.852 s
 
          *************************************************************
          *                GEOMETRY OPTIMIZATION CYCLE   6            *
@@ -1191,24 +1191,24 @@ INTERNAL COORDINATES (ANGSTROEM)
 --------------------------------
  C      0   0   0     0.000000000000     0.00000000     0.00000000
  C      1   0   0     1.364234201366     0.00000000     0.00000000
- H      1   2   0     1.095801232717   124.36919533     0.00000000
- H      1   2   3     1.096162894942   121.71725704   210.06172551
- H      2   1   3     1.095801232609   124.36919539    44.99999811
- H      2   1   3     1.096162894982   121.71725703   255.06172344
+ H      1   2   0     1.095801232719   124.36919533     0.00000000
+ H      1   2   3     1.096162894940   121.71725704   210.06172552
+ H      2   1   3     1.095801232607   124.36919539    44.99999811
+ H      2   1   3     1.096162894983   121.71725703   255.06172344
 
 ---------------------------
 INTERNAL COORDINATES (A.U.)
 ---------------------------
  C      0   0   0     0.000000000000     0.00000000     0.00000000
  C      1   0   0     2.578029023111     0.00000000     0.00000000
- H      1   2   0     2.070764227048   124.36919533     0.00000000
- H      1   2   3     2.071447669607   121.71725704   210.06172551
- H      2   1   3     2.070764226844   124.36919539    44.99999811
- H      2   1   3     2.071447669682   121.71725703   255.06172344
+ H      1   2   0     2.070764227052   124.36919533     0.00000000
+ H      1   2   3     2.071447669604   121.71725704   210.06172552
+ H      2   1   3     2.070764226840   124.36919539    44.99999811
+ H      2   1   3     2.071447669685   121.71725703   255.06172344
 
-Calling /proj/scgrp/users/x_rompe/ExtOptORCA-OpenQP/oqp_orca_wrapper ethylene_constraint_EXT.extinp.tmp -s 2 -b 6-31g*  > ethylene_constraint.lastext ...  done
+Calling /home/x_rompe/bin/ExtOptORCA-OpenQP/oqp_orca_wrapper ethylene_constraint_EXT.extinp.tmp -s 2 -b 6-31g*  > ethylene_constraint.lastext ...  done
 
-External program completed successfully in 2.967 sec
+External program completed successfully in 1.499 sec
 ------------------------------------------------------------------------------
                          ORCA GEOMETRY RELAXATION STEP
 ------------------------------------------------------------------------------
@@ -1292,19 +1292,19 @@ The optimization has not yet converged - more geometry cycles are needed
     ----------------------------------------------------------------------------
 
 Geometry step timings:
-Preparation and reading OPT file:      0.000 s (18.134 %)
-Internal coordinates            :      0.000 s ( 3.207 %)
-B/P matrices and projection     :      0.000 s (12.128 %)
-Hessian update/contruction      :      0.000 s (12.653 %)
-Making the step                 :      0.000 s ( 7.988 %)
-Converting the step to Cartesian:      0.000 s ( 4.898 %)
-Storing new data                :      0.000 s ( 2.682 %)
-Checking convergence            :      0.000 s ( 1.808 %)
-Final printing                  :      0.001 s (36.327 %)
+Preparation and reading OPT file:      0.000 s (12.002 %)
+Internal coordinates            :      0.000 s ( 7.098 %)
+B/P matrices and projection     :      0.000 s (11.829 %)
+Hessian update/contruction      :      0.000 s (14.080 %)
+Making the step                 :      0.000 s ( 9.233 %)
+Converting the step to Cartesian:      0.000 s ( 4.905 %)
+Storing new data                :      0.000 s ( 2.597 %)
+Checking convergence            :      0.000 s ( 1.789 %)
+Final printing                  :      0.001 s (36.238 %)
 Total time                      :      0.002 s
 
-Time for energy+gradient        :      2.968 s
-Time for complete geometry iter :      3.264 s
+Time for energy+gradient        :      1.500 s
+Time for complete geometry iter :      1.836 s
 
          *************************************************************
          *                GEOMETRY OPTIMIZATION CYCLE   7            *
@@ -1335,24 +1335,24 @@ INTERNAL COORDINATES (ANGSTROEM)
 --------------------------------
  C      0   0   0     0.000000000000     0.00000000     0.00000000
  C      1   0   0     1.361607826295     0.00000000     0.00000000
- H      1   2   0     1.096386607394   124.36508279     0.00000000
- H      1   2   3     1.096396536985   121.95499798   209.95269579
- H      2   1   3     1.096386607358   124.36508290    44.99999435
- H      2   1   3     1.096396537095   121.95499803   254.95268954
+ H      1   2   0     1.096386607379   124.36508279     0.00000000
+ H      1   2   3     1.096396536986   121.95499798   209.95269583
+ H      2   1   3     1.096386607372   124.36508290    44.99999435
+ H      2   1   3     1.096396537094   121.95499804   254.95268951
 
 ---------------------------
 INTERNAL COORDINATES (A.U.)
 ---------------------------
  C      0   0   0     0.000000000000     0.00000000     0.00000000
  C      1   0   0     2.573065893501     0.00000000     0.00000000
- H      1   2   0     2.071870424874   124.36508279     0.00000000
- H      1   2   3     2.071889189081   121.95499798   209.95269579
- H      2   1   3     2.071870424805   124.36508290    44.99999435
- H      2   1   3     2.071889189289   121.95499803   254.95268954
+ H      1   2   0     2.071870424846   124.36508279     0.00000000
+ H      1   2   3     2.071889189083   121.95499798   209.95269583
+ H      2   1   3     2.071870424833   124.36508290    44.99999435
+ H      2   1   3     2.071889189286   121.95499804   254.95268951
 
-Calling /proj/scgrp/users/x_rompe/ExtOptORCA-OpenQP/oqp_orca_wrapper ethylene_constraint_EXT.extinp.tmp -s 2 -b 6-31g*  > ethylene_constraint.lastext ...  done
+Calling /home/x_rompe/bin/ExtOptORCA-OpenQP/oqp_orca_wrapper ethylene_constraint_EXT.extinp.tmp -s 2 -b 6-31g*  > ethylene_constraint.lastext ...  done
 
-External program completed successfully in 2.774 sec
+External program completed successfully in 1.493 sec
 ------------------------------------------------------------------------------
                          ORCA GEOMETRY RELAXATION STEP
 ------------------------------------------------------------------------------
@@ -1445,15 +1445,15 @@ New trust radius                        ....     0.300000000
     ----------------------------------------------------------------------------
 
 Geometry step timings:
-Preparation and reading OPT file:      0.000 s (14.401 %)
-Internal coordinates            :      0.000 s ( 6.362 %)
-B/P matrices and projection     :      0.000 s (11.799 %)
-Hessian update/contruction      :      0.000 s (12.782 %)
-Making the step                 :      0.000 s ( 7.808 %)
-Converting the step to Cartesian:      0.000 s ( 4.627 %)
-Storing new data                :      0.000 s ( 2.603 %)
-Checking convergence            :      0.000 s ( 1.793 %)
-Final printing                  :      0.001 s (37.767 %)
+Preparation and reading OPT file:      0.000 s (16.667 %)
+Internal coordinates            :      0.000 s ( 3.072 %)
+B/P matrices and projection     :      0.000 s (11.718 %)
+Hessian update/contruction      :      0.000 s (13.823 %)
+Making the step                 :      0.000 s ( 9.044 %)
+Converting the step to Cartesian:      0.000 s ( 4.778 %)
+Storing new data                :      0.000 s ( 2.560 %)
+Checking convergence            :      0.000 s ( 1.820 %)
+Final printing                  :      0.001 s (36.462 %)
 Total time                      :      0.002 s
                  *******************************************************
                  *** FINAL ENERGY EVALUATION AT THE STATIONARY POINT ***
@@ -1485,22 +1485,22 @@ INTERNAL COORDINATES (ANGSTROEM)
 --------------------------------
  C      0   0   0     0.000000000000     0.00000000     0.00000000
  C      1   0   0     1.361582194809     0.00000000     0.00000000
- H      1   2   0     1.096312183449   124.37891204     0.00000000
- H      1   2   3     1.096440795969   122.01033170   209.93728226
- H      2   1   3     1.096312183784   124.37891231    44.99999801
- H      2   1   3     1.096440796281   122.01033195   254.93727844
+ H      1   2   0     1.096312183409   124.37891202     0.00000000
+ H      1   2   3     1.096440795963   122.01033168   209.93728240
+ H      2   1   3     1.096312183824   124.37891233    44.99999801
+ H      2   1   3     1.096440796288   122.01033197   254.93727830
 
 ---------------------------
 INTERNAL COORDINATES (A.U.)
 ---------------------------
  C      0   0   0     0.000000000000     0.00000000     0.00000000
  C      1   0   0     2.573017457013     0.00000000     0.00000000
- H      1   2   0     2.071729784000   124.37891204     0.00000000
- H      1   2   3     2.071972826441   122.01033170   209.93728226
- H      2   1   3     2.071729784632   124.37891231    44.99999801
- H      2   1   3     2.071972827030   122.01033195   254.93727844
+ H      1   2   0     2.071729783924   124.37891202     0.00000000
+ H      1   2   3     2.071972826428   122.01033168   209.93728240
+ H      2   1   3     2.071729784709   124.37891233    44.99999801
+ H      2   1   3     2.071972827042   122.01033197   254.93727830
 
-Calling /proj/scgrp/users/x_rompe/ExtOptORCA-OpenQP/oqp_orca_wrapper ethylene_constraint_EXT.extinp.tmp -s 2 -b 6-31g*  ... 
+Calling /home/x_rompe/bin/ExtOptORCA-OpenQP/oqp_orca_wrapper ethylene_constraint_EXT.extinp.tmp -s 2 -b 6-31g*  ... 
 
 MPI startup(): PMI server not found. Please set I_MPI_PMI_LIBRARY variable if it is not a singleton case.
 input.charge=0
@@ -1512,7 +1512,7 @@ input.system=ethylene_constraint.xyz
 input.system2=
 input.d4=False
 guess.type=json
-guess.file=EXT_ORCA_FOR_OQP.json
+guess.file=EXT_ORCA_FOR_OQP_STATE_S2.json
 guess.file2=
 guess.save_mol=True
 guess.continue_geom=False
@@ -1626,7 +1626,7 @@ basis_set.library=
 tests.exception=False
 functional=bhhlyp
 
-External program completed successfully in 2.977 sec
+External program completed successfully in 1.456 sec
 
 -------------------------------------------------   --------------------
 FINAL SINGLE POINT ENERGY (From external program)       -78.306128520000
@@ -1637,7 +1637,7 @@ FINAL SINGLE POINT ENERGY (From external program)       -78.306128520000
 CARTESIAN GRADIENT
 ------------------
 
-   1   C   :    0.027528811   -0.006050173    0.003510608
+   1   C   :    0.027528811   -0.006050172    0.003510608
    2   C   :   -0.027528812   -0.006050174   -0.003510607
    3   H   :   -0.014254694    0.006107000   -0.001719935
    4   H   :   -0.000053103   -0.000076439    0.000155416
@@ -1648,11 +1648,11 @@ Difference to translation invariance:
            :    0.0000000000   -0.0000392238    0.0000000000
 
 Difference to rotation invariance:
-           :   -0.0000303328   -0.0003206252    0.0001731810
+           :   -0.0000303327   -0.0003206252    0.0001731810
 
 Norm of the Cartesian gradient     ...    0.0458311511
 RMS gradient                       ...    0.0108025059
-MAX gradient                       ...    0.0275288123
+MAX gradient                       ...    0.0275288124
                                 *** OPTIMIZATION RUN DONE ***
 
 
@@ -1719,8 +1719,8 @@ List of optional additional citations
 
 Timings for individual modules:
 
-Sum of individual times          ...       34.723 sec (=   0.579 min)
-Geometry relaxation              ...        0.024 sec (=   0.000 min)   0.1 %
-External energy and gradient     ...       34.699 sec (=   0.578 min)  99.9 %
+Sum of individual times          ...       13.288 sec (=   0.221 min)
+Geometry relaxation              ...        0.023 sec (=   0.000 min)   0.2 %
+External energy and gradient     ...       13.265 sec (=   0.221 min)  99.8 %
                              ****ORCA TERMINATED NORMALLY****
-TOTAL RUN TIME: 0 days 0 hours 0 minutes 39 seconds 401 msec
+TOTAL RUN TIME: 0 days 0 hours 0 minutes 17 seconds 466 msec

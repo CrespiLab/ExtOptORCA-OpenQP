@@ -1,8 +1,8 @@
-#MRSF with ORCA external optimizer
+#MRSF with ORCA external optimizer 
 ! ExtOpt Opt
 %method
-    ProgExt "/home/x_rompe/bin/oqp_orca_wrapper_python"
-    Ext_Params "--conical -s 1 2 -b 6-31g*"
+    ProgExt "/home/x_rompe/bin/ExtOptORCA-OpenQP/oqp_orca_wrapper"
+    Ext_Params "--mecp -s 1 -t 1 -b 6-31g* --alpha 0.01 --sigma 7"
 end
 %pal
     nprocs 16

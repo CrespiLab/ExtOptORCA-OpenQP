@@ -1,6 +1,6 @@
 ! ExtOpt opt
 %method
-  ProgExt "/proj/scgrp/users/x_rompe/ExtOptORCA-OpenQP/oqp_orca_wrapper"
+  ProgExt "/home/x_rompe/bin/ExtOptORCA-OpenQP/oqp_orca_wrapper"
   Ext_Params "-s 2 -b 6-31g*"
 end
 %geom
@@ -9,7 +9,7 @@ end
   end
 end
 %pal
-nprocs 8
+nprocs 16
 end
 %maxcore 3000
 *xyz 0 1
