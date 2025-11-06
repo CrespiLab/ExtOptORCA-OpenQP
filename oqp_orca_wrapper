@@ -30,6 +30,7 @@ runtype=grad
 basis={args.basis_set}
 functional={args.functional}
 method=tdhf
+d4={args.d4}
 
 [guess]
 type={guess_type}
@@ -233,6 +234,7 @@ def main():
     parser.add_argument('--basis-set', '-b', help='Response electronic state (one for minimum or TS optimization, two - for CI optimization)',)
     parser.add_argument('--functional', default='bhhlyp', help='Response electronic state (one for minimum or TS optimization, two - for CI optimization)',)
     parser.add_argument('--refmult', type=int, default=3, help='Response electronic state (one for minimum or TS optimization, two - for CI optimization)',)
+    parser.add_argument('--d4', action='store_true', help='Includes D4 correction through dftd4 Python package',)
     args = parser.parse_args()
     
     validate_args(args, parser=parser)
