@@ -55,23 +55,71 @@ export=True
         f.write(oqp_template)
     return input_file_name
 
+def extract_target_energy(log_filename, state_number):
+    """Extract the requested-state energy from an OpenQP log.
+
+    Supports the OpenQP 1.2.1 ``Physical target state is S0/T0`` line,
+    older numeric ``Target state is ... Hartree`` lines, and the
+    ``PyOQP state ...`` summary.  Ordinary decimal numbers, E notation,
+    and Fortran D notation are accepted.
+    """
+    with open(log_filename) as f:
+        text = f.read()
+
+    number = r'([-+]?(?:\d+(?:\.\d*)?|\.\d+)(?:[EeDd][-+]?\d+)?)'
+    patterns = [
+        # OpenQP 1.2.1 physical-state format, e.g.:
+        # Physical target state is S0   -803.9667756294 Hartree
+        # The physical label can differ from the engine/root index supplied
+        # through grad=..., so deliberately do not require state_number here.
+        rf'(?im)^\s*Physical\s+target\s+state\s+is\s+[ST]\d+\s+{number}\s+(?:Hartree|Eh)\b',
+
+        # Older numeric target-state format, e.g.:
+        # Target state is 1   -123.456789 Hartree
+        rf'(?im)^\s*Target\s+state\s+is\s+{state_number}\s+{number}\s+(?:Hartree|Eh)\b',
+
+        # Older PyOQP state summary, e.g.:
+        # PyOQP state 1   -123.456789
+        rf'(?im)^\s*PyOQP\s+state\s+{state_number}\s+{number}\b',
+    ]
+
+    for pattern in patterns:
+        matches = list(re.finditer(pattern, text))
+        if matches:
+            value = matches[-1].group(1).replace('D', 'E').replace('d', 'e')
+            return float(value)
+
+    relevant_lines = [
+        line for line in text.splitlines()
+        if any(word in line.lower() for word in ('target state', 'pyoqp state', 'hartree', 'energy', 'error'))
+    ]
+    excerpt = '\n'.join(relevant_lines[-30:])
+    if not excerpt:
+        excerpt = '\n'.join(text.splitlines()[-30:])
+
+    raise RuntimeError(
+        f'Could not extract the energy of state {state_number} from {log_filename}.\n'
+        f'Check that the OpenQP calculation completed successfully.\n\n'
+        f'Relevant output lines:\n{excerpt}'
+    )
+
 def gen_engrad_for_orca(out_filename, state, engrad_basename):
     with open(out_filename) as f:
         text = f.read()
-    state_num = state[1:]
+    state_num = int(state[1:])
     natoms = re.findall(r'(?s)(?m)^ +PyOQP natom: +(\d+)', text)[0]
-    energy = re.findall(rf'(?s)(?m)^ +PyOQP state {state_num} +(-?\d+\.\d+)', text)[0]
+    energy = extract_target_energy(out_filename, state_num)
     grad = np.loadtxt(f'grad_{state}')
     grad = ''.join([f'{grad: .16f}\n' for grad in grad.flatten()])
     with open(f'{engrad_basename}_EXT.engrad', 'w') as f:
-        f.write(natoms+'\n'+energy+'\n'+grad)
+        f.write(natoms+'\n'+f'{energy}'+'\n'+grad)
 
 def calc_penalty_conical(grad_output_file, first_state, first_grad_file, second_state, second_grad_file, engrad_basename, sigma = 3.5, alpha = 0.02):
     with open(grad_output_file) as f:
         text = f.read()
     natoms = re.findall(r'(?s)(?m)^ +PyOQP natom: +(\d+)', text)[0]
-    e1 = float(re.findall(rf'(?s)(?m)^ +PyOQP state {first_state} +(-?\d+\.\d+)', text)[0])  # First state E
-    e2 = float(re.findall(rf'(?s)(?m)^ +PyOQP state {second_state} +(-?\d+\.\d+)', text)[0]) # Second state 
+    e1 = extract_target_energy(grad_output_file, first_state)   # First-state energy
+    e2 = extract_target_energy(grad_output_file, second_state)  # Second-state energy
     g1 = np.loadtxt(f'{first_grad_file}')						     # First state gradient
     g2 = np.loadtxt(f'{second_grad_file}')						     # Second state gradient
 #    print(natoms)
@@ -133,7 +181,7 @@ def _calc_gradient_mecp(output_log, lower_state, lower_grad_file, upper_state, u
     print(f'ExtOptORCA-OpenQP: ΔE({upper_state[0]} - {lower_state[0]}) = {upper_state[1] - lower_state[1]: 20.10f} hartree' )
 
     # gradient-difference direction
-    d = g_u - e_l
+    d = g_u - g_l
     delta_E = e_u - e_l
 #    F = g_u - d * np.dot(g_u.T, d)/np.dot(d.T, d) + 2 * (e_u - e_l) * d / np.absolute(d)
 #    F = g_u - d * (g_u * d)/(d * d) + 2 * (e_u - e_l) * d / np.absolute(d)
@@ -255,8 +303,11 @@ def main():
             args.multiplicity = 1 if state[0] == 'S' else 3
             make_input_file(args, f'EXT_ORCA_FOR_OQP_{state[0]}{state[1]}.inp', state=state[1], multiplicity=args.multiplicity)
             subprocess.run(['bash', '-c', f'export OMP_NUM_THREADS={os.environ["OMP_NUM_THREADS"]} && openqp EXT_ORCA_FOR_OQP_{state[0]}{state[1]}.inp'], check=True)
-            with open(f'EXT_ORCA_FOR_OQP_{state[0]}{state[1]}.log') as f:
-                energy = (f'{state[0]}{state[1]}', float(re.findall(r' +Target state       is \d+ +(-?\d+\.\d+) Hartree', f.read())[0]))
+            log_filename = f'EXT_ORCA_FOR_OQP_{state[0]}{state[1]}.log'
+            energy = (
+                f'{state[0]}{state[1]}',
+                extract_target_energy(log_filename, state[1]),
+            )
             energies.append(energy)
             os.rename(f'grad_{state[1]}', f'grad_{state[0]}{state[1]}')
             os.rename(f'energies', f'energies_{state[0]}')
